@@ -1,0 +1,4005 @@
+{
+  "phases": [
+    {
+      "id": "phase1",
+      "label": "Phase 1: Foundations",
+      "number": "PHASE 01",
+      "title": "Mathematical & Programming Foundations",
+      "colorClass": "p1",
+      "topics": [
+        {
+          "num": "01",
+          "name": "Linear Algebra",
+          "tags": [
+            {
+              "t": "para",
+              "v": "parallel: Calculus"
+            },
+            {
+              "t": "unlocks",
+              "v": "→ Neural Nets, PCA, SVD"
+            }
+          ],
+          "d": {
+            "desc": "Linear Algebra is the mathematics of vectors, matrices, and linear transformations — the most critical math prerequisite for ML.",
+            "concepts": [
+              "Vectors & Vector Spaces",
+              "Matrix Multiplication & Transpose",
+              "Eigenvalues & Eigenvectors",
+              "SVD (Singular Value Decomposition)",
+              "Dot Products & Projections",
+              "Norms (L1, L2) & Distance Metrics"
+            ],
+            "why": "Neural networks are chains of matrix multiplications. PCA, SVD, and attention are all linear algebra. Without this you cannot understand what your models compute.",
+            "time": "3-4 weeks",
+            "difficulty": "Intermediate",
+            "resources": [
+              {
+                "icon": "📘",
+                "text": "3Blue1Brown — Essence of Linear Algebra (YouTube)"
+              },
+              {
+                "icon": "📗",
+                "text": "Gilbert Strang — Introduction to Linear Algebra (MIT)"
+              },
+              {
+                "icon": "💻",
+                "text": "numpy.linalg docs — practice every operation in code"
+              }
+            ]
+          }
+        },
+        {
+          "num": "02",
+          "name": "Calculus (Derivatives, Gradients, Chain Rule)",
+          "tags": [
+            {
+              "t": "para",
+              "v": "parallel: Linear Algebra"
+            },
+            {
+              "t": "unlocks",
+              "v": "→ Backprop, Optimization"
+            }
+          ],
+          "d": {
+            "desc": "Calculus gives us the tools to optimize ML models. Derivatives measure how a function changes and gradient descent uses this to minimize loss functions.",
+            "concepts": [
+              "Derivatives & Partial Derivatives",
+              "Chain Rule",
+              "Gradient & Directional Derivatives",
+              "Jacobian & Hessian Matrices",
+              "Taylor Series Approximation",
+              "Multivariate Optimization"
+            ],
+            "why": "Backpropagation is the chain rule applied to a computation graph. Every optimizer relies on gradients. You cannot debug training without understanding calculus.",
+            "time": "2-3 weeks",
+            "difficulty": "Intermediate",
+            "resources": [
+              {
+                "icon": "📘",
+                "text": "3Blue1Brown — Essence of Calculus (YouTube)"
+              },
+              {
+                "icon": "📗",
+                "text": "Khan Academy — Multivariable Calculus (free)"
+              },
+              {
+                "icon": "💻",
+                "text": "PyTorch autograd — see calculus in action"
+              }
+            ]
+          }
+        },
+        {
+          "num": "03",
+          "name": "Probability & Statistics (Descriptive)",
+          "tags": [
+            {
+              "t": "pre",
+              "v": "after: Linear Algebra"
+            },
+            {
+              "t": "unlocks",
+              "v": "→ Inferential Stats, Bayes"
+            }
+          ],
+          "d": {
+            "desc": "Descriptive statistics summarizes the main features of a dataset. It is your first lens for understanding data before any model is trained.",
+            "concepts": [
+              "Mean, Median, Mode",
+              "Variance & Standard Deviation",
+              "Skewness & Kurtosis",
+              "Histograms & Box Plots",
+              "Covariance & Correlation Matrix",
+              "Percentiles & Outlier Detection (IQR)"
+            ],
+            "why": "Every ML project starts with EDA. If you cannot describe your data, you will make wrong modelling decisions — garbage in, garbage out.",
+            "time": "1-2 weeks",
+            "difficulty": "Beginner",
+            "resources": [
+              {
+                "icon": "📘",
+                "text": "Think Stats by Allen Downey (free PDF)"
+              },
+              {
+                "icon": "💻",
+                "text": "Pandas + Seaborn: describe(), .corr(), pairplot()"
+              },
+              {
+                "icon": "📊",
+                "text": "Kaggle — practice EDA on Titanic, Iris"
+              }
+            ]
+          }
+        },
+        {
+          "num": "04",
+          "name": "Inferential Statistics & Bayes Theorem",
+          "tags": [
+            {
+              "t": "pre",
+              "v": "after: Descriptive Stats"
+            },
+            {
+              "t": "unlocks",
+              "v": "→ Naive Bayes, Model Eval"
+            }
+          ],
+          "d": {
+            "desc": "Inferential statistics lets you draw conclusions about a population from a sample. Bayes Theorem is the framework for updating beliefs given new evidence.",
+            "concepts": [
+              "Hypothesis Testing (t-test, chi-square)",
+              "p-values & Statistical Significance",
+              "Confidence Intervals",
+              "Bayes Theorem: P(A|B) = P(B|A)P(A)/P(B)",
+              "Prior, Likelihood, Posterior",
+              "Naive Bayes Classifier"
+            ],
+            "why": "A/B testing, confidence intervals, and Bayesian models all require this. It prevents you from fooling yourself with statistically insignificant results.",
+            "time": "2-3 weeks",
+            "difficulty": "Intermediate",
+            "resources": [
+              {
+                "icon": "📘",
+                "text": "Naked Statistics by Charles Wheelan"
+              },
+              {
+                "icon": "📗",
+                "text": "StatQuest with Josh Starmer (YouTube)"
+              },
+              {
+                "icon": "💻",
+                "text": "scipy.stats — t-test, chi2_contingency, binom_test"
+              }
+            ]
+          }
+        },
+        {
+          "num": "05",
+          "name": "Python Fundamentals (Syntax, OOP, DS)",
+          "tags": [
+            {
+              "t": "para",
+              "v": "parallel: Math topics"
+            },
+            {
+              "t": "unlocks",
+              "v": "→ Everything"
+            }
+          ],
+          "d": {
+            "desc": "Python is the dominant language for ML. You need solid fundamentals — clean OOP, data structures, and the ability to write reusable modular code.",
+            "concepts": [
+              "Data Types, Control Flow, Functions",
+              "List/Dict Comprehensions",
+              "OOP — Classes, Inheritance, Dunder Methods",
+              "Iterators & Generators",
+              "Decorators & Context Managers",
+              "File I/O and Exception Handling"
+            ],
+            "why": "Every ML library is Python. You will write custom layers, data loaders, and pipelines — you need fluent Python, not just hello-world.",
+            "time": "2-3 weeks",
+            "difficulty": "Beginner",
+            "resources": [
+              {
+                "icon": "📘",
+                "text": "Fluent Python by Luciano Ramalho"
+              },
+              {
+                "icon": "💻",
+                "text": "Python.org official tutorial — free & complete"
+              },
+              {
+                "icon": "🎯",
+                "text": "LeetCode Easy problems — reinforce logic & data structures"
+              }
+            ]
+          }
+        },
+        {
+          "num": "06",
+          "name": "NumPy",
+          "tags": [
+            {
+              "t": "pre",
+              "v": "after: Python basics"
+            },
+            {
+              "t": "unlocks",
+              "v": "→ Pandas, Scikit-learn"
+            }
+          ],
+          "d": {
+            "desc": "NumPy provides fast N-dimensional arrays and mathematical operations that form the backbone of every ML library.",
+            "concepts": [
+              "ndarray — shape, dtype, broadcasting",
+              "Array Indexing & Slicing",
+              "Vectorized Operations (no Python loops)",
+              "Linear Algebra (np.linalg)",
+              "Random Number Generation (np.random)",
+              "Stacking, Reshaping, Transposing"
+            ],
+            "why": "Pandas, scikit-learn, and PyTorch all use NumPy arrays internally. If you cannot vectorize your code your models will be 100x slower.",
+            "time": "1-2 weeks",
+            "difficulty": "Beginner",
+            "resources": [
+              {
+                "icon": "📗",
+                "text": "NumPy official docs — 100 NumPy exercises (GitHub)"
+              },
+              {
+                "icon": "💻",
+                "text": "numpy.org/learn — interactive quickstart"
+              },
+              {
+                "icon": "📘",
+                "text": "From Python to NumPy by Nicolas Rougier (free PDF)"
+              }
+            ]
+          }
+        },
+        {
+          "num": "07",
+          "name": "Pandas",
+          "tags": [
+            {
+              "t": "pre",
+              "v": "after: NumPy"
+            },
+            {
+              "t": "unlocks",
+              "v": "→ Data Cleaning, EDA"
+            }
+          ],
+          "d": {
+            "desc": "Pandas is the go-to library for data manipulation and analysis. Think Excel in Python — but far more powerful, programmable, and reproducible.",
+            "concepts": [
+              "Series & DataFrame",
+              "Indexing: .loc, .iloc, boolean masks",
+              "GroupBy, Merge, Join, Pivot",
+              "Handling Missing Data",
+              "Apply, Map, Lambda Functions",
+              "Reading/Writing CSV, JSON, Excel, SQL"
+            ],
+            "why": "Real-world data is always messy. You will spend 60-80% of any ML project wrangling data in Pandas.",
+            "time": "2 weeks",
+            "difficulty": "Beginner",
+            "resources": [
+              {
+                "icon": "📗",
+                "text": "Pandas official docs — 10 minutes to pandas"
+              },
+              {
+                "icon": "💻",
+                "text": "Kaggle Learn — Pandas micro-course (free)"
+              },
+              {
+                "icon": "📘",
+                "text": "Python for Data Analysis by Wes McKinney"
+              }
+            ]
+          }
+        },
+        {
+          "num": "08",
+          "name": "Matplotlib & Seaborn",
+          "tags": [
+            {
+              "t": "pre",
+              "v": "after: Pandas"
+            },
+            {
+              "t": "para",
+              "v": "parallel: Pandas"
+            },
+            {
+              "t": "unlocks",
+              "v": "→ EDA, Model Visualization"
+            }
+          ],
+          "d": {
+            "desc": "Matplotlib and Seaborn are the core plotting libraries. Visualization is how you understand data, communicate insights, and debug model behaviour.",
+            "concepts": [
+              "Line, Bar, Scatter, Histogram plots",
+              "Subplots & Figure Layout",
+              "Seaborn — heatmaps, pairplots, violin plots",
+              "Customizing labels, titles, legends",
+              "Plotting model outputs (loss curves, ROC)",
+              "Interactive plots with plotly (optional)"
+            ],
+            "why": "A model that cannot be visualized cannot be fully understood or trusted. Charts catch data leakage and class imbalance that tables miss.",
+            "time": "1 week",
+            "difficulty": "Beginner",
+            "resources": [
+              {
+                "icon": "📗",
+                "text": "Matplotlib official gallery — real examples"
+              },
+              {
+                "icon": "📘",
+                "text": "Seaborn tutorial — seaborn.pydata.org"
+              },
+              {
+                "icon": "💻",
+                "text": "Kaggle — EDA notebooks on any dataset"
+              }
+            ]
+          }
+        }
+      ],
+      "ex": {
+        "b": [
+          "Implement dot product, matrix multiply from scratch using Python lists",
+          "Compute mean, variance, std dev manually before using NumPy",
+          "Load a CSV with Pandas and print shape, dtypes, null counts",
+          "Compute partial derivative of f(x,y) = x²y + 3xy² by hand",
+          "Plot a normal distribution and mark mean ± 1σ, 2σ, 3σ with matplotlib"
+        ],
+        "i": [
+          "Implement SVD manually, compare output to numpy.linalg.svd",
+          "Bayes Theorem: build a spam classifier using only probability rules (no libraries)",
+          "Perform full EDA on Titanic dataset: nulls, distributions, correlations, outliers",
+          "Chain rule exercise: compute gradient of loss = (Wx + b - y)² w.r.t. W and b",
+          "Build OOP-based Matrix class with add/mul/transpose/determinant methods"
+        ],
+        "a": [
+          "Implement gradient descent from scratch using only NumPy, verify on quadratic function",
+          "Build a full statistical hypothesis testing module (t-test, chi-square, p-value)",
+          "Implement PCA from scratch using eigendecomposition, compare to sklearn PCA"
+        ]
+      },
+      "projects": [
+        {
+          "ms": "MILESTONE 01",
+          "name": "📊 Exploratory Data Analysis Dashboard",
+          "desc": "Take any real-world dataset (Titanic, House Prices, or COVID data). Clean it entirely with Pandas, perform statistical analysis (mean, median, distributions, outliers, correlation matrix), and produce a complete EDA report with Matplotlib/Seaborn charts. Document every statistical insight with mathematical justification.",
+          "meta": [
+            {
+              "l": "Uses",
+              "v": "Linear Algebra, Stats, Pandas, NumPy, Viz"
+            },
+            {
+              "l": "Output",
+              "v": "Jupyter Notebook with 15+ charts"
+            },
+            {
+              "l": "Difficulty",
+              "v": "Beginner → Intermediate"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "phase2",
+      "label": "Phase 2: Data",
+      "number": "PHASE 02",
+      "title": "Data Engineering & Preprocessing",
+      "colorClass": "p2",
+      "topics": [
+        {
+          "num": "09",
+          "name": "Data Sources (SQL, NoSQL, APIs, IoT)",
+          "tags": [
+            {
+              "t": "pre",
+              "v": "after: Pandas"
+            },
+            {
+              "t": "unlocks",
+              "v": "→ Data Cleaning pipelines"
+            }
+          ],
+          "d": {
+            "desc": "ML systems need data from databases, APIs, and IoT streams. Knowing how to acquire structured and unstructured data is the first step in any real pipeline.",
+            "concepts": [
+              "SQL — SELECT, JOIN, GROUP BY, subqueries",
+              "NoSQL — MongoDB, Redis (documents, key-value)",
+              "REST API consumption with requests/httpx",
+              "Pagination, authentication, rate limiting",
+              "IoT data formats (MQTT, time-series)",
+              "SQLAlchemy ORM for database abstraction"
+            ],
+            "why": "You will rarely be handed a clean CSV. Production ML systems pull from databases, APIs, and streaming sources.",
+            "time": "2 weeks",
+            "difficulty": "Beginner-Intermediate",
+            "resources": [
+              {
+                "icon": "📗",
+                "text": "SQLZoo — free interactive SQL exercises"
+              },
+              {
+                "icon": "💻",
+                "text": "public-apis.io — practice REST API consumption"
+              },
+              {
+                "icon": "📘",
+                "text": "SQLAlchemy docs — ORM quickstart"
+              }
+            ]
+          }
+        },
+        {
+          "num": "10",
+          "name": "Data Formats (CSV, JSON, Parquet, Excel)",
+          "tags": [
+            {
+              "t": "para",
+              "v": "parallel: Data Sources"
+            },
+            {
+              "t": "unlocks",
+              "v": "→ Preprocessing"
+            }
+          ],
+          "d": {
+            "desc": "Different data formats serve different performance needs. Knowing when to use CSV vs Parquet vs JSON is a production-level skill.",
+            "concepts": [
+              "CSV — human-readable, no compression",
+              "JSON & JSONL — nested, API-native",
+              "Parquet — columnar, compressed, fast analytics",
+              "HDF5 — large numerical arrays (ML datasets)",
+              "Pickle — Python-native object serialization",
+              "Arrow/Feather — fast in-memory interchange"
+            ],
+            "why": "Parquet can load 10x faster than CSV for large datasets. Choosing the right format reduces pipeline bottlenecks significantly.",
+            "time": "1 week",
+            "difficulty": "Beginner",
+            "resources": [
+              {
+                "icon": "💻",
+                "text": "pandas.read_parquet() vs read_csv() — benchmark yourself"
+              },
+              {
+                "icon": "📗",
+                "text": "Apache Parquet docs — columnar storage explained"
+              },
+              {
+                "icon": "📘",
+                "text": "Python pickle vs joblib — serialization patterns"
+              }
+            ]
+          }
+        },
+        {
+          "num": "11",
+          "name": "Data Cleaning & Preprocessing Techniques",
+          "tags": [
+            {
+              "t": "pre",
+              "v": "after: Pandas, Data Sources"
+            },
+            {
+              "t": "unlocks",
+              "v": "→ Feature Engineering"
+            }
+          ],
+          "d": {
+            "desc": "Real data is almost always dirty — missing values, wrong types, duplicates, inconsistent formatting. Data cleaning is the most time-consuming step in any ML project.",
+            "concepts": [
+              "Handling missing values (drop, impute, flag)",
+              "Fixing data types and encoding",
+              "Removing duplicates and inconsistencies",
+              "Outlier detection and treatment",
+              "String cleaning (regex, strip, lower)",
+              "Datetime parsing and feature extraction"
+            ],
+            "why": "A dirty dataset produces a broken model. Studies show data scientists spend 60-80% of their time cleaning data.",
+            "time": "2 weeks",
+            "difficulty": "Beginner-Intermediate",
+            "resources": [
+              {
+                "icon": "📗",
+                "text": "Pandas docs — Working with missing data"
+              },
+              {
+                "icon": "💻",
+                "text": "Kaggle — Titanic dataset cleaning challenge"
+              },
+              {
+                "icon": "📘",
+                "text": "sklearn.impute — SimpleImputer, KNNImputer, IterativeImputer"
+              }
+            ]
+          }
+        },
+        {
+          "num": "12",
+          "name": "Feature Engineering & Feature Selection",
+          "tags": [
+            {
+              "t": "pre",
+              "v": "after: Data Cleaning"
+            },
+            {
+              "t": "unlocks",
+              "v": "→ Model training quality"
+            }
+          ],
+          "d": {
+            "desc": "Feature Engineering transforms raw data into inputs that help models learn better. Feature Selection identifies which features to keep and which to drop.",
+            "concepts": [
+              "Creating interaction features",
+              "Polynomial features (x^2, x*y)",
+              "Encoding categoricals (OneHot, Ordinal, Target)",
+              "Binning continuous variables",
+              "SelectKBest, RFE, tree feature importance",
+              "Mutual information and correlation-based selection"
+            ],
+            "why": "The right features can double model accuracy. Feature engineering often matters more than algorithm choice.",
+            "time": "2-3 weeks",
+            "difficulty": "Intermediate",
+            "resources": [
+              {
+                "icon": "📘",
+                "text": "Feature Engineering for ML by Alice Zheng"
+              },
+              {
+                "icon": "💻",
+                "text": "sklearn.preprocessing & sklearn.feature_selection docs"
+              },
+              {
+                "icon": "🎯",
+                "text": "Kaggle competitions — study top notebooks for FE tricks"
+              }
+            ]
+          }
+        },
+        {
+          "num": "13",
+          "name": "Feature Scaling & Normalization",
+          "tags": [
+            {
+              "t": "pre",
+              "v": "after: Feature Engineering"
+            },
+            {
+              "t": "unlocks",
+              "v": "→ All ML models"
+            }
+          ],
+          "d": {
+            "desc": "Feature Scaling normalizes the range of features so no single feature dominates due to its magnitude. Essential for distance-based and gradient-based models.",
+            "concepts": [
+              "MinMaxScaler — scales to [0, 1]",
+              "StandardScaler — zero mean, unit variance",
+              "RobustScaler — robust to outliers (uses IQR)",
+              "Normalizer — scales each sample to unit norm",
+              "Log and power transforms for skewed data",
+              "When NOT to scale (tree-based models)"
+            ],
+            "why": "KNN, SVMs, and neural networks are sensitive to feature scale. Without scaling a feature with range [0,10000] will dominate one with [0,1].",
+            "time": "1 week",
+            "difficulty": "Beginner",
+            "resources": [
+              {
+                "icon": "📗",
+                "text": "sklearn.preprocessing docs — complete scaler guide"
+              },
+              {
+                "icon": "💻",
+                "text": "Build a StandardScaler from scratch — implement fit/transform"
+              },
+              {
+                "icon": "📘",
+                "text": "Hands-On ML by Aurelien Geron — Ch. 2"
+              }
+            ]
+          }
+        },
+        {
+          "num": "14",
+          "name": "Dimensionality Reduction (PCA, Autoencoders)",
+          "tags": [
+            {
+              "t": "pre",
+              "v": "after: Linear Algebra, Scaling"
+            },
+            {
+              "t": "unlocks",
+              "v": "→ Unsupervised Learning"
+            }
+          ],
+          "d": {
+            "desc": "High-dimensional data is slow to train on and hard to visualize. Dimensionality Reduction compresses data while preserving the most information.",
+            "concepts": [
+              "PCA — maximizes explained variance",
+              "t-SNE — nonlinear, for visualization",
+              "UMAP — faster than t-SNE, topology-preserving",
+              "LDA — supervised dimensionality reduction",
+              "Autoencoders — learned nonlinear compression",
+              "Explained variance ratio & scree plots"
+            ],
+            "why": "Reduces training time, removes noise, enables visualization of high-dim data, and can improve model performance by eliminating redundant features.",
+            "time": "2 weeks",
+            "difficulty": "Intermediate",
+            "resources": [
+              {
+                "icon": "📘",
+                "text": "StatQuest — PCA main ideas (YouTube)"
+              },
+              {
+                "icon": "💻",
+                "text": "sklearn.decomposition — PCA, TruncatedSVD, FastICA"
+              },
+              {
+                "icon": "📗",
+                "text": "UMAP docs — umap-learn.readthedocs.io"
+              }
+            ]
+          }
+        }
+      ],
+      "ex": {
+        "b": [
+          "Connect to SQLite DB, query data, load into Pandas DataFrame",
+          "Handle missing values: compare mean imputation vs median vs KNN imputer",
+          "Apply MinMaxScaler and StandardScaler, explain why each output differs",
+          "Create 3 new features from existing ones on house price dataset"
+        ],
+        "i": [
+          "Build a reusable sklearn Pipeline: cleaning → encoding → scaling → model",
+          "Use SelectKBest and feature importance from Random Forest to compare selection methods",
+          "Consume a REST API, extract nested JSON into a flat DataFrame, handle pagination",
+          "Apply PCA to MNIST: visualize variance explained vs components count"
+        ],
+        "a": [
+          "Build an automated feature selection pipeline that ranks features by 3 methods and takes a union",
+          "Implement target encoding with cross-validation leak prevention"
+        ]
+      },
+      "projects": [
+        {
+          "ms": "MILESTONE 02",
+          "name": "🔧 End-to-End Data Preprocessing Pipeline",
+          "desc": "Pull data from a real API (e.g., OpenWeather, Yahoo Finance, or a Kaggle dataset), store it, build a full preprocessing pipeline: clean → engineer features → scale → reduce dimensions → export clean dataset. Use sklearn Pipelines. Document what each step changes about the data with before/after stats.",
+          "meta": [
+            {
+              "l": "Uses",
+              "v": "Data Sources, Cleaning, FE, Scaling, PCA"
+            },
+            {
+              "l": "Output",
+              "v": "Reusable pipeline module + cleaned dataset"
+            },
+            {
+              "l": "Difficulty",
+              "v": "Intermediate"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "phase3",
+      "label": "Phase 3: Core ML",
+      "number": "PHASE 03",
+      "title": "Core Machine Learning",
+      "colorClass": "p3",
+      "topics": [
+        {
+          "num": "15",
+          "name": "Types of ML (Supervised / Unsupervised / RL / Self-Supervised)",
+          "tags": [
+            {
+              "t": "pre",
+              "v": "after: Python, Math"
+            },
+            {
+              "t": "unlocks",
+              "v": "→ All ML models"
+            }
+          ],
+          "d": {
+            "desc": "Understanding the landscape of ML — supervised, unsupervised, reinforcement, and self-supervised learning — is the conceptual foundation before diving into any specific algorithm.",
+            "concepts": [
+              "Supervised Learning — labelled input-output pairs",
+              "Unsupervised Learning — structure without labels",
+              "Reinforcement Learning — reward-driven agent behaviour",
+              "Self-Supervised Learning — labels from data itself",
+              "Semi-supervised Learning — mixed labelled/unlabelled",
+              "Key applications and industry use cases for each type"
+            ],
+            "why": "Choosing the wrong learning paradigm is a fundamental mistake. Knowing when you have a supervised vs unsupervised problem shapes every downstream decision.",
+            "time": "3-5 days",
+            "difficulty": "Beginner",
+            "resources": [
+              {
+                "icon": "📘",
+                "text": "Google ML Crash Course — free, well structured"
+              },
+              {
+                "icon": "🎥",
+                "text": "Andrew Ng — Machine Learning Specialization (Coursera)"
+              },
+              {
+                "icon": "📗",
+                "text": "Hands-On ML by Aurelien Geron — Chapter 1"
+              }
+            ]
+          }
+        },
+        {
+          "num": "16",
+          "name": "Linear Regression",
+          "tags": [
+            {
+              "t": "pre",
+              "v": "after: Calculus, Stats, Phase 2"
+            },
+            {
+              "t": "para",
+              "v": "parallel: Logistic Regression"
+            },
+            {
+              "t": "unlocks",
+              "v": "→ Polynomial Regression, Ridge/Lasso"
+            }
+          ],
+          "d": {
+            "desc": "Linear Regression finds the best-fit line through data to predict a continuous output. The simplest and most interpretable ML model — and the conceptual seed of deep learning.",
+            "concepts": [
+              "Hypothesis function: y_hat = Xw + b",
+              "Cost function: Mean Squared Error (MSE)",
+              "Gradient Descent — batch, stochastic, mini-batch",
+              "Normal Equation — closed-form solution",
+              "R-squared score and residual analysis",
+              "Assumptions: linearity, homoscedasticity, normality"
+            ],
+            "why": "Understanding linear regression deeply gives you the intuition to understand every more complex model that follows.",
+            "time": "1-2 weeks",
+            "difficulty": "Beginner",
+            "resources": [
+              {
+                "icon": "📘",
+                "text": "Andrew Ng ML Course — linear regression from scratch"
+              },
+              {
+                "icon": "💻",
+                "text": "Implement with NumPy only, then verify with sklearn"
+              },
+              {
+                "icon": "📗",
+                "text": "sklearn.linear_model.LinearRegression docs"
+              }
+            ]
+          }
+        },
+        {
+          "num": "17",
+          "name": "Polynomial Regression",
+          "tags": [
+            {
+              "t": "pre",
+              "v": "after: Linear Regression"
+            },
+            {
+              "t": "unlocks",
+              "v": "→ Regularization concepts"
+            }
+          ],
+          "d": {
+            "desc": "Polynomial Regression adds polynomial features to capture non-linear relationships while keeping the algorithm linear in its parameters.",
+            "concepts": [
+              "PolynomialFeatures transformer",
+              "Bias-Variance Tradeoff visualized",
+              "Overfitting as degree increases",
+              "Regularization as the cure for high-degree polynomials",
+              "Interaction terms",
+              "Cross-validation to select optimal degree"
+            ],
+            "why": "Real-world data is rarely linear. Polynomial regression is the bridge between linear models and neural networks, perfectly illustrating overfitting.",
+            "time": "1 week",
+            "difficulty": "Beginner-Intermediate",
+            "resources": [
+              {
+                "icon": "💻",
+                "text": "sklearn.preprocessing.PolynomialFeatures — experiment yourself"
+              },
+              {
+                "icon": "📘",
+                "text": "StatQuest — Polynomial Regression (YouTube)"
+              },
+              {
+                "icon": "📗",
+                "text": "Plot train vs test error as degree increases — observe overfitting"
+              }
+            ]
+          }
+        },
+        {
+          "num": "18",
+          "name": "Logistic Regression",
+          "tags": [
+            {
+              "t": "pre",
+              "v": "after: Linear Regression basics"
+            },
+            {
+              "t": "unlocks",
+              "v": "→ SVM, Classification metrics"
+            }
+          ],
+          "d": {
+            "desc": "Logistic Regression predicts the probability of a binary class using the sigmoid function. The foundation for understanding classification in ML.",
+            "concepts": [
+              "Sigmoid function — maps anything to (0, 1)",
+              "Log-loss (Binary Cross-Entropy) cost function",
+              "Decision boundary and threshold tuning",
+              "Multi-class extension (Softmax, One-vs-Rest)",
+              "Odds ratio and log-odds interpretation",
+              "Regularization with C parameter"
+            ],
+            "why": "Logistic regression is still used in production at scale (e.g., Google ads CTR). Deep learning classification heads are logistic regression.",
+            "time": "1-2 weeks",
+            "difficulty": "Beginner-Intermediate",
+            "resources": [
+              {
+                "icon": "📘",
+                "text": "StatQuest — Logistic Regression (YouTube series)"
+              },
+              {
+                "icon": "💻",
+                "text": "Implement sigmoid, log-loss, gradient descent from scratch"
+              },
+              {
+                "icon": "📗",
+                "text": "sklearn.linear_model.LogisticRegression docs"
+              }
+            ]
+          }
+        },
+        {
+          "num": "19",
+          "name": "Decision Trees & Random Forest",
+          "tags": [
+            {
+              "t": "pre",
+              "v": "after: Classification concepts"
+            },
+            {
+              "t": "unlocks",
+              "v": "→ Gradient Boosting"
+            }
+          ],
+          "d": {
+            "desc": "Decision Trees split data hierarchically based on feature thresholds. Random Forest combines hundreds of trees with bagging and random feature subsampling.",
+            "concepts": [
+              "Gini Impurity & Information Gain (Entropy)",
+              "Tree depth, min_samples_leaf hyperparameters",
+              "Bagging (Bootstrap Aggregating)",
+              "Random feature subsampling per split",
+              "Feature importance from tree ensembles",
+              "Out-of-bag (OOB) error estimation"
+            ],
+            "why": "Random Forest is one of the most robust ML algorithms — handles mixed data types, missing values, and non-linear relationships without much tuning.",
+            "time": "2 weeks",
+            "difficulty": "Intermediate",
+            "resources": [
+              {
+                "icon": "📘",
+                "text": "StatQuest — Decision Trees & Random Forests (YouTube)"
+              },
+              {
+                "icon": "💻",
+                "text": "sklearn.tree.DecisionTreeClassifier — plot_tree"
+              },
+              {
+                "icon": "📗",
+                "text": "sklearn.ensemble.RandomForestClassifier — feature_importances_"
+              }
+            ]
+          }
+        },
+        {
+          "num": "20",
+          "name": "Support Vector Machines",
+          "tags": [
+            {
+              "t": "pre",
+              "v": "after: Logistic Regression, Linear Algebra"
+            },
+            {
+              "t": "unlocks",
+              "v": "→ Kernel methods"
+            }
+          ],
+          "d": {
+            "desc": "SVMs find the optimal hyperplane that maximizes the margin between classes. Kernel functions allow SVMs to handle non-linearly separable data.",
+            "concepts": [
+              "Support Vectors & Maximum Margin Hyperplane",
+              "Soft Margin SVM — C parameter (bias-variance)",
+              "Kernel Trick — RBF, polynomial, sigmoid kernels",
+              "SVM for regression (SVR)",
+              "Dual problem formulation",
+              "Computational complexity and scalability limits"
+            ],
+            "why": "The kernel trick and concept of margin are foundational ideas referenced throughout ML theory. SVMs are still competitive on small-medium tabular datasets.",
+            "time": "2 weeks",
+            "difficulty": "Intermediate-Advanced",
+            "resources": [
+              {
+                "icon": "📘",
+                "text": "StatQuest — Support Vector Machines (YouTube)"
+              },
+              {
+                "icon": "💻",
+                "text": "sklearn.svm.SVC — compare linear vs RBF boundaries"
+              },
+              {
+                "icon": "📗",
+                "text": "libsvm paper — understanding the algorithm deeply"
+              }
+            ]
+          }
+        },
+        {
+          "num": "21",
+          "name": "K-Nearest Neighbors",
+          "tags": [
+            {
+              "t": "pre",
+              "v": "after: Distance metrics, scaling"
+            },
+            {
+              "t": "para",
+              "v": "parallel: Decision Trees"
+            }
+          ],
+          "d": {
+            "desc": "KNN classifies a point by majority vote of its k nearest neighbours. No training — pure memorization of the dataset at inference time.",
+            "concepts": [
+              "Euclidean, Manhattan, Minkowski distance metrics",
+              "Choosing optimal k with cross-validation",
+              "Curse of dimensionality — why KNN fails in high dims",
+              "KD-Tree and Ball-Tree for fast lookup",
+              "Weighted KNN — closer neighbours vote more",
+              "KNN for regression (average of neighbours)"
+            ],
+            "why": "KNN illustrates the importance of feature scaling and the right distance metric. It motivates why we need smarter algorithms for large data.",
+            "time": "1 week",
+            "difficulty": "Beginner",
+            "resources": [
+              {
+                "icon": "📘",
+                "text": "StatQuest — K-nearest Neighbors (YouTube)"
+              },
+              {
+                "icon": "💻",
+                "text": "sklearn.neighbors.KNeighborsClassifier — experiment with k"
+              },
+              {
+                "icon": "📗",
+                "text": "Visualize decision boundaries for different k values"
+              }
+            ]
+          }
+        },
+        {
+          "num": "22",
+          "name": "Gradient Boosting Machines (XGBoost, LightGBM)",
+          "tags": [
+            {
+              "t": "pre",
+              "v": "after: Decision Trees"
+            },
+            {
+              "t": "unlocks",
+              "v": "→ Advanced ensemble methods"
+            }
+          ],
+          "d": {
+            "desc": "Gradient Boosting builds an ensemble of trees sequentially, each correcting the errors of the previous. XGBoost and LightGBM dominate structured data competitions.",
+            "concepts": [
+              "Boosting — sequential error correction",
+              "Gradient Boosting: fitting residuals iteratively",
+              "XGBoost — regularization, tree pruning, parallel build",
+              "LightGBM — leaf-wise growth, speed advantage",
+              "Key hyperparameters: n_estimators, learning_rate, max_depth",
+              "SHAP values for feature importance"
+            ],
+            "why": "XGBoost and LightGBM win the majority of Kaggle tabular competitions. Top choice for fraud detection, credit scoring, and recommendation ranking.",
+            "time": "2-3 weeks",
+            "difficulty": "Intermediate-Advanced",
+            "resources": [
+              {
+                "icon": "📘",
+                "text": "StatQuest — Gradient Boost series (YouTube)"
+              },
+              {
+                "icon": "💻",
+                "text": "xgboost.readthedocs.io — parameter tuning guide"
+              },
+              {
+                "icon": "📗",
+                "text": "Microsoft LightGBM docs — leaf-wise vs level-wise"
+              }
+            ]
+          }
+        },
+        {
+          "num": "23",
+          "name": "Clustering (Exclusive, Hierarchical, Overlapping, Probabilistic)",
+          "tags": [
+            {
+              "t": "pre",
+              "v": "after: Unsupervised learning concepts"
+            },
+            {
+              "t": "para",
+              "v": "parallel: Dimensionality Reduction"
+            }
+          ],
+          "d": {
+            "desc": "Clustering groups data points by similarity without labels. K-Means finds spheres, DBSCAN finds arbitrary shapes, GMM gives probabilistic assignments.",
+            "concepts": [
+              "K-Means — centroid-based, requires k upfront",
+              "Hierarchical (Agglomerative) — dendrogram, no k needed",
+              "DBSCAN — density-based, finds outliers automatically",
+              "Gaussian Mixture Models (GMM) — soft assignments",
+              "Silhouette Score & Davies-Bouldin Index",
+              "Elbow method for choosing k"
+            ],
+            "why": "Customer segmentation, anomaly detection, document grouping — all use clustering. First algorithm to reach for with unlabelled data.",
+            "time": "2 weeks",
+            "difficulty": "Intermediate",
+            "resources": [
+              {
+                "icon": "📘",
+                "text": "StatQuest — K-means & Hierarchical Clustering (YouTube)"
+              },
+              {
+                "icon": "💻",
+                "text": "sklearn.cluster — KMeans, DBSCAN, AgglomerativeClustering"
+              },
+              {
+                "icon": "📗",
+                "text": "scikit-learn clustering docs — comparison of algorithms"
+              }
+            ]
+          }
+        },
+        {
+          "num": "24",
+          "name": "Model Evaluation Metrics (Accuracy, F1, ROC-AUC, Confusion Matrix)",
+          "tags": [
+            {
+              "t": "pre",
+              "v": "after: First models trained"
+            },
+            {
+              "t": "unlocks",
+              "v": "→ Model selection, tuning"
+            }
+          ],
+          "d": {
+            "desc": "Model evaluation metrics measure whether your model is actually good. Accuracy alone is dangerously misleading — especially with class imbalance.",
+            "concepts": [
+              "Confusion Matrix — TP, FP, TN, FN",
+              "Precision, Recall, F1-Score",
+              "ROC Curve & AUC score",
+              "Precision-Recall Curve (for imbalanced data)",
+              "MAE, MSE, RMSE, R-squared (for regression)",
+              "Log-loss and calibration for probability models"
+            ],
+            "why": "A model 99% accurate on fraud data might never detect fraud. Using the right metric is the difference between a safe and a dangerous model.",
+            "time": "1-2 weeks",
+            "difficulty": "Beginner-Intermediate",
+            "resources": [
+              {
+                "icon": "📘",
+                "text": "StatQuest — ROC & AUC, Precision-Recall (YouTube)"
+              },
+              {
+                "icon": "💻",
+                "text": "sklearn.metrics — full metrics API"
+              },
+              {
+                "icon": "📗",
+                "text": "Kaggle — evaluation section of each competition"
+              }
+            ]
+          }
+        },
+        {
+          "num": "25",
+          "name": "Validation Techniques (K-Fold, LOOCV)",
+          "tags": [
+            {
+              "t": "pre",
+              "v": "after: Model Evaluation Metrics"
+            },
+            {
+              "t": "unlocks",
+              "v": "→ Hyperparameter tuning"
+            }
+          ],
+          "d": {
+            "desc": "Validation techniques give an unbiased estimate of model performance on unseen data. Without proper validation you will overfit to your test set.",
+            "concepts": [
+              "Train/Validation/Test split (80/10/10)",
+              "K-Fold Cross-Validation — rotate validation set",
+              "Stratified K-Fold — preserves class distribution",
+              "Leave-One-Out CV (LOOCV) — expensive but thorough",
+              "Time-Series CV — no future data leakage",
+              "Nested CV for hyperparameter tuning"
+            ],
+            "why": "Data leakage is the #1 reason models fail in production. Proper validation is the only way to get a realistic performance estimate.",
+            "time": "1 week",
+            "difficulty": "Intermediate",
+            "resources": [
+              {
+                "icon": "📘",
+                "text": "sklearn cross-validation docs — cross_val_score, KFold"
+              },
+              {
+                "icon": "💻",
+                "text": "Implement K-Fold from scratch to understand the mechanics"
+              },
+              {
+                "icon": "📗",
+                "text": "sklearn.model_selection.TimeSeriesSplit"
+              }
+            ]
+          }
+        },
+        {
+          "num": "26",
+          "name": "Regularization (Ridge, Lasso, ElasticNet)",
+          "tags": [
+            {
+              "t": "pre",
+              "v": "after: Linear/Polynomial Regression"
+            },
+            {
+              "t": "unlocks",
+              "v": "→ Overfitting control in NNs"
+            }
+          ],
+          "d": {
+            "desc": "Regularization adds a penalty to the loss function to discourage overly complex models. Ridge (L2), Lasso (L1), and ElasticNet are the three main variants.",
+            "concepts": [
+              "L2 Regularization (Ridge) — shrinks all weights",
+              "L1 Regularization (Lasso) — sparse weights, feature selection",
+              "ElasticNet — hybrid of L1 and L2",
+              "Dropout in neural networks — same intuition",
+              "Lambda/alpha — regularization strength hyperparameter",
+              "Bias-Variance Tradeoff visualization"
+            ],
+            "why": "Overfitting is universal in ML. Regularization is the primary defence. Lasso can simultaneously fit a model and select features.",
+            "time": "1-2 weeks",
+            "difficulty": "Intermediate",
+            "resources": [
+              {
+                "icon": "📘",
+                "text": "StatQuest — Ridge & Lasso regression (YouTube)"
+              },
+              {
+                "icon": "💻",
+                "text": "sklearn.linear_model — Ridge, Lasso, ElasticNet"
+              },
+              {
+                "icon": "📗",
+                "text": "Plot coefficient paths as alpha increases — understand sparsity"
+              }
+            ]
+          }
+        }
+      ],
+      "ex": {
+        "b": [
+          "Implement linear regression from scratch using gradient descent (only NumPy)",
+          "Train logistic regression on Iris dataset, print confusion matrix",
+          "Run K-Means clustering on 2D data, visualize cluster centroids evolving per iteration",
+          "Plot ROC-AUC curve for binary classifier, explain what AUC=0.5 means vs AUC=1.0"
+        ],
+        "i": [
+          "Compare Decision Tree depth vs accuracy/overfitting on train vs test sets with plots",
+          "Train XGBoost on tabular dataset, tune n_estimators, max_depth, learning_rate with GridSearchCV",
+          "Implement K-Fold CV manually (without sklearn), compare variance in scores across folds",
+          "SVM: compare linear vs RBF kernel, explain decision boundary shape differences"
+        ],
+        "a": [
+          "Implement Random Forest from scratch: bagging + feature subsampling + majority voting",
+          "Build full model selection framework: train 5 models, K-Fold each, compare by F1-macro, select best",
+          "Implement DBSCAN from scratch, compare to K-Means on non-spherical cluster data"
+        ]
+      },
+      "projects": [
+        {
+          "ms": "MILESTONE 03",
+          "name": "🏠 House Price Prediction Engine",
+          "desc": "Full regression pipeline on Kaggle House Prices dataset. Preprocess → engineer features → compare Linear, Polynomial, Ridge, Lasso, Random Forest, XGBoost. Validate with K-Fold. Report RMSE, R² for each. Select best model with justification.",
+          "meta": [
+            {
+              "l": "Uses",
+              "v": "Phase 1+2 + Regression + Evaluation + Regularization"
+            },
+            {
+              "l": "Output",
+              "v": "Model comparison report + best model saved"
+            }
+          ]
+        },
+        {
+          "ms": "MILESTONE 04",
+          "name": "🎯 Customer Segmentation System",
+          "desc": "Use a retail/e-commerce dataset. Apply K-Means, DBSCAN, Hierarchical clustering. Reduce dims with PCA first. Evaluate clusters with silhouette score. Assign business-meaningful labels to each segment. Build a reusable segmentation module.",
+          "meta": [
+            {
+              "l": "Uses",
+              "v": "Clustering, PCA, EDA, Feature Engineering"
+            },
+            {
+              "l": "Output",
+              "v": "Segmentation module + labeled dataset"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "phase4",
+      "label": "Phase 4: Deep Learning",
+      "number": "PHASE 04",
+      "title": "Deep Learning Fundamentals & Architectures",
+      "colorClass": "p4",
+      "topics": [
+        {
+          "num": "27",
+          "name": "Neural Network Basics (Perceptron, MLP)",
+          "tags": [
+            {
+              "t": "pre",
+              "v": "after: Linear Algebra, Calculus, sklearn"
+            },
+            {
+              "t": "unlocks",
+              "v": "→ All DL architectures"
+            }
+          ],
+          "d": {
+            "desc": "A neural network is composed of layers of artificial neurons (perceptrons). The MLP is the foundational architecture — understanding it unlocks all of deep learning.",
+            "concepts": [
+              "Perceptron — weighted sum + step function",
+              "Sigmoid neuron — differentiable activation",
+              "MLP — input layer, hidden layers, output layer",
+              "Forward Pass — computing predictions",
+              "Parameters: weights (W) and biases (b)",
+              "Universal Approximation Theorem"
+            ],
+            "why": "Every advanced architecture (CNN, RNN, Transformer) is built from the same building blocks as the MLP. The perceptron is the foundation of the entire deep learning stack.",
+            "time": "2 weeks",
+            "difficulty": "Intermediate",
+            "resources": [
+              {
+                "icon": "📘",
+                "text": "3Blue1Brown — Neural Networks series (YouTube, 4 videos)"
+              },
+              {
+                "icon": "💻",
+                "text": "Implement a 2-layer MLP from scratch in NumPy (XOR)"
+              },
+              {
+                "icon": "📗",
+                "text": "Neural Networks and Deep Learning by Michael Nielsen (free)"
+              }
+            ]
+          }
+        },
+        {
+          "num": "28",
+          "name": "Forward & Backpropagation",
+          "tags": [
+            {
+              "t": "pre",
+              "v": "after: NN Basics, Chain Rule"
+            },
+            {
+              "t": "unlocks",
+              "v": "→ All training techniques"
+            }
+          ],
+          "d": {
+            "desc": "Forward propagation computes predictions. Backpropagation computes the gradient of the loss w.r.t. every weight using the chain rule — enabling gradient descent to train the network.",
+            "concepts": [
+              "Computation Graph representation",
+              "Chain Rule applied to nested functions",
+              "Gradient of MSE and Cross-Entropy w.r.t. weights",
+              "Vanishing & Exploding Gradient problems",
+              "Gradient Checkpointing",
+              "Automatic Differentiation (autograd)"
+            ],
+            "why": "Backpropagation is the single algorithm that makes deep learning work. Without understanding it you cannot debug training failures or exploding gradients.",
+            "time": "2-3 weeks",
+            "difficulty": "Advanced",
+            "resources": [
+              {
+                "icon": "📘",
+                "text": "CS231n — Backpropagation lecture (Stanford, free)"
+              },
+              {
+                "icon": "💻",
+                "text": "Implement backprop from scratch in NumPy — do not skip this"
+              },
+              {
+                "icon": "📗",
+                "text": "PyTorch autograd — .grad, .backward(), retain_graph"
+              }
+            ]
+          }
+        },
+        {
+          "num": "29",
+          "name": "Activation Functions & Loss Functions",
+          "tags": [
+            {
+              "t": "pre",
+              "v": "after: Forward/Backprop"
+            },
+            {
+              "t": "para",
+              "v": "parallel: Backprop study"
+            }
+          ],
+          "d": {
+            "desc": "Activation functions introduce non-linearity so networks can learn complex patterns. Loss functions measure the error between predictions and ground truth.",
+            "concepts": [
+              "Sigmoid, Tanh — saturation and vanishing gradient",
+              "ReLU — default choice, fast convergence",
+              "Leaky ReLU, ELU, GELU — solving dying ReLU",
+              "Softmax — multi-class output probability",
+              "MSE loss — regression",
+              "Cross-Entropy loss — classification"
+            ],
+            "why": "Choosing the wrong activation in deep networks causes vanishing gradients. The right loss function defines what your model actually optimizes for.",
+            "time": "1 week",
+            "difficulty": "Intermediate",
+            "resources": [
+              {
+                "icon": "📘",
+                "text": "CS231n — Neural Networks Part 1: Architecture"
+              },
+              {
+                "icon": "💻",
+                "text": "Plot activation functions and their gradients"
+              },
+              {
+                "icon": "📗",
+                "text": "PyTorch nn.ReLU, nn.Sigmoid, nn.CrossEntropyLoss docs"
+              }
+            ]
+          }
+        },
+        {
+          "num": "30",
+          "name": "PyTorch / TensorFlow / Keras",
+          "tags": [
+            {
+              "t": "pre",
+              "v": "after: NN Basics, Python OOP"
+            },
+            {
+              "t": "unlocks",
+              "v": "→ CNN, RNN, Transformers"
+            }
+          ],
+          "d": {
+            "desc": "PyTorch, TensorFlow, and Keras provide automatic differentiation, GPU support, and pre-built layers — eliminating the need to implement backprop manually.",
+            "concepts": [
+              "Tensor operations — creation, indexing, broadcasting",
+              "nn.Module — defining custom layers and models",
+              "Optimizer: SGD, Adam, RMSProp",
+              "Training loop: forward -> loss -> backward -> step",
+              "DataLoader — batching and shuffling datasets",
+              "GPU acceleration — .to(device), CUDA"
+            ],
+            "why": "PyTorch is the dominant framework for research and production. Knowing it deeply means you can implement any architecture from a paper.",
+            "time": "3-4 weeks",
+            "difficulty": "Intermediate",
+            "resources": [
+              {
+                "icon": "📘",
+                "text": "PyTorch official tutorials — pytorch.org/tutorials"
+              },
+              {
+                "icon": "💻",
+                "text": "Build MNIST classifier with PyTorch from scratch"
+              },
+              {
+                "icon": "📗",
+                "text": "Fast.ai course — practical deep learning (free)"
+              }
+            ]
+          }
+        },
+        {
+          "num": "31",
+          "name": "Convolutional Neural Networks (CNN)",
+          "tags": [
+            {
+              "t": "pre",
+              "v": "after: PyTorch, NN Basics"
+            },
+            {
+              "t": "unlocks",
+              "v": "→ Image tasks"
+            }
+          ],
+          "d": {
+            "desc": "CNNs use convolutional filters to detect spatial hierarchies in images — edges, textures, objects. They are the backbone of computer vision.",
+            "concepts": [
+              "Convolution operation — filters, stride, padding",
+              "Pooling — MaxPool, AvgPool",
+              "Receptive field and depth",
+              "BatchNorm — stable training",
+              "Architecture families: VGG, ResNet, EfficientNet",
+              "Skip connections (ResNet) — solving vanishing gradient"
+            ],
+            "why": "Every production vision system (face recognition, medical imaging, autonomous driving) is built on CNNs. This is the entry point to computer vision.",
+            "time": "3-4 weeks",
+            "difficulty": "Intermediate-Advanced",
+            "resources": [
+              {
+                "icon": "📘",
+                "text": "CS231n Convolutional Neural Networks (Stanford, free)"
+              },
+              {
+                "icon": "💻",
+                "text": "Build CNN for CIFAR-10 in PyTorch from scratch"
+              },
+              {
+                "icon": "📗",
+                "text": "ResNet paper — Deep Residual Learning for Image Recognition"
+              }
+            ]
+          }
+        },
+        {
+          "num": "32",
+          "name": "CNN Applications (Classification, Segmentation, Video)",
+          "tags": [
+            {
+              "t": "pre",
+              "v": "after: CNN architecture"
+            },
+            {
+              "t": "para",
+              "v": "parallel: RNN study"
+            }
+          ],
+          "d": {
+            "desc": "CNNs power tasks beyond classification — semantic segmentation (pixel labels), object detection (bounding boxes), and video understanding.",
+            "concepts": [
+              "Image Classification — softmax output",
+              "Object Detection — YOLO, Faster R-CNN, SSD",
+              "Semantic Segmentation — U-Net, FCN",
+              "Instance Segmentation — Mask R-CNN",
+              "Video — 3D CNN, Two-Stream Networks",
+              "Transfer Learning — fine-tuning pretrained models"
+            ],
+            "why": "Knowing CNN applications separates someone who trained MNIST from someone who can build real vision products.",
+            "time": "2-3 weeks",
+            "difficulty": "Intermediate-Advanced",
+            "resources": [
+              {
+                "icon": "📘",
+                "text": "YOLO paper series — fast object detection"
+              },
+              {
+                "icon": "💻",
+                "text": "torchvision — pretrained models and detection datasets"
+              },
+              {
+                "icon": "📗",
+                "text": "U-Net paper — semantic segmentation for medical imaging"
+              }
+            ]
+          }
+        },
+        {
+          "num": "33",
+          "name": "Recurrent Neural Networks (RNN, GRU, LSTM)",
+          "tags": [
+            {
+              "t": "pre",
+              "v": "after: PyTorch, NN Basics"
+            },
+            {
+              "t": "para",
+              "v": "parallel: CNN"
+            },
+            {
+              "t": "unlocks",
+              "v": "→ Attention, Transformers"
+            }
+          ],
+          "d": {
+            "desc": "RNNs process sequential data by maintaining a hidden state. LSTMs and GRUs solve the vanishing gradient problem enabling learning of long-range dependencies.",
+            "concepts": [
+              "RNN — hidden state recurrence",
+              "Vanishing Gradient in RNNs",
+              "LSTM — cell state, input/forget/output gates",
+              "GRU — simplified LSTM, fewer parameters",
+              "Bidirectional RNN — reads sequence both ways",
+              "Sequence-to-sequence (Seq2Seq) architecture"
+            ],
+            "why": "Understanding RNNs is required to understand attention mechanisms and Transformers — their natural evolution.",
+            "time": "3 weeks",
+            "difficulty": "Intermediate-Advanced",
+            "resources": [
+              {
+                "icon": "📘",
+                "text": "Colah's blog — Understanding LSTMs (must-read)"
+              },
+              {
+                "icon": "💻",
+                "text": "Build char-level language model with LSTM in PyTorch"
+              },
+              {
+                "icon": "📗",
+                "text": "PyTorch nn.LSTM, nn.GRU documentation"
+              }
+            ]
+          }
+        },
+        {
+          "num": "34",
+          "name": "Attention Mechanisms",
+          "tags": [
+            {
+              "t": "pre",
+              "v": "after: RNN/LSTM"
+            },
+            {
+              "t": "unlocks",
+              "v": "→ Transformers"
+            }
+          ],
+          "d": {
+            "desc": "Attention mechanisms allow models to focus on relevant parts of an input — solving the bottleneck of encoding entire sequences into a single fixed vector.",
+            "concepts": [
+              "Seq2Seq bottleneck problem",
+              "Additive Attention (Bahdanau)",
+              "Dot-Product Attention (Luong)",
+              "Scaled Dot-Product Attention — Q, K, V matrices",
+              "Self-Attention — attending to the same sequence",
+              "Multi-Head Attention — parallel attention heads"
+            ],
+            "why": "Attention is the direct predecessor of Transformers. Understanding the Q/K/V mechanism is required to understand BERT, GPT, and every modern LLM.",
+            "time": "2 weeks",
+            "difficulty": "Advanced",
+            "resources": [
+              {
+                "icon": "📘",
+                "text": "Attention Is All You Need paper (Vaswani et al., 2017)"
+              },
+              {
+                "icon": "💻",
+                "text": "Implement scaled dot-product attention from scratch in PyTorch"
+              },
+              {
+                "icon": "📗",
+                "text": "Jay Alammar — Illustrated Attention (blog, visual)"
+              }
+            ]
+          }
+        },
+        {
+          "num": "35",
+          "name": "Autoencoders",
+          "tags": [
+            {
+              "t": "pre",
+              "v": "after: MLP, PyTorch"
+            },
+            {
+              "t": "para",
+              "v": "parallel: CNN/RNN"
+            },
+            {
+              "t": "unlocks",
+              "v": "→ GANs, Anomaly detection"
+            }
+          ],
+          "d": {
+            "desc": "Autoencoders learn a compressed latent representation of data through an encoder-decoder structure trained to reconstruct its input.",
+            "concepts": [
+              "Encoder — compresses input to latent code z",
+              "Decoder — reconstructs input from z",
+              "Reconstruction loss (MSE or BCE)",
+              "Variational Autoencoder (VAE) — generative model",
+              "Denoising Autoencoder — robustness",
+              "Latent space interpolation and visualization"
+            ],
+            "why": "Autoencoders underpin dimensionality reduction, anomaly detection, image generation (VAE), and are the conceptual precursor to diffusion models.",
+            "time": "2 weeks",
+            "difficulty": "Intermediate-Advanced",
+            "resources": [
+              {
+                "icon": "📘",
+                "text": "Lilian Weng blog — From Autoencoder to Beta-VAE"
+              },
+              {
+                "icon": "💻",
+                "text": "Build denoising autoencoder on MNIST in PyTorch"
+              },
+              {
+                "icon": "📗",
+                "text": "VAE paper — Auto-Encoding Variational Bayes (Kingma & Welling)"
+              }
+            ]
+          }
+        },
+        {
+          "num": "36",
+          "name": "Generative Adversarial Networks (GAN)",
+          "tags": [
+            {
+              "t": "pre",
+              "v": "after: Autoencoders, CNN"
+            },
+            {
+              "t": "unlocks",
+              "v": "→ Advanced generative models"
+            }
+          ],
+          "d": {
+            "desc": "GANs train two networks in adversarial competition — a generator produces fake data, a discriminator tries to distinguish fake from real. The result: photorealistic generative models.",
+            "concepts": [
+              "Generator network G",
+              "Discriminator network D",
+              "Minimax loss: min_G max_D V(D,G)",
+              "Mode collapse and training instability",
+              "Progressive GAN, StyleGAN, CycleGAN",
+              "Evaluation: FID score (Frechet Inception Distance)"
+            ],
+            "why": "GANs produced the first photorealistic synthetic images and remain relevant for data augmentation, style transfer, and image-to-image translation.",
+            "time": "3 weeks",
+            "difficulty": "Advanced",
+            "resources": [
+              {
+                "icon": "📘",
+                "text": "Original GAN paper — Goodfellow et al. 2014"
+              },
+              {
+                "icon": "💻",
+                "text": "Build DCGAN for MNIST digit generation in PyTorch"
+              },
+              {
+                "icon": "📗",
+                "text": "Lilian Weng — From GAN to WGAN (comprehensive blog)"
+              }
+            ]
+          }
+        }
+      ],
+      "ex": {
+        "b": [
+          "Implement a 2-layer MLP from scratch in pure NumPy for XOR problem",
+          "Manually compute forward pass and backprop for a 3-neuron network on paper then code it",
+          "Build MNIST classifier using PyTorch, achieve >98% accuracy",
+          "Compare ReLU vs Sigmoid on same network: plot training loss curves"
+        ],
+        "i": [
+          "Build CNN from scratch in PyTorch for CIFAR-10, implement conv → pool → FC layers manually",
+          "Build an LSTM to predict next character in text sequences (char-level LM)",
+          "Implement a denoising autoencoder, visualize original vs encoded vs decoded images",
+          "Code scaled dot-product attention from scratch using matrix operations"
+        ],
+        "a": [
+          "Build a GAN to generate handwritten digits; track generator vs discriminator loss balance",
+          "Implement transfer learning: fine-tune ResNet18 on a custom image dataset with only last 2 layers unfrozen"
+        ]
+      },
+      "projects": [
+        {
+          "ms": "MILESTONE 05",
+          "name": "🖼️ Image Classifier with CNN (Transfer Learning)",
+          "desc": "Build an image classifier for a 5–10 class custom dataset using PyTorch. Train a CNN from scratch first, then apply transfer learning with ResNet/EfficientNet. Compare accuracy, training time, convergence speed. Deploy as a simple inference script.",
+          "meta": [
+            {
+              "l": "Uses",
+              "v": "CNN, Backprop, PyTorch, Activation Fns, Transfer Learning"
+            },
+            {
+              "l": "Output",
+              "v": "Trained model + inference script + comparison report"
+            }
+          ]
+        },
+        {
+          "ms": "MILESTONE 06",
+          "name": "📈 Time Series Forecasting with LSTM",
+          "desc": "Use stock price or weather data. Build LSTM model in PyTorch to forecast next N time steps. Compare vs ARIMA baseline. Tune sequence length, hidden size, layers. Evaluate with MAE, RMSE. Bonus: add attention mechanism on top of LSTM.",
+          "meta": [
+            {
+              "l": "Uses",
+              "v": "RNN, LSTM, Attention, Model Evaluation"
+            },
+            {
+              "l": "Output",
+              "v": "Forecasting system with visualized predictions"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "phase5",
+      "label": "Phase 5: Advanced",
+      "number": "PHASE 05",
+      "title": "Advanced Topics — NLP, Transformers, RL",
+      "colorClass": "p5",
+      "topics": [
+        {
+          "num": "37",
+          "name": "Transformers (Self-Attention, Multi-head Attention)",
+          "tags": [
+            {
+              "t": "pre",
+              "v": "after: Attention Mechanisms, RNN"
+            },
+            {
+              "t": "unlocks",
+              "v": "→ BERT, GPT, modern LLMs"
+            }
+          ],
+          "d": {
+            "desc": "Transformers replaced RNNs as the dominant sequence model. Using only self-attention (no recurrence), they process sequences in parallel — enabling the LLM revolution.",
+            "concepts": [
+              "Self-Attention — all tokens attend to all tokens",
+              "Multi-Head Attention — parallel attention heads",
+              "Positional Encoding — inject sequence order",
+              "Feed-Forward layers within each block",
+              "Encoder-only (BERT), Decoder-only (GPT), Encoder-Decoder (T5)",
+              "Scaling laws — why bigger = smarter"
+            ],
+            "why": "BERT, GPT, LLaMA, Stable Diffusion — every frontier AI model is a Transformer. This is the single most important architecture in modern AI.",
+            "time": "3-4 weeks",
+            "difficulty": "Advanced",
+            "resources": [
+              {
+                "icon": "📘",
+                "text": "Attention Is All You Need paper — read it closely"
+              },
+              {
+                "icon": "💻",
+                "text": "Implement Transformer encoder from scratch in PyTorch"
+              },
+              {
+                "icon": "📗",
+                "text": "Jay Alammar — The Illustrated Transformer (essential blog)"
+              }
+            ]
+          }
+        },
+        {
+          "num": "38",
+          "name": "NLP — Tokenization, Lemmatization, Stemming, Embeddings",
+          "tags": [
+            {
+              "t": "pre",
+              "v": "after: Python, Stats basics"
+            },
+            {
+              "t": "para",
+              "v": "parallel: RNN study"
+            },
+            {
+              "t": "unlocks",
+              "v": "→ Transformers, Attention Models"
+            }
+          ],
+          "d": {
+            "desc": "NLP preprocessing converts raw text into numerical representations. Tokenization, stemming, lemmatization, and word embeddings are the core pipeline steps.",
+            "concepts": [
+              "Tokenization — word, subword (BPE), character",
+              "Stemming vs Lemmatization",
+              "Stop word removal",
+              "Bag-of-Words & TF-IDF",
+              "Word2Vec — CBOW and Skip-Gram",
+              "Sentence Transformers — contextual embeddings"
+            ],
+            "why": "All NLP starts here. Even with LLMs, understanding tokenization (BPE, SentencePiece) is critical — it affects context length, cost, and multilingual performance.",
+            "time": "2 weeks",
+            "difficulty": "Intermediate",
+            "resources": [
+              {
+                "icon": "📘",
+                "text": "Natural Language Processing with Python (NLTK book, free)"
+              },
+              {
+                "icon": "💻",
+                "text": "Gensim Word2Vec — train on custom corpus, visualize with t-SNE"
+              },
+              {
+                "icon": "📗",
+                "text": "HuggingFace tokenizers docs — fast tokenization"
+              }
+            ]
+          }
+        },
+        {
+          "num": "39",
+          "name": "NLP Attention Models (BERT, GPT concepts)",
+          "tags": [
+            {
+              "t": "pre",
+              "v": "after: Transformers, Embeddings"
+            }
+          ],
+          "d": {
+            "desc": "BERT and GPT are the two dominant pretraining paradigms that power modern NLP — from sentiment analysis to question answering to text generation.",
+            "concepts": [
+              "BERT — masked language model, bidirectional",
+              "GPT — causal language model, left-to-right",
+              "Fine-tuning vs Prompting",
+              "Sentence classification, NER, QA with BERT",
+              "Text generation with GPT",
+              "HuggingFace Transformers API"
+            ],
+            "why": "BERT/GPT-style models are the industry standard for all NLP tasks. If you work with text in production, you will fine-tune or prompt these models daily.",
+            "time": "3 weeks",
+            "difficulty": "Advanced",
+            "resources": [
+              {
+                "icon": "📘",
+                "text": "BERT paper — Devlin et al. 2018"
+              },
+              {
+                "icon": "💻",
+                "text": "HuggingFace — fine-tune BERT for sentiment on IMDB"
+              },
+              {
+                "icon": "📗",
+                "text": "huggingface.co/docs — transformers library guide"
+              }
+            ]
+          }
+        },
+        {
+          "num": "40",
+          "name": "Reinforcement Learning (Q-Learning, Deep-Q Networks)",
+          "tags": [
+            {
+              "t": "pre",
+              "v": "after: NN Basics, Probability"
+            },
+            {
+              "t": "unlocks",
+              "v": "→ Policy Gradient, Actor-Critic"
+            }
+          ],
+          "d": {
+            "desc": "Reinforcement Learning trains agents to take actions to maximize cumulative reward. Q-Learning and DQN use neural networks to approximate optimal action-value functions.",
+            "concepts": [
+              "Agent, Environment, State, Action, Reward",
+              "Markov Decision Process (MDP)",
+              "Q-Learning — Bellman equation update",
+              "Epsilon-greedy exploration strategy",
+              "Deep Q-Network (DQN) — neural Q-function",
+              "Experience Replay & Target Network"
+            ],
+            "why": "RL powers game-playing AI (AlphaGo), robotics control, and RLHF — the training technique behind ChatGPT.",
+            "time": "3 weeks",
+            "difficulty": "Advanced",
+            "resources": [
+              {
+                "icon": "📘",
+                "text": "Sutton & Barto — RL: An Introduction (free PDF)"
+              },
+              {
+                "icon": "💻",
+                "text": "OpenAI Gymnasium — CartPole, FrozenLake environments"
+              },
+              {
+                "icon": "📗",
+                "text": "DQN paper — Playing Atari with Deep Reinforcement Learning"
+              }
+            ]
+          }
+        },
+        {
+          "num": "41",
+          "name": "Policy Gradient & Actor-Critic Methods",
+          "tags": [
+            {
+              "t": "pre",
+              "v": "after: Q-Learning, DQN"
+            }
+          ],
+          "d": {
+            "desc": "Policy Gradient methods directly optimize the policy using gradient ascent on expected reward. Actor-Critic combines value-based and policy-based methods.",
+            "concepts": [
+              "Policy function pi(a|s) — parametric action selection",
+              "REINFORCE algorithm — Monte Carlo policy gradient",
+              "Variance reduction with baseline",
+              "Actor-Critic — separate value and policy networks",
+              "Proximal Policy Optimization (PPO)",
+              "Advantage Estimation (GAE)"
+            ],
+            "why": "PPO is the algorithm behind ChatGPT's RLHF training and most production robotics. Policy gradient methods handle continuous action spaces that DQN cannot.",
+            "time": "3 weeks",
+            "difficulty": "Advanced",
+            "resources": [
+              {
+                "icon": "📘",
+                "text": "Spinning Up in Deep RL — OpenAI (free, comprehensive)"
+              },
+              {
+                "icon": "💻",
+                "text": "Stable-Baselines3 — PPO, A2C implementations"
+              },
+              {
+                "icon": "📗",
+                "text": "PPO paper — Proximal Policy Optimization Algorithms"
+              }
+            ]
+          }
+        },
+        {
+          "num": "42",
+          "name": "Recommendation Systems",
+          "tags": [
+            {
+              "t": "pre",
+              "v": "after: Embeddings, Collaborative Filtering concepts"
+            },
+            {
+              "t": "para",
+              "v": "parallel: NLP topics"
+            }
+          ],
+          "d": {
+            "desc": "Recommendation Systems predict what users will like based on past behaviour and similarities. Collaborative filtering, matrix factorization, and embedding models are the core techniques.",
+            "concepts": [
+              "Collaborative Filtering — user-user & item-item",
+              "Matrix Factorization (SVD, ALS)",
+              "Content-Based Filtering — item features",
+              "Hybrid Systems",
+              "Neural Collaborative Filtering (NCF)",
+              "Cold Start Problem — new users/items"
+            ],
+            "why": "Recommenders drive revenue at Netflix, YouTube, Amazon, and Spotify. Matrix factorization and embedding models are transferable to any domain.",
+            "time": "2-3 weeks",
+            "difficulty": "Intermediate-Advanced",
+            "resources": [
+              {
+                "icon": "📘",
+                "text": "Koren et al. — Matrix Factorization Techniques"
+              },
+              {
+                "icon": "💻",
+                "text": "Surprise library — collaborative filtering in Python"
+              },
+              {
+                "icon": "📗",
+                "text": "Google RecSys course — free, practical"
+              }
+            ]
+          }
+        },
+        {
+          "num": "43",
+          "name": "Explainable AI (XAI)",
+          "tags": [
+            {
+              "t": "pre",
+              "v": "after: Core ML + Deep Learning"
+            },
+            {
+              "t": "unlocks",
+              "v": "→ Production trustworthiness"
+            }
+          ],
+          "d": {
+            "desc": "Explainable AI (XAI) provides tools to understand why a model makes specific predictions — critical for trust, debugging, fairness audits, and regulatory compliance.",
+            "concepts": [
+              "SHAP (SHapley Additive exPlanations) — fair attribution",
+              "LIME — local surrogate model explanations",
+              "Permutation Feature Importance",
+              "Partial Dependence Plots (PDP)",
+              "Gradient-based attribution for NNs (GradCAM)",
+              "Fairness metrics and bias auditing"
+            ],
+            "why": "In healthcare, finance, and law, black-box models are legally prohibited or ethically unacceptable. XAI is now a production requirement.",
+            "time": "2 weeks",
+            "difficulty": "Intermediate-Advanced",
+            "resources": [
+              {
+                "icon": "📘",
+                "text": "SHAP docs — shap.readthedocs.io"
+              },
+              {
+                "icon": "💻",
+                "text": "shap.TreeExplainer — SHAP for XGBoost and Random Forest"
+              },
+              {
+                "icon": "📗",
+                "text": "Interpretable ML book — Christoph Molnar (free PDF)"
+              }
+            ]
+          }
+        },
+        {
+          "num": "44",
+          "name": "Advanced Concepts in ML (Self-supervised, Semi-supervised)",
+          "tags": [
+            {
+              "t": "pre",
+              "v": "after: Supervised + Deep Learning"
+            }
+          ],
+          "d": {
+            "desc": "Self-supervised learning generates supervision from unlabelled data itself. Semi-supervised learning uses both labelled and unlabelled data to improve performance.",
+            "concepts": [
+              "Contrastive Learning — SimCLR, MoCo",
+              "Masked Autoencoding — BERT, MAE",
+              "BYOL, SimSiam — self-supervised without negatives",
+              "Pseudo-Labelling — confident unlabelled predictions as labels",
+              "Consistency Regularization (FixMatch)",
+              "Label efficiency — how much labelled data is needed?"
+            ],
+            "why": "Labelling data is expensive. Self-supervised pretraining (BERT, GPT, Vision MAE) achieves strong results with minimal labels. This is how frontier models are trained.",
+            "time": "2-3 weeks",
+            "difficulty": "Advanced",
+            "resources": [
+              {
+                "icon": "📘",
+                "text": "SimCLR paper — A Simple Framework for Contrastive Learning"
+              },
+              {
+                "icon": "💻",
+                "text": "lightly.ai — self-supervised learning library"
+              },
+              {
+                "icon": "📗",
+                "text": "Lilian Weng — Self-Supervised Representation Learning (blog)"
+              }
+            ]
+          }
+        }
+      ],
+      "ex": {
+        "b": [
+          "Tokenize, lemmatize, and vectorize a news article using NLTK + spaCy",
+          "Train Word2Vec on a custom corpus, visualize word similarities with t-SNE",
+          "Implement Q-Learning on OpenAI Gym's FrozenLake environment from scratch"
+        ],
+        "i": [
+          "Implement Transformer encoder from scratch in PyTorch (no HuggingFace), test on toy sequence task",
+          "Fine-tune BERT for sentiment classification on IMDB dataset using HuggingFace Transformers",
+          "Build DQN to play CartPole, compare epsilon-greedy vs pure greedy exploration",
+          "Build collaborative filtering recommender system using matrix factorization"
+        ],
+        "a": [
+          "Add SHAP explanations to an XGBoost model, produce feature impact summary plots per prediction",
+          "Implement contrastive self-supervised learning (SimCLR-style) on CIFAR-10 with no labels"
+        ]
+      },
+      "projects": [
+        {
+          "ms": "MILESTONE 07",
+          "name": "💬 NLP Sentiment + Topic Analysis System",
+          "desc": "Build a dual-task NLP pipeline: sentiment classification (fine-tuned BERT) + topic modeling (LDA). Input: raw text dataset (tweets, reviews). Output: per-document sentiment score + top topics with representative keywords. Add SHAP explanations for sentiment model.",
+          "meta": [
+            {
+              "l": "Uses",
+              "v": "Tokenization, Embeddings, Transformers, XAI"
+            },
+            {
+              "l": "Output",
+              "v": "Inference API-ready pipeline"
+            }
+          ]
+        },
+        {
+          "ms": "MILESTONE 08",
+          "name": "🎮 RL Agent for Game Environment",
+          "desc": "Train a DQN agent to solve a medium-complexity OpenAI Gym environment (LunarLander or CartPole-v1). Implement experience replay, target network, epsilon decay. Log training rewards and plot learning curves. Compare DQN vs random agent baseline.",
+          "meta": [
+            {
+              "l": "Uses",
+              "v": "Q-Learning, DQN, Deep Learning, Policy methods"
+            },
+            {
+              "l": "Output",
+              "v": "Trained agent + reward curve visualization"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "phase6",
+      "label": "Phase 6: Production",
+      "number": "PHASE 06",
+      "title": "Production ML — Deployment, Tuning & Full Systems",
+      "colorClass": "p6",
+      "topics": [
+        {
+          "num": "45",
+          "name": "Model Selection, Hyperparameter Tuning",
+          "tags": [
+            {
+              "t": "pre",
+              "v": "after: All Phase 3+4 models"
+            },
+            {
+              "t": "unlocks",
+              "v": "→ Production-ready models"
+            }
+          ],
+          "d": {
+            "desc": "Model selection picks the best algorithm. Hyperparameter tuning finds the optimal configuration. Together they bridge trained model and production-ready model.",
+            "concepts": [
+              "Grid Search — exhaustive parameter combinations",
+              "Randomized Search — random sampling of parameter space",
+              "Bayesian Optimization (Optuna, Hyperopt)",
+              "Early Stopping — prevent overfitting during tuning",
+              "Warm Starting — continue tuning from previous run",
+              "Multi-objective optimization (speed vs accuracy)"
+            ],
+            "why": "Default hyperparameters are almost never optimal. Proper tuning routinely improves performance by 5-15%. Bayesian optimization is now the industry standard.",
+            "time": "2 weeks",
+            "difficulty": "Intermediate-Advanced",
+            "resources": [
+              {
+                "icon": "📘",
+                "text": "Optuna docs — optuna.readthedocs.io"
+              },
+              {
+                "icon": "💻",
+                "text": "sklearn GridSearchCV & RandomizedSearchCV — benchmark each"
+              },
+              {
+                "icon": "📗",
+                "text": "Practical Hyperparameter Optimization — Kaggle course"
+              }
+            ]
+          }
+        },
+        {
+          "num": "46",
+          "name": "Data Preparation & Loading Pipelines (Train-Test Split)",
+          "tags": [
+            {
+              "t": "pre",
+              "v": "after: Phase 2, sklearn"
+            },
+            {
+              "t": "para",
+              "v": "parallel: Model Selection"
+            }
+          ],
+          "d": {
+            "desc": "Production ML requires robust data pipelines — splitting data correctly, loading batches efficiently, preventing leakage, and handling distributional shift over time.",
+            "concepts": [
+              "Stratified Train/Val/Test split",
+              "Time-aware splitting (no future leakage)",
+              "sklearn Pipeline — chain preprocessing + model",
+              "PyTorch DataLoader — batching, shuffling, workers",
+              "Dataset versioning (DVC)",
+              "Online vs Batch learning strategies"
+            ],
+            "why": "More production ML failures are caused by incorrect data pipelines than bad models. A leaky pipeline makes your model look perfect in testing and fail in production.",
+            "time": "2 weeks",
+            "difficulty": "Intermediate",
+            "resources": [
+              {
+                "icon": "📘",
+                "text": "sklearn Pipeline docs — compose preprocessing + model"
+              },
+              {
+                "icon": "💻",
+                "text": "PyTorch Dataset & DataLoader — custom dataset class"
+              },
+              {
+                "icon": "📗",
+                "text": "DVC (Data Version Control) — dvc.org quickstart"
+              }
+            ]
+          }
+        },
+        {
+          "num": "47",
+          "name": "Prediction Pipeline & Model Serving",
+          "tags": [
+            {
+              "t": "pre",
+              "v": "after: Full ML training pipeline"
+            },
+            {
+              "t": "unlocks",
+              "v": "→ API deployment"
+            }
+          ],
+          "d": {
+            "desc": "Model serving deploys trained models to production. FastAPI + Docker is the standard lightweight stack for ML APIs.",
+            "concepts": [
+              "Model serialization — joblib, pickle, ONNX, TorchScript",
+              "FastAPI — async REST API for ML",
+              "Input validation with Pydantic",
+              "Docker — containerize your ML app",
+              "Health endpoints and monitoring",
+              "Batch vs Real-time inference"
+            ],
+            "why": "A model that is not deployed is worthless. Knowing how to serve models with FastAPI and Docker turns research into product.",
+            "time": "2 weeks",
+            "difficulty": "Intermediate-Advanced",
+            "resources": [
+              {
+                "icon": "📘",
+                "text": "FastAPI docs — fastapi.tiangolo.com"
+              },
+              {
+                "icon": "💻",
+                "text": "Build a /predict POST endpoint for an sklearn model"
+              },
+              {
+                "icon": "📗",
+                "text": "MLflow — model registry and serving"
+              }
+            ]
+          }
+        },
+        {
+          "num": "48",
+          "name": "Scikit-learn Advanced (Pipelines, Custom Transformers)",
+          "tags": [
+            {
+              "t": "pre",
+              "v": "after: All Phase 3"
+            },
+            {
+              "t": "para",
+              "v": "parallel: Model Serving"
+            }
+          ],
+          "d": {
+            "desc": "Advanced scikit-learn covers building reusable, production-grade pipelines with custom transformers, column transformers, and feature unions.",
+            "concepts": [
+              "Custom Transformer — BaseEstimator + TransformerMixin",
+              "ColumnTransformer — different transforms per feature type",
+              "FeatureUnion — merge multiple feature sets",
+              "Pipeline — chain transformers and estimator",
+              "CalibratedClassifierCV — probability calibration",
+              "FunctionTransformer — wrap any function as transformer"
+            ],
+            "why": "Clean, reusable sklearn Pipelines prevent data leakage, make deployment trivial, and ensure train/inference consistency. This is how professional ML engineers write production code.",
+            "time": "1-2 weeks",
+            "difficulty": "Intermediate-Advanced",
+            "resources": [
+              {
+                "icon": "📘",
+                "text": "sklearn developer guide — Developing estimators"
+              },
+              {
+                "icon": "💻",
+                "text": "Build a custom TextCleaner transformer class from scratch"
+              },
+              {
+                "icon": "📗",
+                "text": "Hands-On ML by Geron — Pipelines chapter"
+              }
+            ]
+          }
+        }
+      ],
+      "ex": {
+        "b": [
+          "Run GridSearchCV and RandomizedSearchCV on same model, compare tuning time vs score",
+          "Build a custom sklearn Transformer class with fit/transform methods",
+          "Save trained model with joblib/pickle, reload and run inference on new samples"
+        ],
+        "i": [
+          "Build a full sklearn Pipeline: custom imputer → encoder → scaler → model → predict",
+          "Wrap a PyTorch model in a FastAPI endpoint: POST /predict returns JSON predictions",
+          "Implement Optuna hyperparameter optimization for XGBoost with 50 trials"
+        ],
+        "a": [
+          "Build an AutoML-lite: auto-selects best model + params from a candidate list using Optuna + K-Fold scoring",
+          "Deploy a full ML pipeline as a Docker container with FastAPI, health endpoint, and /predict endpoint"
+        ]
+      },
+      "projects": [
+        {
+          "ms": "MILESTONE 09",
+          "name": "🏦 End-to-End ML SaaS — Fraud Detection API",
+          "desc": "Full production ML system: ingest transaction data → preprocess pipeline → train XGBoost + LSTM ensemble → evaluate with F1/AUC → expose as FastAPI service → containerize with Docker. Add SHAP explanations per prediction. This covers every topic from Phases 1–6.",
+          "meta": [
+            {
+              "l": "Uses",
+              "v": "ALL phases"
+            },
+            {
+              "l": "Output",
+              "v": "Dockerized ML API"
+            },
+            {
+              "l": "Difficulty",
+              "v": "Production-grade"
+            }
+          ]
+        },
+        {
+          "ms": "MILESTONE 10",
+          "name": "🤖 AI-Powered App (Boaringseed Portfolio Piece)",
+          "desc": "Build a domain-specific ML product: either a stock signal classifier (StockSense integration), a multi-tenant recommendation engine, or an NLP document analyzer. Must include: proper data pipeline, trained model, REST API, basic frontend, and a 1-page technical writeup. This is your Boaringseed consulting showcase piece.",
+          "meta": [
+            {
+              "l": "Uses",
+              "v": "Full roadmap"
+            },
+            {
+              "l": "Output",
+              "v": "Deployable product + writeup"
+            },
+            {
+              "l": "Purpose",
+              "v": "Client portfolio / consulting demo"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "summaryRows": [
+    [
+      "01",
+      "Linear Algebra",
+      "High school math",
+      "Calculus, Python"
+    ],
+    [
+      "02",
+      "Calculus",
+      "High school math",
+      "Linear Algebra, Python"
+    ],
+    [
+      "03",
+      "Descriptive Statistics",
+      "Linear Algebra basics",
+      "Python basics"
+    ],
+    [
+      "04",
+      "Inferential Stats + Bayes",
+      "Descriptive Stats",
+      "NumPy"
+    ],
+    [
+      "05",
+      "Python Fundamentals",
+      "None",
+      "All math topics"
+    ],
+    [
+      "06",
+      "NumPy",
+      "Python basics",
+      "Pandas"
+    ],
+    [
+      "07",
+      "Pandas",
+      "NumPy",
+      "Matplotlib"
+    ],
+    [
+      "08",
+      "Matplotlib + Seaborn",
+      "Pandas",
+      "Pandas"
+    ],
+    [
+      "09",
+      "Data Sources",
+      "Pandas",
+      "Data Formats"
+    ],
+    [
+      "10",
+      "Data Formats",
+      "Pandas",
+      "Data Sources"
+    ],
+    [
+      "11",
+      "Data Cleaning",
+      "Pandas, Data Sources",
+      "—"
+    ],
+    [
+      "12",
+      "Feature Engineering",
+      "Data Cleaning",
+      "Feature Scaling"
+    ],
+    [
+      "13",
+      "Feature Scaling",
+      "Feature Engineering",
+      "Feature Selection"
+    ],
+    [
+      "14",
+      "Dimensionality Reduction",
+      "Linear Algebra, Scaling",
+      "Unsupervised Learning"
+    ],
+    [
+      "15",
+      "Types of ML",
+      "Phase 1 complete",
+      "Phase 2 wrap-up"
+    ],
+    [
+      "16",
+      "Linear Regression",
+      "Calculus, Stats, Phase 2",
+      "Logistic Regression"
+    ],
+    [
+      "17",
+      "Polynomial Regression",
+      "Linear Regression",
+      "Regularization"
+    ],
+    [
+      "18",
+      "Logistic Regression",
+      "Linear Regression basics",
+      "KNN"
+    ],
+    [
+      "19",
+      "Decision Trees + RF",
+      "Classification concepts",
+      "SVM"
+    ],
+    [
+      "20",
+      "SVM",
+      "Logistic Reg, Linear Algebra",
+      "Decision Trees"
+    ],
+    [
+      "21",
+      "KNN",
+      "Distance metrics, Scaling",
+      "Logistic Regression"
+    ],
+    [
+      "22",
+      "Gradient Boosting",
+      "Decision Trees",
+      "Model Evaluation"
+    ],
+    [
+      "23",
+      "Clustering",
+      "Unsupervised concepts",
+      "Dimensionality Reduction"
+    ],
+    [
+      "24",
+      "Model Evaluation Metrics",
+      "First models trained",
+      "Validation Techniques"
+    ],
+    [
+      "25",
+      "K-Fold, LOOCV",
+      "Model Eval Metrics",
+      "Regularization"
+    ],
+    [
+      "26",
+      "Regularization",
+      "Regression models",
+      "K-Fold"
+    ],
+    [
+      "27",
+      "NN Basics (MLP)",
+      "Linear Algebra, Calculus, sklearn",
+      "—"
+    ],
+    [
+      "28",
+      "Forward + Backprop",
+      "NN Basics, Chain Rule",
+      "Activation Functions"
+    ],
+    [
+      "29",
+      "Activation + Loss Fns",
+      "Backprop",
+      "Backprop study"
+    ],
+    [
+      "30",
+      "PyTorch/TF/Keras",
+      "NN Basics, Python OOP",
+      "—"
+    ],
+    [
+      "31",
+      "CNN",
+      "PyTorch, NN Basics",
+      "RNN"
+    ],
+    [
+      "32",
+      "CNN Applications",
+      "CNN architecture",
+      "RNN study"
+    ],
+    [
+      "33",
+      "RNN, GRU, LSTM",
+      "PyTorch, NN Basics",
+      "CNN"
+    ],
+    [
+      "34",
+      "Attention Mechanisms",
+      "RNN/LSTM",
+      "Autoencoders"
+    ],
+    [
+      "35",
+      "Autoencoders",
+      "MLP, PyTorch",
+      "CNN/RNN"
+    ],
+    [
+      "36",
+      "GANs",
+      "Autoencoders, CNN",
+      "—"
+    ],
+    [
+      "37",
+      "Transformers",
+      "Attention Mechanisms, RNN",
+      "NLP basics"
+    ],
+    [
+      "38",
+      "NLP (Tokenization, Embeddings)",
+      "Python, Stats",
+      "RNN study"
+    ],
+    [
+      "39",
+      "NLP Attention Models (BERT/GPT)",
+      "Transformers, Embeddings",
+      "—"
+    ],
+    [
+      "40",
+      "Reinforcement Learning (Q/DQN)",
+      "NN Basics, Probability",
+      "NLP (independent track)"
+    ],
+    [
+      "41",
+      "Policy Gradient, Actor-Critic",
+      "Q-Learning, DQN",
+      "—"
+    ],
+    [
+      "42",
+      "Recommendation Systems",
+      "Embeddings, Collab Filter",
+      "NLP topics"
+    ],
+    [
+      "43",
+      "Explainable AI",
+      "Core ML + Deep Learning",
+      "Phase 6 deployment"
+    ],
+    [
+      "44",
+      "Advanced ML (Self/Semi-supervised)",
+      "Supervised + Deep Learning",
+      "XAI"
+    ],
+    [
+      "45",
+      "Model Selection + Tuning",
+      "All Phase 3+4 models",
+      "Data Pipelines"
+    ],
+    [
+      "46",
+      "Data Loading Pipelines",
+      "Phase 2, sklearn",
+      "Model Selection"
+    ],
+    [
+      "47",
+      "Prediction + Model Serving",
+      "Full ML training pipeline",
+      "sklearn Advanced"
+    ],
+    [
+      "48",
+      "Scikit-learn Advanced",
+      "All Phase 3",
+      "Model Serving"
+    ]
+  ],
+  "details": {
+    "10": {
+      "desc": "Different data formats serve different performance needs. Knowing when to use CSV vs Parquet vs JSON is a production-level skill.",
+      "concepts": [
+        "CSV — human-readable, no compression",
+        "JSON & JSONL — nested, API-native",
+        "Parquet — columnar, compressed, fast analytics",
+        "HDF5 — large numerical arrays (ML datasets)",
+        "Pickle — Python-native object serialization",
+        "Arrow/Feather — fast in-memory interchange"
+      ],
+      "why": "Parquet can load 10x faster than CSV for large datasets. Choosing the right format reduces pipeline bottlenecks significantly.",
+      "time": "1 week",
+      "difficulty": "Beginner",
+      "resources": [
+        {
+          "icon": "💻",
+          "text": "pandas.read_parquet() vs read_csv() — benchmark yourself"
+        },
+        {
+          "icon": "📗",
+          "text": "Apache Parquet docs — columnar storage explained"
+        },
+        {
+          "icon": "📘",
+          "text": "Python pickle vs joblib — serialization patterns"
+        }
+      ]
+    },
+    "11": {
+      "desc": "Real data is almost always dirty — missing values, wrong types, duplicates, inconsistent formatting. Data cleaning is the most time-consuming step in any ML project.",
+      "concepts": [
+        "Handling missing values (drop, impute, flag)",
+        "Fixing data types and encoding",
+        "Removing duplicates and inconsistencies",
+        "Outlier detection and treatment",
+        "String cleaning (regex, strip, lower)",
+        "Datetime parsing and feature extraction"
+      ],
+      "why": "A dirty dataset produces a broken model. Studies show data scientists spend 60-80% of their time cleaning data.",
+      "time": "2 weeks",
+      "difficulty": "Beginner-Intermediate",
+      "resources": [
+        {
+          "icon": "📗",
+          "text": "Pandas docs — Working with missing data"
+        },
+        {
+          "icon": "💻",
+          "text": "Kaggle — Titanic dataset cleaning challenge"
+        },
+        {
+          "icon": "📘",
+          "text": "sklearn.impute — SimpleImputer, KNNImputer, IterativeImputer"
+        }
+      ]
+    },
+    "12": {
+      "desc": "Feature Engineering transforms raw data into inputs that help models learn better. Feature Selection identifies which features to keep and which to drop.",
+      "concepts": [
+        "Creating interaction features",
+        "Polynomial features (x^2, x*y)",
+        "Encoding categoricals (OneHot, Ordinal, Target)",
+        "Binning continuous variables",
+        "SelectKBest, RFE, tree feature importance",
+        "Mutual information and correlation-based selection"
+      ],
+      "why": "The right features can double model accuracy. Feature engineering often matters more than algorithm choice.",
+      "time": "2-3 weeks",
+      "difficulty": "Intermediate",
+      "resources": [
+        {
+          "icon": "📘",
+          "text": "Feature Engineering for ML by Alice Zheng"
+        },
+        {
+          "icon": "💻",
+          "text": "sklearn.preprocessing & sklearn.feature_selection docs"
+        },
+        {
+          "icon": "🎯",
+          "text": "Kaggle competitions — study top notebooks for FE tricks"
+        }
+      ]
+    },
+    "13": {
+      "desc": "Feature Scaling normalizes the range of features so no single feature dominates due to its magnitude. Essential for distance-based and gradient-based models.",
+      "concepts": [
+        "MinMaxScaler — scales to [0, 1]",
+        "StandardScaler — zero mean, unit variance",
+        "RobustScaler — robust to outliers (uses IQR)",
+        "Normalizer — scales each sample to unit norm",
+        "Log and power transforms for skewed data",
+        "When NOT to scale (tree-based models)"
+      ],
+      "why": "KNN, SVMs, and neural networks are sensitive to feature scale. Without scaling a feature with range [0,10000] will dominate one with [0,1].",
+      "time": "1 week",
+      "difficulty": "Beginner",
+      "resources": [
+        {
+          "icon": "📗",
+          "text": "sklearn.preprocessing docs — complete scaler guide"
+        },
+        {
+          "icon": "💻",
+          "text": "Build a StandardScaler from scratch — implement fit/transform"
+        },
+        {
+          "icon": "📘",
+          "text": "Hands-On ML by Aurelien Geron — Ch. 2"
+        }
+      ]
+    },
+    "14": {
+      "desc": "High-dimensional data is slow to train on and hard to visualize. Dimensionality Reduction compresses data while preserving the most information.",
+      "concepts": [
+        "PCA — maximizes explained variance",
+        "t-SNE — nonlinear, for visualization",
+        "UMAP — faster than t-SNE, topology-preserving",
+        "LDA — supervised dimensionality reduction",
+        "Autoencoders — learned nonlinear compression",
+        "Explained variance ratio & scree plots"
+      ],
+      "why": "Reduces training time, removes noise, enables visualization of high-dim data, and can improve model performance by eliminating redundant features.",
+      "time": "2 weeks",
+      "difficulty": "Intermediate",
+      "resources": [
+        {
+          "icon": "📘",
+          "text": "StatQuest — PCA main ideas (YouTube)"
+        },
+        {
+          "icon": "💻",
+          "text": "sklearn.decomposition — PCA, TruncatedSVD, FastICA"
+        },
+        {
+          "icon": "📗",
+          "text": "UMAP docs — umap-learn.readthedocs.io"
+        }
+      ]
+    },
+    "15": {
+      "desc": "Understanding the landscape of ML — supervised, unsupervised, reinforcement, and self-supervised learning — is the conceptual foundation before diving into any specific algorithm.",
+      "concepts": [
+        "Supervised Learning — labelled input-output pairs",
+        "Unsupervised Learning — structure without labels",
+        "Reinforcement Learning — reward-driven agent behaviour",
+        "Self-Supervised Learning — labels from data itself",
+        "Semi-supervised Learning — mixed labelled/unlabelled",
+        "Key applications and industry use cases for each type"
+      ],
+      "why": "Choosing the wrong learning paradigm is a fundamental mistake. Knowing when you have a supervised vs unsupervised problem shapes every downstream decision.",
+      "time": "3-5 days",
+      "difficulty": "Beginner",
+      "resources": [
+        {
+          "icon": "📘",
+          "text": "Google ML Crash Course — free, well structured"
+        },
+        {
+          "icon": "🎥",
+          "text": "Andrew Ng — Machine Learning Specialization (Coursera)"
+        },
+        {
+          "icon": "📗",
+          "text": "Hands-On ML by Aurelien Geron — Chapter 1"
+        }
+      ]
+    },
+    "16": {
+      "desc": "Linear Regression finds the best-fit line through data to predict a continuous output. The simplest and most interpretable ML model — and the conceptual seed of deep learning.",
+      "concepts": [
+        "Hypothesis function: y_hat = Xw + b",
+        "Cost function: Mean Squared Error (MSE)",
+        "Gradient Descent — batch, stochastic, mini-batch",
+        "Normal Equation — closed-form solution",
+        "R-squared score and residual analysis",
+        "Assumptions: linearity, homoscedasticity, normality"
+      ],
+      "why": "Understanding linear regression deeply gives you the intuition to understand every more complex model that follows.",
+      "time": "1-2 weeks",
+      "difficulty": "Beginner",
+      "resources": [
+        {
+          "icon": "📘",
+          "text": "Andrew Ng ML Course — linear regression from scratch"
+        },
+        {
+          "icon": "💻",
+          "text": "Implement with NumPy only, then verify with sklearn"
+        },
+        {
+          "icon": "📗",
+          "text": "sklearn.linear_model.LinearRegression docs"
+        }
+      ]
+    },
+    "17": {
+      "desc": "Polynomial Regression adds polynomial features to capture non-linear relationships while keeping the algorithm linear in its parameters.",
+      "concepts": [
+        "PolynomialFeatures transformer",
+        "Bias-Variance Tradeoff visualized",
+        "Overfitting as degree increases",
+        "Regularization as the cure for high-degree polynomials",
+        "Interaction terms",
+        "Cross-validation to select optimal degree"
+      ],
+      "why": "Real-world data is rarely linear. Polynomial regression is the bridge between linear models and neural networks, perfectly illustrating overfitting.",
+      "time": "1 week",
+      "difficulty": "Beginner-Intermediate",
+      "resources": [
+        {
+          "icon": "💻",
+          "text": "sklearn.preprocessing.PolynomialFeatures — experiment yourself"
+        },
+        {
+          "icon": "📘",
+          "text": "StatQuest — Polynomial Regression (YouTube)"
+        },
+        {
+          "icon": "📗",
+          "text": "Plot train vs test error as degree increases — observe overfitting"
+        }
+      ]
+    },
+    "18": {
+      "desc": "Logistic Regression predicts the probability of a binary class using the sigmoid function. The foundation for understanding classification in ML.",
+      "concepts": [
+        "Sigmoid function — maps anything to (0, 1)",
+        "Log-loss (Binary Cross-Entropy) cost function",
+        "Decision boundary and threshold tuning",
+        "Multi-class extension (Softmax, One-vs-Rest)",
+        "Odds ratio and log-odds interpretation",
+        "Regularization with C parameter"
+      ],
+      "why": "Logistic regression is still used in production at scale (e.g., Google ads CTR). Deep learning classification heads are logistic regression.",
+      "time": "1-2 weeks",
+      "difficulty": "Beginner-Intermediate",
+      "resources": [
+        {
+          "icon": "📘",
+          "text": "StatQuest — Logistic Regression (YouTube series)"
+        },
+        {
+          "icon": "💻",
+          "text": "Implement sigmoid, log-loss, gradient descent from scratch"
+        },
+        {
+          "icon": "📗",
+          "text": "sklearn.linear_model.LogisticRegression docs"
+        }
+      ]
+    },
+    "19": {
+      "desc": "Decision Trees split data hierarchically based on feature thresholds. Random Forest combines hundreds of trees with bagging and random feature subsampling.",
+      "concepts": [
+        "Gini Impurity & Information Gain (Entropy)",
+        "Tree depth, min_samples_leaf hyperparameters",
+        "Bagging (Bootstrap Aggregating)",
+        "Random feature subsampling per split",
+        "Feature importance from tree ensembles",
+        "Out-of-bag (OOB) error estimation"
+      ],
+      "why": "Random Forest is one of the most robust ML algorithms — handles mixed data types, missing values, and non-linear relationships without much tuning.",
+      "time": "2 weeks",
+      "difficulty": "Intermediate",
+      "resources": [
+        {
+          "icon": "📘",
+          "text": "StatQuest — Decision Trees & Random Forests (YouTube)"
+        },
+        {
+          "icon": "💻",
+          "text": "sklearn.tree.DecisionTreeClassifier — plot_tree"
+        },
+        {
+          "icon": "📗",
+          "text": "sklearn.ensemble.RandomForestClassifier — feature_importances_"
+        }
+      ]
+    },
+    "20": {
+      "desc": "SVMs find the optimal hyperplane that maximizes the margin between classes. Kernel functions allow SVMs to handle non-linearly separable data.",
+      "concepts": [
+        "Support Vectors & Maximum Margin Hyperplane",
+        "Soft Margin SVM — C parameter (bias-variance)",
+        "Kernel Trick — RBF, polynomial, sigmoid kernels",
+        "SVM for regression (SVR)",
+        "Dual problem formulation",
+        "Computational complexity and scalability limits"
+      ],
+      "why": "The kernel trick and concept of margin are foundational ideas referenced throughout ML theory. SVMs are still competitive on small-medium tabular datasets.",
+      "time": "2 weeks",
+      "difficulty": "Intermediate-Advanced",
+      "resources": [
+        {
+          "icon": "📘",
+          "text": "StatQuest — Support Vector Machines (YouTube)"
+        },
+        {
+          "icon": "💻",
+          "text": "sklearn.svm.SVC — compare linear vs RBF boundaries"
+        },
+        {
+          "icon": "📗",
+          "text": "libsvm paper — understanding the algorithm deeply"
+        }
+      ]
+    },
+    "21": {
+      "desc": "KNN classifies a point by majority vote of its k nearest neighbours. No training — pure memorization of the dataset at inference time.",
+      "concepts": [
+        "Euclidean, Manhattan, Minkowski distance metrics",
+        "Choosing optimal k with cross-validation",
+        "Curse of dimensionality — why KNN fails in high dims",
+        "KD-Tree and Ball-Tree for fast lookup",
+        "Weighted KNN — closer neighbours vote more",
+        "KNN for regression (average of neighbours)"
+      ],
+      "why": "KNN illustrates the importance of feature scaling and the right distance metric. It motivates why we need smarter algorithms for large data.",
+      "time": "1 week",
+      "difficulty": "Beginner",
+      "resources": [
+        {
+          "icon": "📘",
+          "text": "StatQuest — K-nearest Neighbors (YouTube)"
+        },
+        {
+          "icon": "💻",
+          "text": "sklearn.neighbors.KNeighborsClassifier — experiment with k"
+        },
+        {
+          "icon": "📗",
+          "text": "Visualize decision boundaries for different k values"
+        }
+      ]
+    },
+    "22": {
+      "desc": "Gradient Boosting builds an ensemble of trees sequentially, each correcting the errors of the previous. XGBoost and LightGBM dominate structured data competitions.",
+      "concepts": [
+        "Boosting — sequential error correction",
+        "Gradient Boosting: fitting residuals iteratively",
+        "XGBoost — regularization, tree pruning, parallel build",
+        "LightGBM — leaf-wise growth, speed advantage",
+        "Key hyperparameters: n_estimators, learning_rate, max_depth",
+        "SHAP values for feature importance"
+      ],
+      "why": "XGBoost and LightGBM win the majority of Kaggle tabular competitions. Top choice for fraud detection, credit scoring, and recommendation ranking.",
+      "time": "2-3 weeks",
+      "difficulty": "Intermediate-Advanced",
+      "resources": [
+        {
+          "icon": "📘",
+          "text": "StatQuest — Gradient Boost series (YouTube)"
+        },
+        {
+          "icon": "💻",
+          "text": "xgboost.readthedocs.io — parameter tuning guide"
+        },
+        {
+          "icon": "📗",
+          "text": "Microsoft LightGBM docs — leaf-wise vs level-wise"
+        }
+      ]
+    },
+    "23": {
+      "desc": "Clustering groups data points by similarity without labels. K-Means finds spheres, DBSCAN finds arbitrary shapes, GMM gives probabilistic assignments.",
+      "concepts": [
+        "K-Means — centroid-based, requires k upfront",
+        "Hierarchical (Agglomerative) — dendrogram, no k needed",
+        "DBSCAN — density-based, finds outliers automatically",
+        "Gaussian Mixture Models (GMM) — soft assignments",
+        "Silhouette Score & Davies-Bouldin Index",
+        "Elbow method for choosing k"
+      ],
+      "why": "Customer segmentation, anomaly detection, document grouping — all use clustering. First algorithm to reach for with unlabelled data.",
+      "time": "2 weeks",
+      "difficulty": "Intermediate",
+      "resources": [
+        {
+          "icon": "📘",
+          "text": "StatQuest — K-means & Hierarchical Clustering (YouTube)"
+        },
+        {
+          "icon": "💻",
+          "text": "sklearn.cluster — KMeans, DBSCAN, AgglomerativeClustering"
+        },
+        {
+          "icon": "📗",
+          "text": "scikit-learn clustering docs — comparison of algorithms"
+        }
+      ]
+    },
+    "24": {
+      "desc": "Model evaluation metrics measure whether your model is actually good. Accuracy alone is dangerously misleading — especially with class imbalance.",
+      "concepts": [
+        "Confusion Matrix — TP, FP, TN, FN",
+        "Precision, Recall, F1-Score",
+        "ROC Curve & AUC score",
+        "Precision-Recall Curve (for imbalanced data)",
+        "MAE, MSE, RMSE, R-squared (for regression)",
+        "Log-loss and calibration for probability models"
+      ],
+      "why": "A model 99% accurate on fraud data might never detect fraud. Using the right metric is the difference between a safe and a dangerous model.",
+      "time": "1-2 weeks",
+      "difficulty": "Beginner-Intermediate",
+      "resources": [
+        {
+          "icon": "📘",
+          "text": "StatQuest — ROC & AUC, Precision-Recall (YouTube)"
+        },
+        {
+          "icon": "💻",
+          "text": "sklearn.metrics — full metrics API"
+        },
+        {
+          "icon": "📗",
+          "text": "Kaggle — evaluation section of each competition"
+        }
+      ]
+    },
+    "25": {
+      "desc": "Validation techniques give an unbiased estimate of model performance on unseen data. Without proper validation you will overfit to your test set.",
+      "concepts": [
+        "Train/Validation/Test split (80/10/10)",
+        "K-Fold Cross-Validation — rotate validation set",
+        "Stratified K-Fold — preserves class distribution",
+        "Leave-One-Out CV (LOOCV) — expensive but thorough",
+        "Time-Series CV — no future data leakage",
+        "Nested CV for hyperparameter tuning"
+      ],
+      "why": "Data leakage is the #1 reason models fail in production. Proper validation is the only way to get a realistic performance estimate.",
+      "time": "1 week",
+      "difficulty": "Intermediate",
+      "resources": [
+        {
+          "icon": "📘",
+          "text": "sklearn cross-validation docs — cross_val_score, KFold"
+        },
+        {
+          "icon": "💻",
+          "text": "Implement K-Fold from scratch to understand the mechanics"
+        },
+        {
+          "icon": "📗",
+          "text": "sklearn.model_selection.TimeSeriesSplit"
+        }
+      ]
+    },
+    "26": {
+      "desc": "Regularization adds a penalty to the loss function to discourage overly complex models. Ridge (L2), Lasso (L1), and ElasticNet are the three main variants.",
+      "concepts": [
+        "L2 Regularization (Ridge) — shrinks all weights",
+        "L1 Regularization (Lasso) — sparse weights, feature selection",
+        "ElasticNet — hybrid of L1 and L2",
+        "Dropout in neural networks — same intuition",
+        "Lambda/alpha — regularization strength hyperparameter",
+        "Bias-Variance Tradeoff visualization"
+      ],
+      "why": "Overfitting is universal in ML. Regularization is the primary defence. Lasso can simultaneously fit a model and select features.",
+      "time": "1-2 weeks",
+      "difficulty": "Intermediate",
+      "resources": [
+        {
+          "icon": "📘",
+          "text": "StatQuest — Ridge & Lasso regression (YouTube)"
+        },
+        {
+          "icon": "💻",
+          "text": "sklearn.linear_model — Ridge, Lasso, ElasticNet"
+        },
+        {
+          "icon": "📗",
+          "text": "Plot coefficient paths as alpha increases — understand sparsity"
+        }
+      ]
+    },
+    "27": {
+      "desc": "A neural network is composed of layers of artificial neurons (perceptrons). The MLP is the foundational architecture — understanding it unlocks all of deep learning.",
+      "concepts": [
+        "Perceptron — weighted sum + step function",
+        "Sigmoid neuron — differentiable activation",
+        "MLP — input layer, hidden layers, output layer",
+        "Forward Pass — computing predictions",
+        "Parameters: weights (W) and biases (b)",
+        "Universal Approximation Theorem"
+      ],
+      "why": "Every advanced architecture (CNN, RNN, Transformer) is built from the same building blocks as the MLP. The perceptron is the foundation of the entire deep learning stack.",
+      "time": "2 weeks",
+      "difficulty": "Intermediate",
+      "resources": [
+        {
+          "icon": "📘",
+          "text": "3Blue1Brown — Neural Networks series (YouTube, 4 videos)"
+        },
+        {
+          "icon": "💻",
+          "text": "Implement a 2-layer MLP from scratch in NumPy (XOR)"
+        },
+        {
+          "icon": "📗",
+          "text": "Neural Networks and Deep Learning by Michael Nielsen (free)"
+        }
+      ]
+    },
+    "28": {
+      "desc": "Forward propagation computes predictions. Backpropagation computes the gradient of the loss w.r.t. every weight using the chain rule — enabling gradient descent to train the network.",
+      "concepts": [
+        "Computation Graph representation",
+        "Chain Rule applied to nested functions",
+        "Gradient of MSE and Cross-Entropy w.r.t. weights",
+        "Vanishing & Exploding Gradient problems",
+        "Gradient Checkpointing",
+        "Automatic Differentiation (autograd)"
+      ],
+      "why": "Backpropagation is the single algorithm that makes deep learning work. Without understanding it you cannot debug training failures or exploding gradients.",
+      "time": "2-3 weeks",
+      "difficulty": "Advanced",
+      "resources": [
+        {
+          "icon": "📘",
+          "text": "CS231n — Backpropagation lecture (Stanford, free)"
+        },
+        {
+          "icon": "💻",
+          "text": "Implement backprop from scratch in NumPy — do not skip this"
+        },
+        {
+          "icon": "📗",
+          "text": "PyTorch autograd — .grad, .backward(), retain_graph"
+        }
+      ]
+    },
+    "29": {
+      "desc": "Activation functions introduce non-linearity so networks can learn complex patterns. Loss functions measure the error between predictions and ground truth.",
+      "concepts": [
+        "Sigmoid, Tanh — saturation and vanishing gradient",
+        "ReLU — default choice, fast convergence",
+        "Leaky ReLU, ELU, GELU — solving dying ReLU",
+        "Softmax — multi-class output probability",
+        "MSE loss — regression",
+        "Cross-Entropy loss — classification"
+      ],
+      "why": "Choosing the wrong activation in deep networks causes vanishing gradients. The right loss function defines what your model actually optimizes for.",
+      "time": "1 week",
+      "difficulty": "Intermediate",
+      "resources": [
+        {
+          "icon": "📘",
+          "text": "CS231n — Neural Networks Part 1: Architecture"
+        },
+        {
+          "icon": "💻",
+          "text": "Plot activation functions and their gradients"
+        },
+        {
+          "icon": "📗",
+          "text": "PyTorch nn.ReLU, nn.Sigmoid, nn.CrossEntropyLoss docs"
+        }
+      ]
+    },
+    "30": {
+      "desc": "PyTorch, TensorFlow, and Keras provide automatic differentiation, GPU support, and pre-built layers — eliminating the need to implement backprop manually.",
+      "concepts": [
+        "Tensor operations — creation, indexing, broadcasting",
+        "nn.Module — defining custom layers and models",
+        "Optimizer: SGD, Adam, RMSProp",
+        "Training loop: forward -> loss -> backward -> step",
+        "DataLoader — batching and shuffling datasets",
+        "GPU acceleration — .to(device), CUDA"
+      ],
+      "why": "PyTorch is the dominant framework for research and production. Knowing it deeply means you can implement any architecture from a paper.",
+      "time": "3-4 weeks",
+      "difficulty": "Intermediate",
+      "resources": [
+        {
+          "icon": "📘",
+          "text": "PyTorch official tutorials — pytorch.org/tutorials"
+        },
+        {
+          "icon": "💻",
+          "text": "Build MNIST classifier with PyTorch from scratch"
+        },
+        {
+          "icon": "📗",
+          "text": "Fast.ai course — practical deep learning (free)"
+        }
+      ]
+    },
+    "31": {
+      "desc": "CNNs use convolutional filters to detect spatial hierarchies in images — edges, textures, objects. They are the backbone of computer vision.",
+      "concepts": [
+        "Convolution operation — filters, stride, padding",
+        "Pooling — MaxPool, AvgPool",
+        "Receptive field and depth",
+        "BatchNorm — stable training",
+        "Architecture families: VGG, ResNet, EfficientNet",
+        "Skip connections (ResNet) — solving vanishing gradient"
+      ],
+      "why": "Every production vision system (face recognition, medical imaging, autonomous driving) is built on CNNs. This is the entry point to computer vision.",
+      "time": "3-4 weeks",
+      "difficulty": "Intermediate-Advanced",
+      "resources": [
+        {
+          "icon": "📘",
+          "text": "CS231n Convolutional Neural Networks (Stanford, free)"
+        },
+        {
+          "icon": "💻",
+          "text": "Build CNN for CIFAR-10 in PyTorch from scratch"
+        },
+        {
+          "icon": "📗",
+          "text": "ResNet paper — Deep Residual Learning for Image Recognition"
+        }
+      ]
+    },
+    "32": {
+      "desc": "CNNs power tasks beyond classification — semantic segmentation (pixel labels), object detection (bounding boxes), and video understanding.",
+      "concepts": [
+        "Image Classification — softmax output",
+        "Object Detection — YOLO, Faster R-CNN, SSD",
+        "Semantic Segmentation — U-Net, FCN",
+        "Instance Segmentation — Mask R-CNN",
+        "Video — 3D CNN, Two-Stream Networks",
+        "Transfer Learning — fine-tuning pretrained models"
+      ],
+      "why": "Knowing CNN applications separates someone who trained MNIST from someone who can build real vision products.",
+      "time": "2-3 weeks",
+      "difficulty": "Intermediate-Advanced",
+      "resources": [
+        {
+          "icon": "📘",
+          "text": "YOLO paper series — fast object detection"
+        },
+        {
+          "icon": "💻",
+          "text": "torchvision — pretrained models and detection datasets"
+        },
+        {
+          "icon": "📗",
+          "text": "U-Net paper — semantic segmentation for medical imaging"
+        }
+      ]
+    },
+    "33": {
+      "desc": "RNNs process sequential data by maintaining a hidden state. LSTMs and GRUs solve the vanishing gradient problem enabling learning of long-range dependencies.",
+      "concepts": [
+        "RNN — hidden state recurrence",
+        "Vanishing Gradient in RNNs",
+        "LSTM — cell state, input/forget/output gates",
+        "GRU — simplified LSTM, fewer parameters",
+        "Bidirectional RNN — reads sequence both ways",
+        "Sequence-to-sequence (Seq2Seq) architecture"
+      ],
+      "why": "Understanding RNNs is required to understand attention mechanisms and Transformers — their natural evolution.",
+      "time": "3 weeks",
+      "difficulty": "Intermediate-Advanced",
+      "resources": [
+        {
+          "icon": "📘",
+          "text": "Colah's blog — Understanding LSTMs (must-read)"
+        },
+        {
+          "icon": "💻",
+          "text": "Build char-level language model with LSTM in PyTorch"
+        },
+        {
+          "icon": "📗",
+          "text": "PyTorch nn.LSTM, nn.GRU documentation"
+        }
+      ]
+    },
+    "34": {
+      "desc": "Attention mechanisms allow models to focus on relevant parts of an input — solving the bottleneck of encoding entire sequences into a single fixed vector.",
+      "concepts": [
+        "Seq2Seq bottleneck problem",
+        "Additive Attention (Bahdanau)",
+        "Dot-Product Attention (Luong)",
+        "Scaled Dot-Product Attention — Q, K, V matrices",
+        "Self-Attention — attending to the same sequence",
+        "Multi-Head Attention — parallel attention heads"
+      ],
+      "why": "Attention is the direct predecessor of Transformers. Understanding the Q/K/V mechanism is required to understand BERT, GPT, and every modern LLM.",
+      "time": "2 weeks",
+      "difficulty": "Advanced",
+      "resources": [
+        {
+          "icon": "📘",
+          "text": "Attention Is All You Need paper (Vaswani et al., 2017)"
+        },
+        {
+          "icon": "💻",
+          "text": "Implement scaled dot-product attention from scratch in PyTorch"
+        },
+        {
+          "icon": "📗",
+          "text": "Jay Alammar — Illustrated Attention (blog, visual)"
+        }
+      ]
+    },
+    "35": {
+      "desc": "Autoencoders learn a compressed latent representation of data through an encoder-decoder structure trained to reconstruct its input.",
+      "concepts": [
+        "Encoder — compresses input to latent code z",
+        "Decoder — reconstructs input from z",
+        "Reconstruction loss (MSE or BCE)",
+        "Variational Autoencoder (VAE) — generative model",
+        "Denoising Autoencoder — robustness",
+        "Latent space interpolation and visualization"
+      ],
+      "why": "Autoencoders underpin dimensionality reduction, anomaly detection, image generation (VAE), and are the conceptual precursor to diffusion models.",
+      "time": "2 weeks",
+      "difficulty": "Intermediate-Advanced",
+      "resources": [
+        {
+          "icon": "📘",
+          "text": "Lilian Weng blog — From Autoencoder to Beta-VAE"
+        },
+        {
+          "icon": "💻",
+          "text": "Build denoising autoencoder on MNIST in PyTorch"
+        },
+        {
+          "icon": "📗",
+          "text": "VAE paper — Auto-Encoding Variational Bayes (Kingma & Welling)"
+        }
+      ]
+    },
+    "36": {
+      "desc": "GANs train two networks in adversarial competition — a generator produces fake data, a discriminator tries to distinguish fake from real. The result: photorealistic generative models.",
+      "concepts": [
+        "Generator network G",
+        "Discriminator network D",
+        "Minimax loss: min_G max_D V(D,G)",
+        "Mode collapse and training instability",
+        "Progressive GAN, StyleGAN, CycleGAN",
+        "Evaluation: FID score (Frechet Inception Distance)"
+      ],
+      "why": "GANs produced the first photorealistic synthetic images and remain relevant for data augmentation, style transfer, and image-to-image translation.",
+      "time": "3 weeks",
+      "difficulty": "Advanced",
+      "resources": [
+        {
+          "icon": "📘",
+          "text": "Original GAN paper — Goodfellow et al. 2014"
+        },
+        {
+          "icon": "💻",
+          "text": "Build DCGAN for MNIST digit generation in PyTorch"
+        },
+        {
+          "icon": "📗",
+          "text": "Lilian Weng — From GAN to WGAN (comprehensive blog)"
+        }
+      ]
+    },
+    "37": {
+      "desc": "Transformers replaced RNNs as the dominant sequence model. Using only self-attention (no recurrence), they process sequences in parallel — enabling the LLM revolution.",
+      "concepts": [
+        "Self-Attention — all tokens attend to all tokens",
+        "Multi-Head Attention — parallel attention heads",
+        "Positional Encoding — inject sequence order",
+        "Feed-Forward layers within each block",
+        "Encoder-only (BERT), Decoder-only (GPT), Encoder-Decoder (T5)",
+        "Scaling laws — why bigger = smarter"
+      ],
+      "why": "BERT, GPT, LLaMA, Stable Diffusion — every frontier AI model is a Transformer. This is the single most important architecture in modern AI.",
+      "time": "3-4 weeks",
+      "difficulty": "Advanced",
+      "resources": [
+        {
+          "icon": "📘",
+          "text": "Attention Is All You Need paper — read it closely"
+        },
+        {
+          "icon": "💻",
+          "text": "Implement Transformer encoder from scratch in PyTorch"
+        },
+        {
+          "icon": "📗",
+          "text": "Jay Alammar — The Illustrated Transformer (essential blog)"
+        }
+      ]
+    },
+    "38": {
+      "desc": "NLP preprocessing converts raw text into numerical representations. Tokenization, stemming, lemmatization, and word embeddings are the core pipeline steps.",
+      "concepts": [
+        "Tokenization — word, subword (BPE), character",
+        "Stemming vs Lemmatization",
+        "Stop word removal",
+        "Bag-of-Words & TF-IDF",
+        "Word2Vec — CBOW and Skip-Gram",
+        "Sentence Transformers — contextual embeddings"
+      ],
+      "why": "All NLP starts here. Even with LLMs, understanding tokenization (BPE, SentencePiece) is critical — it affects context length, cost, and multilingual performance.",
+      "time": "2 weeks",
+      "difficulty": "Intermediate",
+      "resources": [
+        {
+          "icon": "📘",
+          "text": "Natural Language Processing with Python (NLTK book, free)"
+        },
+        {
+          "icon": "💻",
+          "text": "Gensim Word2Vec — train on custom corpus, visualize with t-SNE"
+        },
+        {
+          "icon": "📗",
+          "text": "HuggingFace tokenizers docs — fast tokenization"
+        }
+      ]
+    },
+    "39": {
+      "desc": "BERT and GPT are the two dominant pretraining paradigms that power modern NLP — from sentiment analysis to question answering to text generation.",
+      "concepts": [
+        "BERT — masked language model, bidirectional",
+        "GPT — causal language model, left-to-right",
+        "Fine-tuning vs Prompting",
+        "Sentence classification, NER, QA with BERT",
+        "Text generation with GPT",
+        "HuggingFace Transformers API"
+      ],
+      "why": "BERT/GPT-style models are the industry standard for all NLP tasks. If you work with text in production, you will fine-tune or prompt these models daily.",
+      "time": "3 weeks",
+      "difficulty": "Advanced",
+      "resources": [
+        {
+          "icon": "📘",
+          "text": "BERT paper — Devlin et al. 2018"
+        },
+        {
+          "icon": "💻",
+          "text": "HuggingFace — fine-tune BERT for sentiment on IMDB"
+        },
+        {
+          "icon": "📗",
+          "text": "huggingface.co/docs — transformers library guide"
+        }
+      ]
+    },
+    "40": {
+      "desc": "Reinforcement Learning trains agents to take actions to maximize cumulative reward. Q-Learning and DQN use neural networks to approximate optimal action-value functions.",
+      "concepts": [
+        "Agent, Environment, State, Action, Reward",
+        "Markov Decision Process (MDP)",
+        "Q-Learning — Bellman equation update",
+        "Epsilon-greedy exploration strategy",
+        "Deep Q-Network (DQN) — neural Q-function",
+        "Experience Replay & Target Network"
+      ],
+      "why": "RL powers game-playing AI (AlphaGo), robotics control, and RLHF — the training technique behind ChatGPT.",
+      "time": "3 weeks",
+      "difficulty": "Advanced",
+      "resources": [
+        {
+          "icon": "📘",
+          "text": "Sutton & Barto — RL: An Introduction (free PDF)"
+        },
+        {
+          "icon": "💻",
+          "text": "OpenAI Gymnasium — CartPole, FrozenLake environments"
+        },
+        {
+          "icon": "📗",
+          "text": "DQN paper — Playing Atari with Deep Reinforcement Learning"
+        }
+      ]
+    },
+    "41": {
+      "desc": "Policy Gradient methods directly optimize the policy using gradient ascent on expected reward. Actor-Critic combines value-based and policy-based methods.",
+      "concepts": [
+        "Policy function pi(a|s) — parametric action selection",
+        "REINFORCE algorithm — Monte Carlo policy gradient",
+        "Variance reduction with baseline",
+        "Actor-Critic — separate value and policy networks",
+        "Proximal Policy Optimization (PPO)",
+        "Advantage Estimation (GAE)"
+      ],
+      "why": "PPO is the algorithm behind ChatGPT's RLHF training and most production robotics. Policy gradient methods handle continuous action spaces that DQN cannot.",
+      "time": "3 weeks",
+      "difficulty": "Advanced",
+      "resources": [
+        {
+          "icon": "📘",
+          "text": "Spinning Up in Deep RL — OpenAI (free, comprehensive)"
+        },
+        {
+          "icon": "💻",
+          "text": "Stable-Baselines3 — PPO, A2C implementations"
+        },
+        {
+          "icon": "📗",
+          "text": "PPO paper — Proximal Policy Optimization Algorithms"
+        }
+      ]
+    },
+    "42": {
+      "desc": "Recommendation Systems predict what users will like based on past behaviour and similarities. Collaborative filtering, matrix factorization, and embedding models are the core techniques.",
+      "concepts": [
+        "Collaborative Filtering — user-user & item-item",
+        "Matrix Factorization (SVD, ALS)",
+        "Content-Based Filtering — item features",
+        "Hybrid Systems",
+        "Neural Collaborative Filtering (NCF)",
+        "Cold Start Problem — new users/items"
+      ],
+      "why": "Recommenders drive revenue at Netflix, YouTube, Amazon, and Spotify. Matrix factorization and embedding models are transferable to any domain.",
+      "time": "2-3 weeks",
+      "difficulty": "Intermediate-Advanced",
+      "resources": [
+        {
+          "icon": "📘",
+          "text": "Koren et al. — Matrix Factorization Techniques"
+        },
+        {
+          "icon": "💻",
+          "text": "Surprise library — collaborative filtering in Python"
+        },
+        {
+          "icon": "📗",
+          "text": "Google RecSys course — free, practical"
+        }
+      ]
+    },
+    "43": {
+      "desc": "Explainable AI (XAI) provides tools to understand why a model makes specific predictions — critical for trust, debugging, fairness audits, and regulatory compliance.",
+      "concepts": [
+        "SHAP (SHapley Additive exPlanations) — fair attribution",
+        "LIME — local surrogate model explanations",
+        "Permutation Feature Importance",
+        "Partial Dependence Plots (PDP)",
+        "Gradient-based attribution for NNs (GradCAM)",
+        "Fairness metrics and bias auditing"
+      ],
+      "why": "In healthcare, finance, and law, black-box models are legally prohibited or ethically unacceptable. XAI is now a production requirement.",
+      "time": "2 weeks",
+      "difficulty": "Intermediate-Advanced",
+      "resources": [
+        {
+          "icon": "📘",
+          "text": "SHAP docs — shap.readthedocs.io"
+        },
+        {
+          "icon": "💻",
+          "text": "shap.TreeExplainer — SHAP for XGBoost and Random Forest"
+        },
+        {
+          "icon": "📗",
+          "text": "Interpretable ML book — Christoph Molnar (free PDF)"
+        }
+      ]
+    },
+    "44": {
+      "desc": "Self-supervised learning generates supervision from unlabelled data itself. Semi-supervised learning uses both labelled and unlabelled data to improve performance.",
+      "concepts": [
+        "Contrastive Learning — SimCLR, MoCo",
+        "Masked Autoencoding — BERT, MAE",
+        "BYOL, SimSiam — self-supervised without negatives",
+        "Pseudo-Labelling — confident unlabelled predictions as labels",
+        "Consistency Regularization (FixMatch)",
+        "Label efficiency — how much labelled data is needed?"
+      ],
+      "why": "Labelling data is expensive. Self-supervised pretraining (BERT, GPT, Vision MAE) achieves strong results with minimal labels. This is how frontier models are trained.",
+      "time": "2-3 weeks",
+      "difficulty": "Advanced",
+      "resources": [
+        {
+          "icon": "📘",
+          "text": "SimCLR paper — A Simple Framework for Contrastive Learning"
+        },
+        {
+          "icon": "💻",
+          "text": "lightly.ai — self-supervised learning library"
+        },
+        {
+          "icon": "📗",
+          "text": "Lilian Weng — Self-Supervised Representation Learning (blog)"
+        }
+      ]
+    },
+    "45": {
+      "desc": "Model selection picks the best algorithm. Hyperparameter tuning finds the optimal configuration. Together they bridge trained model and production-ready model.",
+      "concepts": [
+        "Grid Search — exhaustive parameter combinations",
+        "Randomized Search — random sampling of parameter space",
+        "Bayesian Optimization (Optuna, Hyperopt)",
+        "Early Stopping — prevent overfitting during tuning",
+        "Warm Starting — continue tuning from previous run",
+        "Multi-objective optimization (speed vs accuracy)"
+      ],
+      "why": "Default hyperparameters are almost never optimal. Proper tuning routinely improves performance by 5-15%. Bayesian optimization is now the industry standard.",
+      "time": "2 weeks",
+      "difficulty": "Intermediate-Advanced",
+      "resources": [
+        {
+          "icon": "📘",
+          "text": "Optuna docs — optuna.readthedocs.io"
+        },
+        {
+          "icon": "💻",
+          "text": "sklearn GridSearchCV & RandomizedSearchCV — benchmark each"
+        },
+        {
+          "icon": "📗",
+          "text": "Practical Hyperparameter Optimization — Kaggle course"
+        }
+      ]
+    },
+    "46": {
+      "desc": "Production ML requires robust data pipelines — splitting data correctly, loading batches efficiently, preventing leakage, and handling distributional shift over time.",
+      "concepts": [
+        "Stratified Train/Val/Test split",
+        "Time-aware splitting (no future leakage)",
+        "sklearn Pipeline — chain preprocessing + model",
+        "PyTorch DataLoader — batching, shuffling, workers",
+        "Dataset versioning (DVC)",
+        "Online vs Batch learning strategies"
+      ],
+      "why": "More production ML failures are caused by incorrect data pipelines than bad models. A leaky pipeline makes your model look perfect in testing and fail in production.",
+      "time": "2 weeks",
+      "difficulty": "Intermediate",
+      "resources": [
+        {
+          "icon": "📘",
+          "text": "sklearn Pipeline docs — compose preprocessing + model"
+        },
+        {
+          "icon": "💻",
+          "text": "PyTorch Dataset & DataLoader — custom dataset class"
+        },
+        {
+          "icon": "📗",
+          "text": "DVC (Data Version Control) — dvc.org quickstart"
+        }
+      ]
+    },
+    "47": {
+      "desc": "Model serving deploys trained models to production. FastAPI + Docker is the standard lightweight stack for ML APIs.",
+      "concepts": [
+        "Model serialization — joblib, pickle, ONNX, TorchScript",
+        "FastAPI — async REST API for ML",
+        "Input validation with Pydantic",
+        "Docker — containerize your ML app",
+        "Health endpoints and monitoring",
+        "Batch vs Real-time inference"
+      ],
+      "why": "A model that is not deployed is worthless. Knowing how to serve models with FastAPI and Docker turns research into product.",
+      "time": "2 weeks",
+      "difficulty": "Intermediate-Advanced",
+      "resources": [
+        {
+          "icon": "📘",
+          "text": "FastAPI docs — fastapi.tiangolo.com"
+        },
+        {
+          "icon": "💻",
+          "text": "Build a /predict POST endpoint for an sklearn model"
+        },
+        {
+          "icon": "📗",
+          "text": "MLflow — model registry and serving"
+        }
+      ]
+    },
+    "48": {
+      "desc": "Advanced scikit-learn covers building reusable, production-grade pipelines with custom transformers, column transformers, and feature unions.",
+      "concepts": [
+        "Custom Transformer — BaseEstimator + TransformerMixin",
+        "ColumnTransformer — different transforms per feature type",
+        "FeatureUnion — merge multiple feature sets",
+        "Pipeline — chain transformers and estimator",
+        "CalibratedClassifierCV — probability calibration",
+        "FunctionTransformer — wrap any function as transformer"
+      ],
+      "why": "Clean, reusable sklearn Pipelines prevent data leakage, make deployment trivial, and ensure train/inference consistency. This is how professional ML engineers write production code.",
+      "time": "1-2 weeks",
+      "difficulty": "Intermediate-Advanced",
+      "resources": [
+        {
+          "icon": "📘",
+          "text": "sklearn developer guide — Developing estimators"
+        },
+        {
+          "icon": "💻",
+          "text": "Build a custom TextCleaner transformer class from scratch"
+        },
+        {
+          "icon": "📗",
+          "text": "Hands-On ML by Geron — Pipelines chapter"
+        }
+      ]
+    },
+    "01": {
+      "desc": "Linear Algebra is the mathematics of vectors, matrices, and linear transformations — the most critical math prerequisite for ML.",
+      "concepts": [
+        "Vectors & Vector Spaces",
+        "Matrix Multiplication & Transpose",
+        "Eigenvalues & Eigenvectors",
+        "SVD (Singular Value Decomposition)",
+        "Dot Products & Projections",
+        "Norms (L1, L2) & Distance Metrics"
+      ],
+      "why": "Neural networks are chains of matrix multiplications. PCA, SVD, and attention are all linear algebra. Without this you cannot understand what your models compute.",
+      "time": "3-4 weeks",
+      "difficulty": "Intermediate",
+      "resources": [
+        {
+          "icon": "📘",
+          "text": "3Blue1Brown — Essence of Linear Algebra (YouTube)"
+        },
+        {
+          "icon": "📗",
+          "text": "Gilbert Strang — Introduction to Linear Algebra (MIT)"
+        },
+        {
+          "icon": "💻",
+          "text": "numpy.linalg docs — practice every operation in code"
+        }
+      ]
+    },
+    "02": {
+      "desc": "Calculus gives us the tools to optimize ML models. Derivatives measure how a function changes and gradient descent uses this to minimize loss functions.",
+      "concepts": [
+        "Derivatives & Partial Derivatives",
+        "Chain Rule",
+        "Gradient & Directional Derivatives",
+        "Jacobian & Hessian Matrices",
+        "Taylor Series Approximation",
+        "Multivariate Optimization"
+      ],
+      "why": "Backpropagation is the chain rule applied to a computation graph. Every optimizer relies on gradients. You cannot debug training without understanding calculus.",
+      "time": "2-3 weeks",
+      "difficulty": "Intermediate",
+      "resources": [
+        {
+          "icon": "📘",
+          "text": "3Blue1Brown — Essence of Calculus (YouTube)"
+        },
+        {
+          "icon": "📗",
+          "text": "Khan Academy — Multivariable Calculus (free)"
+        },
+        {
+          "icon": "💻",
+          "text": "PyTorch autograd — see calculus in action"
+        }
+      ]
+    },
+    "03": {
+      "desc": "Descriptive statistics summarizes the main features of a dataset. It is your first lens for understanding data before any model is trained.",
+      "concepts": [
+        "Mean, Median, Mode",
+        "Variance & Standard Deviation",
+        "Skewness & Kurtosis",
+        "Histograms & Box Plots",
+        "Covariance & Correlation Matrix",
+        "Percentiles & Outlier Detection (IQR)"
+      ],
+      "why": "Every ML project starts with EDA. If you cannot describe your data, you will make wrong modelling decisions — garbage in, garbage out.",
+      "time": "1-2 weeks",
+      "difficulty": "Beginner",
+      "resources": [
+        {
+          "icon": "📘",
+          "text": "Think Stats by Allen Downey (free PDF)"
+        },
+        {
+          "icon": "💻",
+          "text": "Pandas + Seaborn: describe(), .corr(), pairplot()"
+        },
+        {
+          "icon": "📊",
+          "text": "Kaggle — practice EDA on Titanic, Iris"
+        }
+      ]
+    },
+    "04": {
+      "desc": "Inferential statistics lets you draw conclusions about a population from a sample. Bayes Theorem is the framework for updating beliefs given new evidence.",
+      "concepts": [
+        "Hypothesis Testing (t-test, chi-square)",
+        "p-values & Statistical Significance",
+        "Confidence Intervals",
+        "Bayes Theorem: P(A|B) = P(B|A)P(A)/P(B)",
+        "Prior, Likelihood, Posterior",
+        "Naive Bayes Classifier"
+      ],
+      "why": "A/B testing, confidence intervals, and Bayesian models all require this. It prevents you from fooling yourself with statistically insignificant results.",
+      "time": "2-3 weeks",
+      "difficulty": "Intermediate",
+      "resources": [
+        {
+          "icon": "📘",
+          "text": "Naked Statistics by Charles Wheelan"
+        },
+        {
+          "icon": "📗",
+          "text": "StatQuest with Josh Starmer (YouTube)"
+        },
+        {
+          "icon": "💻",
+          "text": "scipy.stats — t-test, chi2_contingency, binom_test"
+        }
+      ]
+    },
+    "05": {
+      "desc": "Python is the dominant language for ML. You need solid fundamentals — clean OOP, data structures, and the ability to write reusable modular code.",
+      "concepts": [
+        "Data Types, Control Flow, Functions",
+        "List/Dict Comprehensions",
+        "OOP — Classes, Inheritance, Dunder Methods",
+        "Iterators & Generators",
+        "Decorators & Context Managers",
+        "File I/O and Exception Handling"
+      ],
+      "why": "Every ML library is Python. You will write custom layers, data loaders, and pipelines — you need fluent Python, not just hello-world.",
+      "time": "2-3 weeks",
+      "difficulty": "Beginner",
+      "resources": [
+        {
+          "icon": "📘",
+          "text": "Fluent Python by Luciano Ramalho"
+        },
+        {
+          "icon": "💻",
+          "text": "Python.org official tutorial — free & complete"
+        },
+        {
+          "icon": "🎯",
+          "text": "LeetCode Easy problems — reinforce logic & data structures"
+        }
+      ]
+    },
+    "06": {
+      "desc": "NumPy provides fast N-dimensional arrays and mathematical operations that form the backbone of every ML library.",
+      "concepts": [
+        "ndarray — shape, dtype, broadcasting",
+        "Array Indexing & Slicing",
+        "Vectorized Operations (no Python loops)",
+        "Linear Algebra (np.linalg)",
+        "Random Number Generation (np.random)",
+        "Stacking, Reshaping, Transposing"
+      ],
+      "why": "Pandas, scikit-learn, and PyTorch all use NumPy arrays internally. If you cannot vectorize your code your models will be 100x slower.",
+      "time": "1-2 weeks",
+      "difficulty": "Beginner",
+      "resources": [
+        {
+          "icon": "📗",
+          "text": "NumPy official docs — 100 NumPy exercises (GitHub)"
+        },
+        {
+          "icon": "💻",
+          "text": "numpy.org/learn — interactive quickstart"
+        },
+        {
+          "icon": "📘",
+          "text": "From Python to NumPy by Nicolas Rougier (free PDF)"
+        }
+      ]
+    },
+    "07": {
+      "desc": "Pandas is the go-to library for data manipulation and analysis. Think Excel in Python — but far more powerful, programmable, and reproducible.",
+      "concepts": [
+        "Series & DataFrame",
+        "Indexing: .loc, .iloc, boolean masks",
+        "GroupBy, Merge, Join, Pivot",
+        "Handling Missing Data",
+        "Apply, Map, Lambda Functions",
+        "Reading/Writing CSV, JSON, Excel, SQL"
+      ],
+      "why": "Real-world data is always messy. You will spend 60-80% of any ML project wrangling data in Pandas.",
+      "time": "2 weeks",
+      "difficulty": "Beginner",
+      "resources": [
+        {
+          "icon": "📗",
+          "text": "Pandas official docs — 10 minutes to pandas"
+        },
+        {
+          "icon": "💻",
+          "text": "Kaggle Learn — Pandas micro-course (free)"
+        },
+        {
+          "icon": "📘",
+          "text": "Python for Data Analysis by Wes McKinney"
+        }
+      ]
+    },
+    "08": {
+      "desc": "Matplotlib and Seaborn are the core plotting libraries. Visualization is how you understand data, communicate insights, and debug model behaviour.",
+      "concepts": [
+        "Line, Bar, Scatter, Histogram plots",
+        "Subplots & Figure Layout",
+        "Seaborn — heatmaps, pairplots, violin plots",
+        "Customizing labels, titles, legends",
+        "Plotting model outputs (loss curves, ROC)",
+        "Interactive plots with plotly (optional)"
+      ],
+      "why": "A model that cannot be visualized cannot be fully understood or trusted. Charts catch data leakage and class imbalance that tables miss.",
+      "time": "1 week",
+      "difficulty": "Beginner",
+      "resources": [
+        {
+          "icon": "📗",
+          "text": "Matplotlib official gallery — real examples"
+        },
+        {
+          "icon": "📘",
+          "text": "Seaborn tutorial — seaborn.pydata.org"
+        },
+        {
+          "icon": "💻",
+          "text": "Kaggle — EDA notebooks on any dataset"
+        }
+      ]
+    },
+    "09": {
+      "desc": "ML systems need data from databases, APIs, and IoT streams. Knowing how to acquire structured and unstructured data is the first step in any real pipeline.",
+      "concepts": [
+        "SQL — SELECT, JOIN, GROUP BY, subqueries",
+        "NoSQL — MongoDB, Redis (documents, key-value)",
+        "REST API consumption with requests/httpx",
+        "Pagination, authentication, rate limiting",
+        "IoT data formats (MQTT, time-series)",
+        "SQLAlchemy ORM for database abstraction"
+      ],
+      "why": "You will rarely be handed a clean CSV. Production ML systems pull from databases, APIs, and streaming sources.",
+      "time": "2 weeks",
+      "difficulty": "Beginner-Intermediate",
+      "resources": [
+        {
+          "icon": "📗",
+          "text": "SQLZoo — free interactive SQL exercises"
+        },
+        {
+          "icon": "💻",
+          "text": "public-apis.io — practice REST API consumption"
+        },
+        {
+          "icon": "📘",
+          "text": "SQLAlchemy docs — ORM quickstart"
+        }
+      ]
+    }
+  }
+}
