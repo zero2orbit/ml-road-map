@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ML Mastery Roadmap</title>
+<meta name="description" content="A complete 6-phase, 48-topic Machine Learning mastery roadmap with milestone projects and exercises for every level.">
 <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -24,317 +25,101 @@
     --phase5: #00d4ff;
     --phase6: #ff61ab;
   }
-
   * { margin: 0; padding: 0; box-sizing: border-box; }
-
-  body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: 'Syne', sans-serif;
-    min-height: 100vh;
-    overflow-x: hidden;
-  }
-
-  /* GRID BACKGROUND */
-  body::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background-image:
-      linear-gradient(rgba(0,245,160,0.03) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(0,245,160,0.03) 1px, transparent 1px);
-    background-size: 40px 40px;
-    pointer-events: none;
-    z-index: 0;
-  }
-
+  body { background: var(--bg); color: var(--text); font-family: 'Syne', sans-serif; min-height: 100vh; overflow-x: hidden; }
+  body::before { content: ''; position: fixed; inset: 0; background-image: linear-gradient(rgba(0,245,160,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(0,245,160,0.03) 1px, transparent 1px); background-size: 40px 40px; pointer-events: none; z-index: 0; }
   .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 1; }
-
-  /* HEADER */
-  header {
-    padding: 64px 0 48px;
-    border-bottom: 1px solid var(--border);
-    position: relative;
-  }
-  .header-tag {
-    font-family: 'DM Mono', monospace;
-    font-size: 11px;
-    color: var(--accent);
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    margin-bottom: 16px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-  .header-tag::before {
-    content: '';
-    width: 24px;
-    height: 1px;
-    background: var(--accent);
-  }
-  h1 {
-    font-size: clamp(36px, 6vw, 72px);
-    font-weight: 800;
-    line-height: 1.05;
-    letter-spacing: -2px;
-  }
+  header { padding: 64px 0 48px; border-bottom: 1px solid var(--border); }
+  .header-tag { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--accent); letter-spacing: 3px; text-transform: uppercase; margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
+  .header-tag::before { content: ''; width: 24px; height: 1px; background: var(--accent); }
+  h1 { font-size: clamp(36px, 6vw, 72px); font-weight: 800; line-height: 1.05; letter-spacing: -2px; }
   h1 span { color: var(--accent); }
-  .header-sub {
-    font-family: 'DM Mono', monospace;
-    font-size: 13px;
-    color: var(--muted);
-    margin-top: 16px;
-    display: flex;
-    gap: 32px;
-    flex-wrap: wrap;
-  }
+  .header-sub { font-family: 'DM Mono', monospace; font-size: 13px; color: var(--muted); margin-top: 16px; display: flex; gap: 32px; flex-wrap: wrap; }
   .header-sub span { display: flex; align-items: center; gap: 6px; }
   .header-sub span::before { content: '▸'; color: var(--accent); font-size: 10px; }
-
-  /* NAV PILLS */
-  .nav-strip {
-    display: flex;
-    gap: 8px;
-    padding: 24px 0;
-    border-bottom: 1px solid var(--border);
-    flex-wrap: wrap;
-    position: sticky;
-    top: 0;
-    background: rgba(10,10,15,0.95);
-    backdrop-filter: blur(12px);
-    z-index: 100;
-  }
-  .nav-pill {
-    font-family: 'DM Mono', monospace;
-    font-size: 11px;
-    padding: 6px 14px;
-    border-radius: 20px;
-    border: 1px solid var(--border);
-    color: var(--muted);
-    cursor: pointer;
-    transition: all 0.2s;
-    text-decoration: none;
-    letter-spacing: 0.5px;
-  }
+  .nav-strip { display: flex; gap: 8px; padding: 24px 0; border-bottom: 1px solid var(--border); flex-wrap: wrap; position: sticky; top: 0; background: rgba(10,10,15,0.95); backdrop-filter: blur(12px); z-index: 100; }
+  .nav-pill { font-family: 'DM Mono', monospace; font-size: 11px; padding: 6px 14px; border-radius: 20px; border: 1px solid var(--border); color: var(--muted); cursor: pointer; transition: all 0.2s; text-decoration: none; letter-spacing: 0.5px; }
   .nav-pill:hover, .nav-pill.active { color: var(--bg); background: var(--accent); border-color: var(--accent); }
-
-  /* PHASE SECTIONS */
-  .phase {
-    margin: 48px 0;
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    overflow: hidden;
-  }
-  .phase-header {
-    padding: 24px 28px;
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    cursor: pointer;
-    user-select: none;
-  }
-  .phase-number {
-    font-family: 'Space Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 2px;
-    padding: 4px 10px;
-    border-radius: 4px;
-    font-weight: 700;
-  }
+  .phase { margin: 48px 0; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
+  .phase-header { padding: 24px 28px; display: flex; align-items: center; gap: 16px; cursor: pointer; user-select: none; border-bottom: 1px solid var(--border); }
+  .phase-number { font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 2px; padding: 4px 10px; border-radius: 4px; font-weight: 700; }
   .phase-title { font-size: 20px; font-weight: 700; flex: 1; }
-  .phase-count {
-    font-family: 'DM Mono', monospace;
-    font-size: 11px;
-    color: var(--muted);
-  }
-  .phase-toggle {
-    font-size: 18px;
-    transition: transform 0.3s;
-    color: var(--muted);
-  }
+  .phase-count { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--muted); }
+  .phase-toggle { font-size: 18px; transition: transform 0.3s; color: var(--muted); }
   .phase.collapsed .phase-toggle { transform: rotate(-90deg); }
   .phase-body { padding: 0 28px 28px; }
   .phase.collapsed .phase-body { display: none; }
-
-  /* TOPIC CARD */
   .topic-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 12px; margin-bottom: 20px; }
-  .topic-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 16px;
-    position: relative;
-    overflow: hidden;
-  }
-  .topic-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 2px;
-  }
-  .topic-num {
-    font-family: 'DM Mono', monospace;
-    font-size: 10px;
-    color: var(--muted);
-    margin-bottom: 6px;
-    letter-spacing: 1px;
-  }
+  .topic-card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 16px; position: relative; overflow: hidden; }
+  .topic-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--pc); }
+  .topic-num { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--muted); margin-bottom: 6px; letter-spacing: 1px; }
   .topic-name { font-size: 14px; font-weight: 600; margin-bottom: 8px; }
   .topic-tags { display: flex; gap: 6px; flex-wrap: wrap; }
-  .tag {
-    font-family: 'DM Mono', monospace;
-    font-size: 10px;
-    padding: 2px 8px;
-    border-radius: 3px;
-    letter-spacing: 0.3px;
-  }
+  .tag { font-family: 'DM Mono', monospace; font-size: 10px; padding: 2px 8px; border-radius: 3px; letter-spacing: 0.3px; }
   .tag-pre { background: rgba(123,97,255,0.15); color: var(--accent2); border: 1px solid rgba(123,97,255,0.2); }
   .tag-para { background: rgba(0,245,160,0.1); color: var(--accent); border: 1px solid rgba(0,245,160,0.15); }
   .tag-unlocks { background: rgba(255,107,107,0.1); color: var(--accent3); border: 1px solid rgba(255,107,107,0.15); }
-
-  /* EXERCISES */
   .exercises-section { margin-top: 24px; }
-  .section-label {
-    font-family: 'DM Mono', monospace;
-    font-size: 11px;
-    color: var(--muted);
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    margin-bottom: 14px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
+  .section-label { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--muted); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 14px; display: flex; align-items: center; gap: 10px; }
   .section-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
-
   .exercise-block { margin-bottom: 16px; }
-  .ex-level {
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    margin-bottom: 8px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
+  .ex-level { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
   .ex-level .dot { width: 6px; height: 6px; border-radius: 50%; }
-  .level-beg .dot { background: var(--accent); }
-  .level-int .dot { background: var(--accent4); }
-  .level-adv .dot { background: var(--accent3); }
-  .level-beg { color: var(--accent); }
-  .level-int { color: var(--accent4); }
-  .level-adv { color: var(--accent3); }
-
+  .level-beg .dot { background: var(--accent); } .level-int .dot { background: var(--accent4); } .level-adv .dot { background: var(--accent3); }
+  .level-beg { color: var(--accent); } .level-int { color: var(--accent4); } .level-adv { color: var(--accent3); }
   .ex-list { list-style: none; display: flex; flex-direction: column; gap: 6px; }
-  .ex-list li {
-    font-family: 'DM Mono', monospace;
-    font-size: 12px;
-    color: #b0b0c8;
-    padding: 8px 12px;
-    background: var(--surface);
-    border-radius: 6px;
-    border-left: 2px solid var(--border);
-    line-height: 1.5;
-  }
+  .ex-list li { font-family: 'DM Mono', monospace; font-size: 12px; color: #b0b0c8; padding: 8px 12px; background: var(--surface); border-radius: 6px; border-left: 2px solid var(--border); line-height: 1.5; }
   .ex-list li::before { content: '→ '; color: var(--muted); }
-
-  /* PROJECT MILESTONES */
-  .project-card {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 24px;
-    margin-bottom: 16px;
-    position: relative;
-    overflow: hidden;
-  }
-  .project-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; bottom: 0;
-    width: 3px;
-  }
-  .project-milestone {
-    font-family: 'DM Mono', monospace;
-    font-size: 10px;
-    color: var(--muted);
-    letter-spacing: 2px;
-    margin-bottom: 8px;
-  }
+  .project-card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 24px; margin-bottom: 16px; position: relative; overflow: hidden; }
+  .project-card::before { content: ''; position: absolute; top: 0; left: 0; bottom: 0; width: 3px; background: var(--pc); }
+  .project-milestone { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--muted); letter-spacing: 2px; margin-bottom: 8px; }
   .project-name { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
   .project-desc { font-size: 13px; color: #9090a8; line-height: 1.6; margin-bottom: 14px; }
   .project-meta { display: flex; flex-wrap: wrap; gap: 8px; }
-  .meta-chip {
-    font-family: 'DM Mono', monospace;
-    font-size: 10px;
-    padding: 4px 10px;
-    border-radius: 4px;
-    border: 1px solid var(--border);
-    color: var(--muted);
-  }
+  .meta-chip { font-family: 'DM Mono', monospace; font-size: 10px; padding: 4px 10px; border-radius: 4px; border: 1px solid var(--border); color: var(--muted); }
   .meta-chip strong { color: var(--text); margin-right: 4px; }
-
-  /* PHASE COLORS */
-  .p1 { --pc: var(--phase1); }
-  .p2 { --pc: var(--phase2); }
-  .p3 { --pc: var(--phase3); }
-  .p4 { --pc: var(--phase4); }
-  .p5 { --pc: var(--phase5); }
-  .p6 { --pc: var(--phase6); }
-
-  .phase-header { border-bottom: 1px solid var(--border); }
+  .p1 { --pc: var(--phase1); } .p2 { --pc: var(--phase2); } .p3 { --pc: var(--phase3); }
+  .p4 { --pc: var(--phase4); } .p5 { --pc: var(--phase5); } .p6 { --pc: var(--phase6); }
   .phase .phase-number { background: color-mix(in srgb, var(--pc) 15%, transparent); color: var(--pc); border: 1px solid color-mix(in srgb, var(--pc) 30%, transparent); }
-  .topic-card::before { background: var(--pc); }
-  .project-card::before { background: var(--pc); }
-
-  /* SUMMARY TABLE */
-  .summary-table {
-    width: 100%;
-    border-collapse: collapse;
-    font-family: 'DM Mono', monospace;
-    font-size: 12px;
-    margin-top: 16px;
-  }
-  .summary-table th {
-    text-align: left;
-    padding: 10px 14px;
-    background: var(--surface);
-    color: var(--muted);
-    font-size: 10px;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    border-bottom: 1px solid var(--border);
-  }
-  .summary-table td {
-    padding: 10px 14px;
-    border-bottom: 1px solid var(--border);
-    vertical-align: top;
-    color: #b0b0c8;
-    line-height: 1.5;
-  }
+  .summary-table { width: 100%; border-collapse: collapse; font-family: 'DM Mono', monospace; font-size: 12px; margin-top: 16px; }
+  .summary-table th { text-align: left; padding: 10px 14px; background: var(--surface); color: var(--muted); font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; border-bottom: 1px solid var(--border); }
+  .summary-table td { padding: 10px 14px; border-bottom: 1px solid var(--border); vertical-align: top; color: #b0b0c8; line-height: 1.5; }
   .summary-table tr:hover td { background: var(--surface); }
-
-  /* FOOTER */
-  footer {
-    margin-top: 80px;
-    padding: 32px 0;
-    border-top: 1px solid var(--border);
-    text-align: center;
-    font-family: 'DM Mono', monospace;
-    font-size: 11px;
-    color: var(--muted);
-  }
-
-  @media (max-width: 600px) {
-    .topic-grid { grid-template-columns: 1fr; }
-    .header-sub { flex-direction: column; gap: 8px; }
-  }
+  footer { margin-top: 80px; padding: 32px 0; border-top: 1px solid var(--border); text-align: center; font-family: 'DM Mono', monospace; font-size: 11px; color: var(--muted); }
+  /* ── INFO ICON ── */
+  .topic-card-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; margin-bottom: 8px; }
+  .topic-name { font-size: 14px; font-weight: 600; flex: 1; }
+  .info-btn { flex-shrink: 0; width: 22px; height: 22px; border-radius: 50%; border: 1px solid var(--border); background: transparent; color: var(--muted); font-size: 12px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.2s; line-height: 1; }
+  .info-btn:hover { background: var(--pc); border-color: var(--pc); color: var(--bg); transform: scale(1.15); }
+  /* ── MODAL OVERLAY ── */
+  .modal-overlay { position: fixed; inset: 0; background: rgba(5,5,10,0.85); backdrop-filter: blur(8px); z-index: 1000; display: flex; align-items: center; justify-content: center; padding: 24px; opacity: 0; pointer-events: none; transition: opacity 0.25s; }
+  .modal-overlay.open { opacity: 1; pointer-events: all; }
+  .modal { background: var(--card); border: 1px solid var(--border); border-radius: 16px; max-width: 620px; width: 100%; max-height: 85vh; overflow-y: auto; position: relative; transform: translateY(24px) scale(0.97); transition: transform 0.25s; scrollbar-width: thin; scrollbar-color: var(--border) transparent; }
+  .modal-overlay.open .modal { transform: translateY(0) scale(1); }
+  .modal-top-bar { height: 3px; border-radius: 16px 16px 0 0; background: var(--modal-color, var(--accent)); }
+  .modal-header { padding: 24px 28px 0; display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
+  .modal-num { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--muted); letter-spacing: 2px; margin-bottom: 6px; }
+  .modal-title { font-size: 22px; font-weight: 800; line-height: 1.2; flex: 1; }
+  .modal-close { width: 32px; height: 32px; border-radius: 50%; border: 1px solid var(--border); background: transparent; color: var(--muted); font-size: 18px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.2s; flex-shrink: 0; }
+  .modal-close:hover { background: var(--accent3); border-color: var(--accent3); color: #fff; }
+  .modal-body { padding: 20px 28px 28px; }
+  .modal-desc { font-size: 14px; color: #b0b0c8; line-height: 1.7; margin-bottom: 22px; }
+  .modal-section { margin-bottom: 20px; }
+  .modal-section-title { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--modal-color, var(--accent)); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+  .modal-section-title::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+  .modal-concepts { display: flex; flex-direction: column; gap: 6px; }
+  .modal-concept { font-family: 'DM Mono', monospace; font-size: 12px; color: #b0b0c8; padding: 8px 12px; background: var(--surface); border-radius: 6px; border-left: 2px solid var(--modal-color, var(--accent)); line-height: 1.5; }
+  .modal-concept::before { content: '◆ '; color: var(--modal-color, var(--accent)); font-size: 8px; vertical-align: middle; }
+  .modal-meta-row { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+  .modal-badge { font-family: 'DM Mono', monospace; font-size: 10px; padding: 4px 12px; border-radius: 20px; border: 1px solid color-mix(in srgb, var(--modal-color, var(--accent)) 35%, transparent); background: color-mix(in srgb, var(--modal-color, var(--accent)) 10%, transparent); color: var(--modal-color, var(--accent)); }
+  .modal-resources { display: flex; flex-direction: column; gap: 8px; }
+  .modal-resource { font-family: 'DM Mono', monospace; font-size: 12px; color: #b0b0c8; padding: 10px 14px; background: var(--surface); border-radius: 6px; display: flex; align-items: center; gap: 10px; }
+  .modal-resource .res-icon { font-size: 14px; }
+  @media (max-width: 600px) { .modal { max-height: 95vh; } .modal-header, .modal-body { padding-left: 18px; padding-right: 18px; } }
+  @media (max-width: 600px) { .topic-grid { grid-template-columns: 1fr; } .header-sub { flex-direction: column; gap: 8px; } }
 </style>
 </head>
 <body>
-
 <div class="container">
   <header>
     <div class="header-tag">ML Engineer Roadmap</div>
@@ -346,829 +131,288 @@
       <span>Sequential + Parallel Strategy</span>
     </div>
   </header>
+  <nav class="nav-strip" id="nav-strip"></nav>
+  <div id="phases-root"></div>
 
-  <nav class="nav-strip">
-    <a class="nav-pill active" href="#phase1">Phase 1: Foundations</a>
-    <a class="nav-pill" href="#phase2">Phase 2: Data</a>
-    <a class="nav-pill" href="#phase3">Phase 3: Core ML</a>
-    <a class="nav-pill" href="#phase4">Phase 4: Deep Learning</a>
-    <a class="nav-pill" href="#phase5">Phase 5: Advanced</a>
-    <a class="nav-pill" href="#phase6">Phase 6: Production</a>
-  </nav>
+<!-- TOPIC DETAIL MODAL -->
+<div class="modal-overlay" id="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+  <div class="modal" id="modal-box">
+    <div class="modal-top-bar" id="modal-bar"></div>
+    <div class="modal-header">
+      <div>
+        <div class="modal-num" id="modal-num"></div>
+        <div class="modal-title" id="modal-title"></div>
+      </div>
+      <button class="modal-close" onclick="closeModal()" aria-label="Close">&times;</button>
+    </div>
+    <div class="modal-body">
+      <p class="modal-desc" id="modal-desc"></p>
+      <div class="modal-meta-row" id="modal-badges"></div>
+      <div class="modal-section">
+        <div class="modal-section-title">Key Concepts</div>
+        <div class="modal-concepts" id="modal-concepts"></div>
+      </div>
+      <div class="modal-section">
+        <div class="modal-section-title">Why It Matters</div>
+        <p class="modal-desc" id="modal-why" style="margin-bottom:0"></p>
+      </div>
+      <div class="modal-section">
+        <div class="modal-section-title">Learning Resources</div>
+        <div class="modal-resources" id="modal-resources"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  <footer>ML Mastery Roadmap &mdash; 48 Topics &middot; 10 Milestone Projects &middot; Structured for Jay @ Boaringseed</footer>
+</div>
+<script>
+// ── DATA ────────────────────────────────────────────────────────────────────
+const PHASES = [
+  {
+    id:'phase1', label:'Phase 1: Foundations', number:'PHASE 01',
+    title:'Mathematical & Programming Foundations', colorClass:'p1',
+    topics:[
+      {num:'01',name:'Linear Algebra',tags:[{t:'para',v:'parallel: Calculus'},{t:'unlocks',v:'→ Neural Nets, PCA, SVD'}]},
+      {num:'02',name:'Calculus (Derivatives, Gradients, Chain Rule)',tags:[{t:'para',v:'parallel: Linear Algebra'},{t:'unlocks',v:'→ Backprop, Optimization'}]},
+      {num:'03',name:'Probability & Statistics (Descriptive)',tags:[{t:'pre',v:'after: Linear Algebra'},{t:'unlocks',v:'→ Inferential Stats, Bayes'}]},
+      {num:'04',name:'Inferential Statistics & Bayes Theorem',tags:[{t:'pre',v:'after: Descriptive Stats'},{t:'unlocks',v:'→ Naive Bayes, Model Eval'}]},
+      {num:'05',name:'Python Fundamentals (Syntax, OOP, DS)',tags:[{t:'para',v:'parallel: Math topics'},{t:'unlocks',v:'→ Everything'}]},
+      {num:'06',name:'NumPy',tags:[{t:'pre',v:'after: Python basics'},{t:'unlocks',v:'→ Pandas, Scikit-learn'}]},
+      {num:'07',name:'Pandas',tags:[{t:'pre',v:'after: NumPy'},{t:'unlocks',v:'→ Data Cleaning, EDA'}]},
+      {num:'08',name:'Matplotlib & Seaborn',tags:[{t:'pre',v:'after: Pandas'},{t:'para',v:'parallel: Pandas'},{t:'unlocks',v:'→ EDA, Model Visualization'}]},
+    ],
+    ex:{
+      b:['Implement dot product, matrix multiply from scratch using Python lists','Compute mean, variance, std dev manually before using NumPy','Load a CSV with Pandas and print shape, dtypes, null counts','Compute partial derivative of f(x,y) = x\u00b2y + 3xy\u00b2 by hand','Plot a normal distribution and mark mean \u00b1 1\u03c3, 2\u03c3, 3\u03c3 with matplotlib'],
+      i:['Implement SVD manually, compare output to numpy.linalg.svd','Bayes Theorem: build a spam classifier using only probability rules (no libraries)','Perform full EDA on Titanic dataset: nulls, distributions, correlations, outliers','Chain rule exercise: compute gradient of loss = (Wx + b - y)\u00b2 w.r.t. W and b','Build OOP-based Matrix class with add/mul/transpose/determinant methods'],
+      a:['Implement gradient descent from scratch using only NumPy, verify on quadratic function','Build a full statistical hypothesis testing module (t-test, chi-square, p-value)','Implement PCA from scratch using eigendecomposition, compare to sklearn PCA']
+    },
+    projects:[{ms:'MILESTONE 01',name:'📊 Exploratory Data Analysis Dashboard',desc:'Take any real-world dataset (Titanic, House Prices, or COVID data). Clean it entirely with Pandas, perform statistical analysis (mean, median, distributions, outliers, correlation matrix), and produce a complete EDA report with Matplotlib/Seaborn charts. Document every statistical insight with mathematical justification.',meta:[{l:'Uses',v:'Linear Algebra, Stats, Pandas, NumPy, Viz'},{l:'Output',v:'Jupyter Notebook with 15+ charts'},{l:'Difficulty',v:'Beginner → Intermediate'}]}]
+  },
+  {
+    id:'phase2', label:'Phase 2: Data', number:'PHASE 02',
+    title:'Data Engineering & Preprocessing', colorClass:'p2',
+    topics:[
+      {num:'09',name:'Data Sources (SQL, NoSQL, APIs, IoT)',tags:[{t:'pre',v:'after: Pandas'},{t:'unlocks',v:'→ Data Cleaning pipelines'}]},
+      {num:'10',name:'Data Formats (CSV, JSON, Parquet, Excel)',tags:[{t:'para',v:'parallel: Data Sources'},{t:'unlocks',v:'→ Preprocessing'}]},
+      {num:'11',name:'Data Cleaning & Preprocessing Techniques',tags:[{t:'pre',v:'after: Pandas, Data Sources'},{t:'unlocks',v:'→ Feature Engineering'}]},
+      {num:'12',name:'Feature Engineering & Feature Selection',tags:[{t:'pre',v:'after: Data Cleaning'},{t:'unlocks',v:'→ Model training quality'}]},
+      {num:'13',name:'Feature Scaling & Normalization',tags:[{t:'pre',v:'after: Feature Engineering'},{t:'unlocks',v:'→ All ML models'}]},
+      {num:'14',name:'Dimensionality Reduction (PCA, Autoencoders)',tags:[{t:'pre',v:'after: Linear Algebra, Scaling'},{t:'unlocks',v:'→ Unsupervised Learning'}]},
+    ],
+    ex:{
+      b:['Connect to SQLite DB, query data, load into Pandas DataFrame','Handle missing values: compare mean imputation vs median vs KNN imputer','Apply MinMaxScaler and StandardScaler, explain why each output differs','Create 3 new features from existing ones on house price dataset'],
+      i:['Build a reusable sklearn Pipeline: cleaning → encoding → scaling → model','Use SelectKBest and feature importance from Random Forest to compare selection methods','Consume a REST API, extract nested JSON into a flat DataFrame, handle pagination','Apply PCA to MNIST: visualize variance explained vs components count'],
+      a:['Build an automated feature selection pipeline that ranks features by 3 methods and takes a union','Implement target encoding with cross-validation leak prevention']
+    },
+    projects:[{ms:'MILESTONE 02',name:'🔧 End-to-End Data Preprocessing Pipeline',desc:'Pull data from a real API (e.g., OpenWeather, Yahoo Finance, or a Kaggle dataset), store it, build a full preprocessing pipeline: clean → engineer features → scale → reduce dimensions → export clean dataset. Use sklearn Pipelines. Document what each step changes about the data with before/after stats.',meta:[{l:'Uses',v:'Data Sources, Cleaning, FE, Scaling, PCA'},{l:'Output',v:'Reusable pipeline module + cleaned dataset'},{l:'Difficulty',v:'Intermediate'}]}]
+  },
+  {
+    id:'phase3', label:'Phase 3: Core ML', number:'PHASE 03',
+    title:'Core Machine Learning', colorClass:'p3',
+    topics:[
+      {num:'15',name:'Types of ML (Supervised / Unsupervised / RL / Self-Supervised)',tags:[{t:'pre',v:'after: Python, Math'},{t:'unlocks',v:'→ All ML models'}]},
+      {num:'16',name:'Linear Regression',tags:[{t:'pre',v:'after: Calculus, Stats, Phase 2'},{t:'para',v:'parallel: Logistic Regression'},{t:'unlocks',v:'→ Polynomial Regression, Ridge/Lasso'}]},
+      {num:'17',name:'Polynomial Regression',tags:[{t:'pre',v:'after: Linear Regression'},{t:'unlocks',v:'→ Regularization concepts'}]},
+      {num:'18',name:'Logistic Regression',tags:[{t:'pre',v:'after: Linear Regression basics'},{t:'unlocks',v:'→ SVM, Classification metrics'}]},
+      {num:'19',name:'Decision Trees & Random Forest',tags:[{t:'pre',v:'after: Classification concepts'},{t:'unlocks',v:'→ Gradient Boosting'}]},
+      {num:'20',name:'Support Vector Machines',tags:[{t:'pre',v:'after: Logistic Regression, Linear Algebra'},{t:'unlocks',v:'→ Kernel methods'}]},
+      {num:'21',name:'K-Nearest Neighbors',tags:[{t:'pre',v:'after: Distance metrics, scaling'},{t:'para',v:'parallel: Decision Trees'}]},
+      {num:'22',name:'Gradient Boosting Machines (XGBoost, LightGBM)',tags:[{t:'pre',v:'after: Decision Trees'},{t:'unlocks',v:'→ Advanced ensemble methods'}]},
+      {num:'23',name:'Clustering (Exclusive, Hierarchical, Overlapping, Probabilistic)',tags:[{t:'pre',v:'after: Unsupervised learning concepts'},{t:'para',v:'parallel: Dimensionality Reduction'}]},
+      {num:'24',name:'Model Evaluation Metrics (Accuracy, F1, ROC-AUC, Confusion Matrix)',tags:[{t:'pre',v:'after: First models trained'},{t:'unlocks',v:'→ Model selection, tuning'}]},
+      {num:'25',name:'Validation Techniques (K-Fold, LOOCV)',tags:[{t:'pre',v:'after: Model Evaluation Metrics'},{t:'unlocks',v:'→ Hyperparameter tuning'}]},
+      {num:'26',name:'Regularization (Ridge, Lasso, ElasticNet)',tags:[{t:'pre',v:'after: Linear/Polynomial Regression'},{t:'unlocks',v:'→ Overfitting control in NNs'}]},
+    ],
+    ex:{
+      b:['Implement linear regression from scratch using gradient descent (only NumPy)','Train logistic regression on Iris dataset, print confusion matrix','Run K-Means clustering on 2D data, visualize cluster centroids evolving per iteration','Plot ROC-AUC curve for binary classifier, explain what AUC=0.5 means vs AUC=1.0'],
+      i:['Compare Decision Tree depth vs accuracy/overfitting on train vs test sets with plots','Train XGBoost on tabular dataset, tune n_estimators, max_depth, learning_rate with GridSearchCV','Implement K-Fold CV manually (without sklearn), compare variance in scores across folds','SVM: compare linear vs RBF kernel, explain decision boundary shape differences'],
+      a:['Implement Random Forest from scratch: bagging + feature subsampling + majority voting','Build full model selection framework: train 5 models, K-Fold each, compare by F1-macro, select best','Implement DBSCAN from scratch, compare to K-Means on non-spherical cluster data']
+    },
+    projects:[
+      {ms:'MILESTONE 03',name:'🏠 House Price Prediction Engine',desc:'Full regression pipeline on Kaggle House Prices dataset. Preprocess → engineer features → compare Linear, Polynomial, Ridge, Lasso, Random Forest, XGBoost. Validate with K-Fold. Report RMSE, R\u00b2 for each. Select best model with justification.',meta:[{l:'Uses',v:'Phase 1+2 + Regression + Evaluation + Regularization'},{l:'Output',v:'Model comparison report + best model saved'}]},
+      {ms:'MILESTONE 04',name:'🎯 Customer Segmentation System',desc:'Use a retail/e-commerce dataset. Apply K-Means, DBSCAN, Hierarchical clustering. Reduce dims with PCA first. Evaluate clusters with silhouette score. Assign business-meaningful labels to each segment. Build a reusable segmentation module.',meta:[{l:'Uses',v:'Clustering, PCA, EDA, Feature Engineering'},{l:'Output',v:'Segmentation module + labeled dataset'}]}
+    ]
+  },
+  {
+    id:'phase4', label:'Phase 4: Deep Learning', number:'PHASE 04',
+    title:'Deep Learning Fundamentals & Architectures', colorClass:'p4',
+    topics:[
+      {num:'27',name:'Neural Network Basics (Perceptron, MLP)',tags:[{t:'pre',v:'after: Linear Algebra, Calculus, sklearn'},{t:'unlocks',v:'→ All DL architectures'}]},
+      {num:'28',name:'Forward & Backpropagation',tags:[{t:'pre',v:'after: NN Basics, Chain Rule'},{t:'unlocks',v:'→ All training techniques'}]},
+      {num:'29',name:'Activation Functions & Loss Functions',tags:[{t:'pre',v:'after: Forward/Backprop'},{t:'para',v:'parallel: Backprop study'}]},
+      {num:'30',name:'PyTorch / TensorFlow / Keras',tags:[{t:'pre',v:'after: NN Basics, Python OOP'},{t:'unlocks',v:'→ CNN, RNN, Transformers'}]},
+      {num:'31',name:'Convolutional Neural Networks (CNN)',tags:[{t:'pre',v:'after: PyTorch, NN Basics'},{t:'unlocks',v:'→ Image tasks'}]},
+      {num:'32',name:'CNN Applications (Classification, Segmentation, Video)',tags:[{t:'pre',v:'after: CNN architecture'},{t:'para',v:'parallel: RNN study'}]},
+      {num:'33',name:'Recurrent Neural Networks (RNN, GRU, LSTM)',tags:[{t:'pre',v:'after: PyTorch, NN Basics'},{t:'para',v:'parallel: CNN'},{t:'unlocks',v:'→ Attention, Transformers'}]},
+      {num:'34',name:'Attention Mechanisms',tags:[{t:'pre',v:'after: RNN/LSTM'},{t:'unlocks',v:'→ Transformers'}]},
+      {num:'35',name:'Autoencoders',tags:[{t:'pre',v:'after: MLP, PyTorch'},{t:'para',v:'parallel: CNN/RNN'},{t:'unlocks',v:'→ GANs, Anomaly detection'}]},
+      {num:'36',name:'Generative Adversarial Networks (GAN)',tags:[{t:'pre',v:'after: Autoencoders, CNN'},{t:'unlocks',v:'→ Advanced generative models'}]},
+    ],
+    ex:{
+      b:['Implement a 2-layer MLP from scratch in pure NumPy for XOR problem','Manually compute forward pass and backprop for a 3-neuron network on paper then code it','Build MNIST classifier using PyTorch, achieve >98% accuracy','Compare ReLU vs Sigmoid on same network: plot training loss curves'],
+      i:['Build CNN from scratch in PyTorch for CIFAR-10, implement conv → pool → FC layers manually','Build an LSTM to predict next character in text sequences (char-level LM)','Implement a denoising autoencoder, visualize original vs encoded vs decoded images','Code scaled dot-product attention from scratch using matrix operations'],
+      a:['Build a GAN to generate handwritten digits; track generator vs discriminator loss balance','Implement transfer learning: fine-tune ResNet18 on a custom image dataset with only last 2 layers unfrozen']
+    },
+    projects:[
+      {ms:'MILESTONE 05',name:'🖼️ Image Classifier with CNN (Transfer Learning)',desc:'Build an image classifier for a 5–10 class custom dataset using PyTorch. Train a CNN from scratch first, then apply transfer learning with ResNet/EfficientNet. Compare accuracy, training time, convergence speed. Deploy as a simple inference script.',meta:[{l:'Uses',v:'CNN, Backprop, PyTorch, Activation Fns, Transfer Learning'},{l:'Output',v:'Trained model + inference script + comparison report'}]},
+      {ms:'MILESTONE 06',name:'📈 Time Series Forecasting with LSTM',desc:'Use stock price or weather data. Build LSTM model in PyTorch to forecast next N time steps. Compare vs ARIMA baseline. Tune sequence length, hidden size, layers. Evaluate with MAE, RMSE. Bonus: add attention mechanism on top of LSTM.',meta:[{l:'Uses',v:'RNN, LSTM, Attention, Model Evaluation'},{l:'Output',v:'Forecasting system with visualized predictions'}]}
+    ]
+  },
+  {
+    id:'phase5', label:'Phase 5: Advanced', number:'PHASE 05',
+    title:'Advanced Topics — NLP, Transformers, RL', colorClass:'p5',
+    topics:[
+      {num:'37',name:'Transformers (Self-Attention, Multi-head Attention)',tags:[{t:'pre',v:'after: Attention Mechanisms, RNN'},{t:'unlocks',v:'→ BERT, GPT, modern LLMs'}]},
+      {num:'38',name:'NLP — Tokenization, Lemmatization, Stemming, Embeddings',tags:[{t:'pre',v:'after: Python, Stats basics'},{t:'para',v:'parallel: RNN study'},{t:'unlocks',v:'→ Transformers, Attention Models'}]},
+      {num:'39',name:'NLP Attention Models (BERT, GPT concepts)',tags:[{t:'pre',v:'after: Transformers, Embeddings'}]},
+      {num:'40',name:'Reinforcement Learning (Q-Learning, Deep-Q Networks)',tags:[{t:'pre',v:'after: NN Basics, Probability'},{t:'unlocks',v:'→ Policy Gradient, Actor-Critic'}]},
+      {num:'41',name:'Policy Gradient & Actor-Critic Methods',tags:[{t:'pre',v:'after: Q-Learning, DQN'}]},
+      {num:'42',name:'Recommendation Systems',tags:[{t:'pre',v:'after: Embeddings, Collaborative Filtering concepts'},{t:'para',v:'parallel: NLP topics'}]},
+      {num:'43',name:'Explainable AI (XAI)',tags:[{t:'pre',v:'after: Core ML + Deep Learning'},{t:'unlocks',v:'→ Production trustworthiness'}]},
+      {num:'44',name:'Advanced Concepts in ML (Self-supervised, Semi-supervised)',tags:[{t:'pre',v:'after: Supervised + Deep Learning'}]},
+    ],
+    ex:{
+      b:['Tokenize, lemmatize, and vectorize a news article using NLTK + spaCy','Train Word2Vec on a custom corpus, visualize word similarities with t-SNE','Implement Q-Learning on OpenAI Gym\'s FrozenLake environment from scratch'],
+      i:['Implement Transformer encoder from scratch in PyTorch (no HuggingFace), test on toy sequence task','Fine-tune BERT for sentiment classification on IMDB dataset using HuggingFace Transformers','Build DQN to play CartPole, compare epsilon-greedy vs pure greedy exploration','Build collaborative filtering recommender system using matrix factorization'],
+      a:['Add SHAP explanations to an XGBoost model, produce feature impact summary plots per prediction','Implement contrastive self-supervised learning (SimCLR-style) on CIFAR-10 with no labels']
+    },
+    projects:[
+      {ms:'MILESTONE 07',name:'💬 NLP Sentiment + Topic Analysis System',desc:'Build a dual-task NLP pipeline: sentiment classification (fine-tuned BERT) + topic modeling (LDA). Input: raw text dataset (tweets, reviews). Output: per-document sentiment score + top topics with representative keywords. Add SHAP explanations for sentiment model.',meta:[{l:'Uses',v:'Tokenization, Embeddings, Transformers, XAI'},{l:'Output',v:'Inference API-ready pipeline'}]},
+      {ms:'MILESTONE 08',name:'🎮 RL Agent for Game Environment',desc:'Train a DQN agent to solve a medium-complexity OpenAI Gym environment (LunarLander or CartPole-v1). Implement experience replay, target network, epsilon decay. Log training rewards and plot learning curves. Compare DQN vs random agent baseline.',meta:[{l:'Uses',v:'Q-Learning, DQN, Deep Learning, Policy methods'},{l:'Output',v:'Trained agent + reward curve visualization'}]}
+    ]
+  },
+  {
+    id:'phase6', label:'Phase 6: Production', number:'PHASE 06',
+    title:'Production ML — Deployment, Tuning & Full Systems', colorClass:'p6',
+    topics:[
+      {num:'45',name:'Model Selection, Hyperparameter Tuning',tags:[{t:'pre',v:'after: All Phase 3+4 models'},{t:'unlocks',v:'→ Production-ready models'}]},
+      {num:'46',name:'Data Preparation & Loading Pipelines (Train-Test Split)',tags:[{t:'pre',v:'after: Phase 2, sklearn'},{t:'para',v:'parallel: Model Selection'}]},
+      {num:'47',name:'Prediction Pipeline & Model Serving',tags:[{t:'pre',v:'after: Full ML training pipeline'},{t:'unlocks',v:'→ API deployment'}]},
+      {num:'48',name:'Scikit-learn Advanced (Pipelines, Custom Transformers)',tags:[{t:'pre',v:'after: All Phase 3'},{t:'para',v:'parallel: Model Serving'}]},
+    ],
+    ex:{
+      b:['Run GridSearchCV and RandomizedSearchCV on same model, compare tuning time vs score','Build a custom sklearn Transformer class with fit/transform methods','Save trained model with joblib/pickle, reload and run inference on new samples'],
+      i:['Build a full sklearn Pipeline: custom imputer → encoder → scaler → model → predict','Wrap a PyTorch model in a FastAPI endpoint: POST /predict returns JSON predictions','Implement Optuna hyperparameter optimization for XGBoost with 50 trials'],
+      a:['Build an AutoML-lite: auto-selects best model + params from a candidate list using Optuna + K-Fold scoring','Deploy a full ML pipeline as a Docker container with FastAPI, health endpoint, and /predict endpoint']
+    },
+    projects:[
+      {ms:'MILESTONE 09',name:'🏦 End-to-End ML SaaS — Fraud Detection API',desc:'Full production ML system: ingest transaction data → preprocess pipeline → train XGBoost + LSTM ensemble → evaluate with F1/AUC → expose as FastAPI service → containerize with Docker. Add SHAP explanations per prediction. This covers every topic from Phases 1–6.',meta:[{l:'Uses',v:'ALL phases'},{l:'Output',v:'Dockerized ML API'},{l:'Difficulty',v:'Production-grade'}]},
+      {ms:'MILESTONE 10',name:'🤖 AI-Powered App (Boaringseed Portfolio Piece)',desc:'Build a domain-specific ML product: either a stock signal classifier (StockSense integration), a multi-tenant recommendation engine, or an NLP document analyzer. Must include: proper data pipeline, trained model, REST API, basic frontend, and a 1-page technical writeup. This is your Boaringseed consulting showcase piece.',meta:[{l:'Uses',v:'Full roadmap'},{l:'Output',v:'Deployable product + writeup'},{l:'Purpose',v:'Client portfolio / consulting demo'}]}
+    ]
+  }
+];
 
-  <!-- ====== PHASE 1 ====== -->
-  <div class="phase p1" id="phase1">
+const SUMMARY_ROWS = [
+  ['01','Linear Algebra','High school math','Calculus, Python'],
+  ['02','Calculus','High school math','Linear Algebra, Python'],
+  ['03','Descriptive Statistics','Linear Algebra basics','Python basics'],
+  ['04','Inferential Stats + Bayes','Descriptive Stats','NumPy'],
+  ['05','Python Fundamentals','None','All math topics'],
+  ['06','NumPy','Python basics','Pandas'],
+  ['07','Pandas','NumPy','Matplotlib'],
+  ['08','Matplotlib + Seaborn','Pandas','Pandas'],
+  ['09','Data Sources','Pandas','Data Formats'],
+  ['10','Data Formats','Pandas','Data Sources'],
+  ['11','Data Cleaning','Pandas, Data Sources','—'],
+  ['12','Feature Engineering','Data Cleaning','Feature Scaling'],
+  ['13','Feature Scaling','Feature Engineering','Feature Selection'],
+  ['14','Dimensionality Reduction','Linear Algebra, Scaling','Unsupervised Learning'],
+  ['15','Types of ML','Phase 1 complete','Phase 2 wrap-up'],
+  ['16','Linear Regression','Calculus, Stats, Phase 2','Logistic Regression'],
+  ['17','Polynomial Regression','Linear Regression','Regularization'],
+  ['18','Logistic Regression','Linear Regression basics','KNN'],
+  ['19','Decision Trees + RF','Classification concepts','SVM'],
+  ['20','SVM','Logistic Reg, Linear Algebra','Decision Trees'],
+  ['21','KNN','Distance metrics, Scaling','Logistic Regression'],
+  ['22','Gradient Boosting','Decision Trees','Model Evaluation'],
+  ['23','Clustering','Unsupervised concepts','Dimensionality Reduction'],
+  ['24','Model Evaluation Metrics','First models trained','Validation Techniques'],
+  ['25','K-Fold, LOOCV','Model Eval Metrics','Regularization'],
+  ['26','Regularization','Regression models','K-Fold'],
+  ['27','NN Basics (MLP)','Linear Algebra, Calculus, sklearn','—'],
+  ['28','Forward + Backprop','NN Basics, Chain Rule','Activation Functions'],
+  ['29','Activation + Loss Fns','Backprop','Backprop study'],
+  ['30','PyTorch/TF/Keras','NN Basics, Python OOP','—'],
+  ['31','CNN','PyTorch, NN Basics','RNN'],
+  ['32','CNN Applications','CNN architecture','RNN study'],
+  ['33','RNN, GRU, LSTM','PyTorch, NN Basics','CNN'],
+  ['34','Attention Mechanisms','RNN/LSTM','Autoencoders'],
+  ['35','Autoencoders','MLP, PyTorch','CNN/RNN'],
+  ['36','GANs','Autoencoders, CNN','—'],
+  ['37','Transformers','Attention Mechanisms, RNN','NLP basics'],
+  ['38','NLP (Tokenization, Embeddings)','Python, Stats','RNN study'],
+  ['39','NLP Attention Models (BERT/GPT)','Transformers, Embeddings','—'],
+  ['40','Reinforcement Learning (Q/DQN)','NN Basics, Probability','NLP (independent track)'],
+  ['41','Policy Gradient, Actor-Critic','Q-Learning, DQN','—'],
+  ['42','Recommendation Systems','Embeddings, Collab Filter','NLP topics'],
+  ['43','Explainable AI','Core ML + Deep Learning','Phase 6 deployment'],
+  ['44','Advanced ML (Self/Semi-supervised)','Supervised + Deep Learning','XAI'],
+  ['45','Model Selection + Tuning','All Phase 3+4 models','Data Pipelines'],
+  ['46','Data Loading Pipelines','Phase 2, sklearn','Model Selection'],
+  ['47','Prediction + Model Serving','Full ML training pipeline','sklearn Advanced'],
+  ['48','Scikit-learn Advanced','All Phase 3','Model Serving'],
+];
+
+// ── COMPONENTS ───────────────────────────────────────────────────────────────
+function TopicCard({num,name,tags,d},pi,ti){
+  return `<div class="topic-card">
+    <div class="topic-num">${num}</div>
+    <div class="topic-card-header">
+      <div class="topic-name">${name}</div>
+      <button class="info-btn" onclick="openModal(${pi},${ti})" title="Learn more">&#x24D8;</button>
+    </div>
+    <div class="topic-tags">${tags.map(t=>`<span class="tag tag-${t.t}">${t.v}</span>`).join('')}</div>
+  </div>`;
+}
+function TopicGrid(topics, pi){
+  return `<div class="section-label">Topics</div>
+  <div class="topic-grid">${topics.map((t,i)=>TopicCard(t,pi,i)).join('')}</div>`;
+}
+function ExBlock(cls,label,items){
+  return `<div class="exercise-block">
+    <div class="ex-level ${cls}"><span class="dot"></span>${label}</div>
+    <ul class="ex-list">${items.map(i=>`<li>${i}</li>`).join('')}</ul>
+  </div>`;
+}
+function ExSection({b,i,a},label='Exercises per Topic'){
+  return `<div class="exercises-section">
+    <div class="section-label">${label}</div>
+    ${ExBlock('level-beg','Beginner',b)}
+    ${ExBlock('level-int','Intermediate',i)}
+    ${ExBlock('level-adv','Advanced',a)}
+  </div>`;
+}
+function ProjectCard({ms,name,desc,meta}){
+  return `<div class="project-card">
+    <div class="project-milestone">${ms}</div>
+    <div class="project-name">${name}</div>
+    <div class="project-desc">${desc}</div>
+    <div class="project-meta">${meta.map(m=>`<span class="meta-chip"><strong>${m.l}:</strong> ${m.v}</span>`).join('')}</div>
+  </div>`;
+}
+function ProjectsSection(projects,phaseTitle){
+  return `<div class="exercises-section">
+    <div class="section-label">Milestone Projects — ${phaseTitle}</div>
+    ${projects.map(ProjectCard).join('')}
+  </div>`;
+}
+function PhaseSection(ph){
+  return `<div class="phase ${ph.colorClass}" id="${ph.id}">
     <div class="phase-header" onclick="togglePhase(this)">
-      <span class="phase-number">PHASE 01</span>
-      <span class="phase-title">Mathematical & Programming Foundations</span>
-      <span class="phase-count">8 topics</span>
+      <span class="phase-number">${ph.number}</span>
+      <span class="phase-title">${ph.title}</span>
+      <span class="phase-count">${ph.topics.length} topics</span>
       <span class="phase-toggle">▾</span>
     </div>
     <div class="phase-body">
-
-      <div class="section-label">Topics</div>
-      <div class="topic-grid">
-
-        <div class="topic-card">
-          <div class="topic-num">01</div>
-          <div class="topic-name">Linear Algebra</div>
-          <div class="topic-tags">
-            <span class="tag tag-para">parallel: Calculus</span>
-            <span class="tag tag-unlocks">→ Neural Nets, PCA, SVD</span>
-          </div>
-        </div>
-
-        <div class="topic-card">
-          <div class="topic-num">02</div>
-          <div class="topic-name">Calculus (Derivatives, Gradients, Chain Rule)</div>
-          <div class="topic-tags">
-            <span class="tag tag-para">parallel: Linear Algebra</span>
-            <span class="tag tag-unlocks">→ Backprop, Optimization</span>
-          </div>
-        </div>
-
-        <div class="topic-card">
-          <div class="topic-num">03</div>
-          <div class="topic-name">Probability & Statistics (Descriptive)</div>
-          <div class="topic-tags">
-            <span class="tag tag-pre">after: Linear Algebra</span>
-            <span class="tag tag-unlocks">→ Inferential Stats, Bayes</span>
-          </div>
-        </div>
-
-        <div class="topic-card">
-          <div class="topic-num">04</div>
-          <div class="topic-name">Inferential Statistics & Bayes Theorem</div>
-          <div class="topic-tags">
-            <span class="tag tag-pre">after: Descriptive Stats</span>
-            <span class="tag tag-unlocks">→ Naive Bayes, Model Eval</span>
-          </div>
-        </div>
-
-        <div class="topic-card">
-          <div class="topic-num">05</div>
-          <div class="topic-name">Python Fundamentals (Syntax, OOP, DS)</div>
-          <div class="topic-tags">
-            <span class="tag tag-para">parallel: Math topics</span>
-            <span class="tag tag-unlocks">→ Everything</span>
-          </div>
-        </div>
-
-        <div class="topic-card">
-          <div class="topic-num">06</div>
-          <div class="topic-name">NumPy</div>
-          <div class="topic-tags">
-            <span class="tag tag-pre">after: Python basics</span>
-            <span class="tag tag-unlocks">→ Pandas, Scikit-learn</span>
-          </div>
-        </div>
-
-        <div class="topic-card">
-          <div class="topic-num">07</div>
-          <div class="topic-name">Pandas</div>
-          <div class="topic-tags">
-            <span class="tag tag-pre">after: NumPy</span>
-            <span class="tag tag-unlocks">→ Data Cleaning, EDA</span>
-          </div>
-        </div>
-
-        <div class="topic-card">
-          <div class="topic-num">08</div>
-          <div class="topic-name">Matplotlib & Seaborn</div>
-          <div class="topic-tags">
-            <span class="tag tag-pre">after: Pandas</span>
-            <span class="tag tag-para">parallel: Pandas</span>
-            <span class="tag tag-unlocks">→ EDA, Model Visualization</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="exercises-section">
-        <div class="section-label">Exercises per Topic</div>
-
-        <div class="exercise-block">
-          <div class="ex-level level-beg"><span class="dot"></span>Beginner</div>
-          <ul class="ex-list">
-            <li>Implement dot product, matrix multiply from scratch using Python lists</li>
-            <li>Compute mean, variance, std dev manually before using NumPy</li>
-            <li>Load a CSV with Pandas and print shape, dtypes, null counts</li>
-            <li>Compute partial derivative of f(x,y) = x²y + 3xy² by hand</li>
-            <li>Plot a normal distribution and mark mean ± 1σ, 2σ, 3σ with matplotlib</li>
-          </ul>
-        </div>
-        <div class="exercise-block">
-          <div class="ex-level level-int"><span class="dot"></span>Intermediate</div>
-          <ul class="ex-list">
-            <li>Implement SVD manually, compare output to numpy.linalg.svd</li>
-            <li>Bayes Theorem: build a spam classifier using only probability rules (no libraries)</li>
-            <li>Perform full EDA on Titanic dataset: nulls, distributions, correlations, outliers</li>
-            <li>Chain rule exercise: compute gradient of loss = (Wx + b - y)² w.r.t. W and b</li>
-            <li>Build OOP-based Matrix class with add/mul/transpose/determinant methods</li>
-          </ul>
-        </div>
-        <div class="exercise-block">
-          <div class="ex-level level-adv"><span class="dot"></span>Advanced</div>
-          <ul class="ex-list">
-            <li>Implement gradient descent from scratch using only NumPy, verify on quadratic function</li>
-            <li>Build a full statistical hypothesis testing module (t-test, chi-square, p-value)</li>
-            <li>Implement PCA from scratch using eigendecomposition, compare to sklearn PCA</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="exercises-section">
-        <div class="section-label">Milestone Project 1 — After Topics 01–08</div>
-        <div class="project-card">
-          <div class="project-milestone">MILESTONE 01</div>
-          <div class="project-name">📊 Exploratory Data Analysis Dashboard</div>
-          <div class="project-desc">
-            Take any real-world dataset (Titanic, House Prices, or COVID data). Clean it entirely with Pandas, perform statistical analysis (mean, median, distributions, outliers, correlation matrix), and produce a complete EDA report with Matplotlib/Seaborn charts. Document every statistical insight with mathematical justification.
-          </div>
-          <div class="project-meta">
-            <span class="meta-chip"><strong>Uses:</strong> Linear Algebra, Stats, Pandas, NumPy, Viz</span>
-            <span class="meta-chip"><strong>Output:</strong> Jupyter Notebook with 15+ charts</span>
-            <span class="meta-chip"><strong>Difficulty:</strong> Beginner → Intermediate</span>
-          </div>
-        </div>
-      </div>
-
+      ${TopicGrid(ph.topics, PHASES.indexOf(ph))}
+      ${ExSection(ph.ex)}
+      ${ProjectsSection(ph.projects, ph.title)}
     </div>
-  </div>
-
-  <!-- ====== PHASE 2 ====== -->
-  <div class="phase p2" id="phase2">
-    <div class="phase-header" onclick="togglePhase(this)">
-      <span class="phase-number">PHASE 02</span>
-      <span class="phase-title">Data Engineering & Preprocessing</span>
-      <span class="phase-count">6 topics</span>
-      <span class="phase-toggle">▾</span>
-    </div>
-    <div class="phase-body">
-
-      <div class="section-label">Topics</div>
-      <div class="topic-grid">
-        <div class="topic-card">
-          <div class="topic-num">09</div>
-          <div class="topic-name">Data Sources (SQL, NoSQL, APIs, IoT)</div>
-          <div class="topic-tags">
-            <span class="tag tag-pre">after: Pandas</span>
-            <span class="tag tag-unlocks">→ Data Cleaning pipelines</span>
-          </div>
-        </div>
-        <div class="topic-card">
-          <div class="topic-num">10</div>
-          <div class="topic-name">Data Formats (CSV, JSON, Parquet, Excel)</div>
-          <div class="topic-tags">
-            <span class="tag tag-para">parallel: Data Sources</span>
-            <span class="tag tag-unlocks">→ Preprocessing</span>
-          </div>
-        </div>
-        <div class="topic-card">
-          <div class="topic-num">11</div>
-          <div class="topic-name">Data Cleaning & Preprocessing Techniques</div>
-          <div class="topic-tags">
-            <span class="tag tag-pre">after: Pandas, Data Sources</span>
-            <span class="tag tag-unlocks">→ Feature Engineering</span>
-          </div>
-        </div>
-        <div class="topic-card">
-          <div class="topic-num">12</div>
-          <div class="topic-name">Feature Engineering & Feature Selection</div>
-          <div class="topic-tags">
-            <span class="tag tag-pre">after: Data Cleaning</span>
-            <span class="tag tag-unlocks">→ Model training quality</span>
-          </div>
-        </div>
-        <div class="topic-card">
-          <div class="topic-num">13</div>
-          <div class="topic-name">Feature Scaling & Normalization</div>
-          <div class="topic-tags">
-            <span class="tag tag-pre">after: Feature Engineering</span>
-            <span class="tag tag-unlocks">→ All ML models</span>
-          </div>
-        </div>
-        <div class="topic-card">
-          <div class="topic-num">14</div>
-          <div class="topic-name">Dimensionality Reduction (PCA, Autoencoders)</div>
-          <div class="topic-tags">
-            <span class="tag tag-pre">after: Linear Algebra, Scaling</span>
-            <span class="tag tag-unlocks">→ Unsupervised Learning</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="exercises-section">
-        <div class="section-label">Exercises per Topic</div>
-        <div class="exercise-block">
-          <div class="ex-level level-beg"><span class="dot"></span>Beginner</div>
-          <ul class="ex-list">
-            <li>Connect to SQLite DB, query data, load into Pandas DataFrame</li>
-            <li>Handle missing values: compare mean imputation vs median vs KNN imputer</li>
-            <li>Apply MinMaxScaler and StandardScaler, explain why each output differs</li>
-            <li>Create 3 new features from existing ones on house price dataset</li>
-          </ul>
-        </div>
-        <div class="exercise-block">
-          <div class="ex-level level-int"><span class="dot"></span>Intermediate</div>
-          <ul class="ex-list">
-            <li>Build a reusable sklearn Pipeline: cleaning → encoding → scaling → model</li>
-            <li>Use SelectKBest and feature importance from Random Forest to compare selection methods</li>
-            <li>Consume a REST API, extract nested JSON into a flat DataFrame, handle pagination</li>
-            <li>Apply PCA to MNIST: visualize variance explained vs components count</li>
-          </ul>
-        </div>
-        <div class="exercise-block">
-          <div class="ex-level level-adv"><span class="dot"></span>Advanced</div>
-          <ul class="ex-list">
-            <li>Build an automated feature selection pipeline that ranks features by 3 methods and takes a union</li>
-            <li>Implement target encoding with cross-validation leak prevention</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="exercises-section">
-        <div class="section-label">Milestone Project 2 — After Topics 09–14</div>
-        <div class="project-card">
-          <div class="project-milestone">MILESTONE 02</div>
-          <div class="project-name">🔧 End-to-End Data Preprocessing Pipeline</div>
-          <div class="project-desc">
-            Pull data from a real API (e.g., OpenWeather, Yahoo Finance, or a Kaggle dataset), store it, build a full preprocessing pipeline: clean → engineer features → scale → reduce dimensions → export clean dataset. Use sklearn Pipelines. Document what each step changes about the data with before/after stats.
-          </div>
-          <div class="project-meta">
-            <span class="meta-chip"><strong>Uses:</strong> Data Sources, Cleaning, FE, Scaling, PCA</span>
-            <span class="meta-chip"><strong>Output:</strong> Reusable pipeline module + cleaned dataset</span>
-            <span class="meta-chip"><strong>Difficulty:</strong> Intermediate</span>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- ====== PHASE 3 ====== -->
-  <div class="phase p3" id="phase3">
-    <div class="phase-header" onclick="togglePhase(this)">
-      <span class="phase-number">PHASE 03</span>
-      <span class="phase-title">Core Machine Learning</span>
-      <span class="phase-count">12 topics</span>
-      <span class="phase-toggle">▾</span>
-    </div>
-    <div class="phase-body">
-
-      <div class="section-label">Topics</div>
-      <div class="topic-grid">
-        <div class="topic-card">
-          <div class="topic-num">15</div>
-          <div class="topic-name">Types of ML (Supervised / Unsupervised / RL / Self-Supervised)</div>
-          <div class="topic-tags">
-            <span class="tag tag-pre">after: Python, Math</span>
-            <span class="tag tag-unlocks">→ All ML models</span>
-          </div>
-        </div>
-        <div class="topic-card">
-          <div class="topic-num">16</div>
-          <div class="topic-name">Linear Regression</div>
-          <div class="topic-tags">
-            <span class="tag tag-pre">after: Calculus, Stats, Phase 2</span>
-            <span class="tag tag-para">parallel: Logistic Regression</span>
-            <span class="tag tag-unlocks">→ Polynomial Regression, Ridge/Lasso</span>
-          </div>
-        </div>
-        <div class="topic-card">
-          <div class="topic-num">17</div>
-          <div class="topic-name">Polynomial Regression</div>
-          <div class="topic-tags">
-            <span class="tag tag-pre">after: Linear Regression</span>
-            <span class="tag tag-unlocks">→ Regularization concepts</span>
-          </div>
-        </div>
-        <div class="topic-card">
-          <div class="topic-num">18</div>
-          <div class="topic-name">Logistic Regression</div>
-          <div class="topic-tags">
-            <span class="tag tag-pre">after: Linear Regression basics</span>
-            <span class="tag tag-unlocks">→ SVM, Classification metrics</span>
-          </div>
-        </div>
-        <div class="topic-card">
-          <div class="topic-num">19</div>
-          <div class="topic-name">Decision Trees & Random Forest</div>
-          <div class="topic-tags">
-            <span class="tag tag-pre">after: Classification concepts</span>
-            <span class="tag tag-unlocks">→ Gradient Boosting</span>
-          </div>
-        </div>
-        <div class="topic-card">
-          <div class="topic-num">20</div>
-          <div class="topic-name">Support Vector Machines</div>
-          <div class="topic-tags">
-            <span class="tag tag-pre">after: Logistic Regression, Linear Algebra</span>
-            <span class="tag tag-unlocks">→ Kernel methods</span>
-          </div>
-        </div>
-        <div class="topic-card">
-          <div class="topic-num">21</div>
-          <div class="topic-name">K-Nearest Neighbors</div>
-          <div class="topic-tags">
-            <span class="tag tag-pre">after: Distance metrics, scaling</span>
-            <span class="tag tag-para">parallel: Decision Trees</span>
-          </div>
-        </div>
-        <div class="topic-card">
-          <div class="topic-num">22</div>
-          <div class="topic-name">Gradient Boosting Machines (XGBoost, LightGBM)</div>
-          <div class="topic-tags">
-            <span class="tag tag-pre">after: Decision Trees</span>
-            <span class="tag tag-unlocks">→ Advanced ensemble methods</span>
-          </div>
-        </div>
-        <div class="topic-card">
-          <div class="topic-num">23</div>
-          <div class="topic-name">Clustering (Exclusive, Hierarchical, Overlapping, Probabilistic)</div>
-          <div class="topic-tags">
-            <span class="tag tag-pre">after: Unsupervised learning concepts</span>
-            <span class="tag tag-para">parallel: Dimensionality Reduction</span>
-          </div>
-        </div>
-        <div class="topic-card">
-          <div class="topic-num">24</div>
-          <div class="topic-name">Model Evaluation Metrics (Accuracy, F1, ROC-AUC, Confusion Matrix)</div>
-          <div class="topic-tags">
-            <span class="tag tag-pre">after: First models trained</span>
-            <span class="tag tag-unlocks">→ Model selection, tuning</span>
-          </div>
-        </div>
-        <div class="topic-card">
-          <div class="topic-num">25</div>
-          <div class="topic-name">Validation Techniques (K-Fold, LOOCV)</div>
-          <div class="topic-tags">
-            <span class="tag tag-pre">after: Model Evaluation Metrics</span>
-            <span class="tag tag-unlocks">→ Hyperparameter tuning</span>
-          </div>
-        </div>
-        <div class="topic-card">
-          <div class="topic-num">26</div>
-          <div class="topic-name">Regularization (Ridge, Lasso, ElasticNet)</div>
-          <div class="topic-tags">
-            <span class="tag tag-pre">after: Linear/Polynomial Regression</span>
-            <span class="tag tag-unlocks">→ Overfitting control in NNs</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="exercises-section">
-        <div class="section-label">Exercises per Topic</div>
-        <div class="exercise-block">
-          <div class="ex-level level-beg"><span class="dot"></span>Beginner</div>
-          <ul class="ex-list">
-            <li>Implement linear regression from scratch using gradient descent (only NumPy)</li>
-            <li>Train logistic regression on Iris dataset, print confusion matrix</li>
-            <li>Run K-Means clustering on 2D data, visualize cluster centroids evolving per iteration</li>
-            <li>Plot ROC-AUC curve for binary classifier, explain what AUC=0.5 means vs AUC=1.0</li>
-          </ul>
-        </div>
-        <div class="exercise-block">
-          <div class="ex-level level-int"><span class="dot"></span>Intermediate</div>
-          <ul class="ex-list">
-            <li>Compare Decision Tree depth vs accuracy/overfitting on train vs test sets with plots</li>
-            <li>Train XGBoost on tabular dataset, tune n_estimators, max_depth, learning_rate with GridSearchCV</li>
-            <li>Implement K-Fold CV manually (without sklearn), compare variance in scores across folds</li>
-            <li>SVM: compare linear vs RBF kernel, explain decision boundary shape differences</li>
-          </ul>
-        </div>
-        <div class="exercise-block">
-          <div class="ex-level level-adv"><span class="dot"></span>Advanced</div>
-          <ul class="ex-list">
-            <li>Implement Random Forest from scratch: bagging + feature subsampling + majority voting</li>
-            <li>Build full model selection framework: train 5 models, K-Fold each, compare by F1-macro, select best</li>
-            <li>Implement DBSCAN from scratch, compare to K-Means on non-spherical cluster data</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="exercises-section">
-        <div class="section-label">Milestone Projects — Phase 3</div>
-        <div class="project-card">
-          <div class="project-milestone">MILESTONE 03</div>
-          <div class="project-name">🏠 House Price Prediction Engine</div>
-          <div class="project-desc">
-            Full regression pipeline on Kaggle House Prices dataset. Preprocess → engineer features → compare Linear, Polynomial, Ridge, Lasso, Random Forest, XGBoost. Validate with K-Fold. Report RMSE, R² for each. Select best model with justification.
-          </div>
-          <div class="project-meta">
-            <span class="meta-chip"><strong>Uses:</strong> Phase 1+2 + Regression + Evaluation + Regularization</span>
-            <span class="meta-chip"><strong>Output:</strong> Model comparison report + best model saved</span>
-          </div>
-        </div>
-        <div class="project-card">
-          <div class="project-milestone">MILESTONE 04</div>
-          <div class="project-name">🎯 Customer Segmentation System</div>
-          <div class="project-desc">
-            Use a retail/e-commerce dataset. Apply K-Means, DBSCAN, Hierarchical clustering. Reduce dims with PCA first. Evaluate clusters with silhouette score. Assign business-meaningful labels to each segment. Build a reusable segmentation module.
-          </div>
-          <div class="project-meta">
-            <span class="meta-chip"><strong>Uses:</strong> Clustering, PCA, EDA, Feature Engineering</span>
-            <span class="meta-chip"><strong>Output:</strong> Segmentation module + labeled dataset</span>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- ====== PHASE 4 ====== -->
-  <div class="phase p4" id="phase4">
-    <div class="phase-header" onclick="togglePhase(this)">
-      <span class="phase-number">PHASE 04</span>
-      <span class="phase-title">Deep Learning Fundamentals & Architectures</span>
-      <span class="phase-count">10 topics</span>
-      <span class="phase-toggle">▾</span>
-    </div>
-    <div class="phase-body">
-
-      <div class="section-label">Topics</div>
-      <div class="topic-grid">
-        <div class="topic-card">
-          <div class="topic-num">27</div>
-          <div class="topic-name">Neural Network Basics (Perceptron, MLP)</div>
-          <div class="topic-tags">
-            <span class="tag tag-pre">after: Linear Algebra, Calculus, sklearn</span>
-            <span class="tag tag-unlocks">→ All DL architectures</span>
-          </div>
-        </div>
-        <div class="topic-card">
-          <div class="topic-num">28</div>
-          <div class="topic-name">Forward & Backpropagation</div>
-          <div class="topic-tags">
-            <span class="tag tag-pre">after: NN Basics, Chain Rule</span>
-            <span class="tag tag-unlocks">→ All training techniques</span>
-          </div>
-        </div>
-        <div class="topic-card">
-          <div class="topic-num">29</div>
-          <div class="topic-name">Activation Functions & Loss Functions</div>
-          <div class="topic-tags">
-            <span class="tag tag-pre">after: Forward/Backprop</span>
-            <span class="tag tag-para">parallel: Backprop study</span>
-          </div>
-        </div>
-        <div class="topic-card">
-          <div class="topic-num">30</div>
-          <div class="topic-name">PyTorch / TensorFlow / Keras</div>
-          <div class="topic-tags">
-            <span class="tag tag-pre">after: NN Basics, Python OOP</span>
-            <span class="tag tag-unlocks">→ CNN, RNN, Transformers</span>
-          </div>
-        </div>
-        <div class="topic-card">
-          <div class="topic-num">31</div>
-          <div class="topic-name">Convolutional Neural Networks (CNN)</div>
-          <div class="topic-tags">
-            <span class="tag tag-pre">after: PyTorch, NN Basics</span>
-            <span class="tag tag-unlocks">→ Image tasks</span>
-          </div>
-        </div>
-        <div class="topic-card">
-          <div class="topic-num">32</div>
-          <div class="topic-name">CNN Applications (Classification, Segmentation, Video)</div>
-          <div class="topic-tags">
-            <span class="tag tag-pre">after: CNN architecture</span>
-            <span class="tag tag-para">parallel: RNN study</span>
-          </div>
-        </div>
-        <div class="topic-card">
-          <div class="topic-num">33</div>
-          <div class="topic-name">Recurrent Neural Networks (RNN, GRU, LSTM)</div>
-          <div class="topic-tags">
-            <span class="tag tag-pre">after: PyTorch, NN Basics</span>
-            <span class="tag tag-para">parallel: CNN</span>
-            <span class="tag tag-unlocks">→ Attention, Transformers</span>
-          </div>
-        </div>
-        <div class="topic-card">
-          <div class="topic-num">34</div>
-          <div class="topic-name">Attention Mechanisms</div>
-          <div class="topic-tags">
-            <span class="tag tag-pre">after: RNN/LSTM</span>
-            <span class="tag tag-unlocks">→ Transformers</span>
-          </div>
-        </div>
-        <div class="topic-card">
-          <div class="topic-num">35</div>
-          <div class="topic-name">Autoencoders</div>
-          <div class="topic-tags">
-            <span class="tag tag-pre">after: MLP, PyTorch</span>
-            <span class="tag tag-para">parallel: CNN/RNN</span>
-            <span class="tag tag-unlocks">→ GANs, Anomaly detection</span>
-          </div>
-        </div>
-        <div class="topic-card">
-          <div class="topic-num">36</div>
-          <div class="topic-name">Generative Adversarial Networks (GAN)</div>
-          <div class="topic-tags">
-            <span class="tag tag-pre">after: Autoencoders, CNN</span>
-            <span class="tag tag-unlocks">→ Advanced generative models</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="exercises-section">
-        <div class="section-label">Exercises per Topic</div>
-        <div class="exercise-block">
-          <div class="ex-level level-beg"><span class="dot"></span>Beginner</div>
-          <ul class="ex-list">
-            <li>Implement a 2-layer MLP from scratch in pure NumPy for XOR problem</li>
-            <li>Manually compute forward pass and backprop for a 3-neuron network on paper then code it</li>
-            <li>Build MNIST classifier using PyTorch, achieve >98% accuracy</li>
-            <li>Compare ReLU vs Sigmoid on same network: plot training loss curves</li>
-          </ul>
-        </div>
-        <div class="exercise-block">
-          <div class="ex-level level-int"><span class="dot"></span>Intermediate</div>
-          <ul class="ex-list">
-            <li>Build CNN from scratch in PyTorch for CIFAR-10, implement conv → pool → FC layers manually</li>
-            <li>Build an LSTM to predict next character in text sequences (char-level LM)</li>
-            <li>Implement a denoising autoencoder, visualize original vs encoded vs decoded images</li>
-            <li>Code scaled dot-product attention from scratch using matrix operations</li>
-          </ul>
-        </div>
-        <div class="exercise-block">
-          <div class="ex-level level-adv"><span class="dot"></span>Advanced</div>
-          <ul class="ex-list">
-            <li>Build a GAN to generate handwritten digits; track generator vs discriminator loss balance</li>
-            <li>Implement transfer learning: fine-tune ResNet18 on a custom image dataset with only last 2 layers unfrozen</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="exercises-section">
-        <div class="section-label">Milestone Projects — Phase 4</div>
-        <div class="project-card">
-          <div class="project-milestone">MILESTONE 05</div>
-          <div class="project-name">🖼️ Image Classifier with CNN (Transfer Learning)</div>
-          <div class="project-desc">
-            Build an image classifier for a 5–10 class custom dataset using PyTorch. Train a CNN from scratch first, then apply transfer learning with ResNet/EfficientNet. Compare accuracy, training time, convergence speed. Deploy as a simple inference script.
-          </div>
-          <div class="project-meta">
-            <span class="meta-chip"><strong>Uses:</strong> CNN, Backprop, PyTorch, Activation Fns, Transfer Learning</span>
-            <span class="meta-chip"><strong>Output:</strong> Trained model + inference script + comparison report</span>
-          </div>
-        </div>
-        <div class="project-card">
-          <div class="project-milestone">MILESTONE 06</div>
-          <div class="project-name">📈 Time Series Forecasting with LSTM</div>
-          <div class="topic-tags"></div>
-          <div class="project-desc">
-            Use stock price or weather data. Build LSTM model in PyTorch to forecast next N time steps. Compare vs ARIMA baseline. Tune sequence length, hidden size, layers. Evaluate with MAE, RMSE. Bonus: add attention mechanism on top of LSTM.
-          </div>
-          <div class="project-meta">
-            <span class="meta-chip"><strong>Uses:</strong> RNN, LSTM, Attention, Model Evaluation</span>
-            <span class="meta-chip"><strong>Output:</strong> Forecasting system with visualized predictions</span>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- ====== PHASE 5 ====== -->
-  <div class="phase p5" id="phase5">
-    <div class="phase-header" onclick="togglePhase(this)">
-      <span class="phase-number">PHASE 05</span>
-      <span class="phase-title">Advanced Topics — NLP, Transformers, RL</span>
-      <span class="phase-count">8 topics</span>
-      <span class="phase-toggle">▾</span>
-    </div>
-    <div class="phase-body">
-
-      <div class="section-label">Topics</div>
-      <div class="topic-grid">
-        <div class="topic-card">
-          <div class="topic-num">37</div>
-          <div class="topic-name">Transformers (Self-Attention, Multi-head Attention)</div>
-          <div class="topic-tags">
-            <span class="tag tag-pre">after: Attention Mechanisms, RNN</span>
-            <span class="tag tag-unlocks">→ BERT, GPT, modern LLMs</span>
-          </div>
-        </div>
-        <div class="topic-card">
-          <div class="topic-num">38</div>
-          <div class="topic-name">NLP — Tokenization, Lemmatization, Stemming, Embeddings</div>
-          <div class="topic-tags">
-            <span class="tag tag-pre">after: Python, Stats basics</span>
-            <span class="tag tag-para">parallel: RNN study</span>
-            <span class="tag tag-unlocks">→ Transformers, Attention Models</span>
-          </div>
-        </div>
-        <div class="topic-card">
-          <div class="topic-num">39</div>
-          <div class="topic-name">NLP Attention Models (BERT, GPT concepts)</div>
-          <div class="topic-tags">
-            <span class="tag tag-pre">after: Transformers, Embeddings</span>
-          </div>
-        </div>
-        <div class="topic-card">
-          <div class="topic-num">40</div>
-          <div class="topic-name">Reinforcement Learning (Q-Learning, Deep-Q Networks)</div>
-          <div class="topic-tags">
-            <span class="tag tag-pre">after: NN Basics, Probability</span>
-            <span class="tag tag-unlocks">→ Policy Gradient, Actor-Critic</span>
-          </div>
-        </div>
-        <div class="topic-card">
-          <div class="topic-num">41</div>
-          <div class="topic-name">Policy Gradient & Actor-Critic Methods</div>
-          <div class="topic-tags">
-            <span class="tag tag-pre">after: Q-Learning, DQN</span>
-          </div>
-        </div>
-        <div class="topic-card">
-          <div class="topic-num">42</div>
-          <div class="topic-name">Recommendation Systems</div>
-          <div class="topic-tags">
-            <span class="tag tag-pre">after: Embeddings, Collaborative Filtering concepts</span>
-            <span class="tag tag-para">parallel: NLP topics</span>
-          </div>
-        </div>
-        <div class="topic-card">
-          <div class="topic-num">43</div>
-          <div class="topic-name">Explainable AI (XAI)</div>
-          <div class="topic-tags">
-            <span class="tag tag-pre">after: Core ML + Deep Learning</span>
-            <span class="tag tag-unlocks">→ Production trustworthiness</span>
-          </div>
-        </div>
-        <div class="topic-card">
-          <div class="topic-num">44</div>
-          <div class="topic-name">Advanced Concepts in ML (Self-supervised, Semi-supervised)</div>
-          <div class="topic-tags">
-            <span class="tag tag-pre">after: Supervised + Deep Learning</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="exercises-section">
-        <div class="section-label">Exercises per Topic</div>
-        <div class="exercise-block">
-          <div class="ex-level level-beg"><span class="dot"></span>Beginner</div>
-          <ul class="ex-list">
-            <li>Tokenize, lemmatize, and vectorize a news article using NLTK + spaCy</li>
-            <li>Train Word2Vec on a custom corpus, visualize word similarities with t-SNE</li>
-            <li>Implement Q-Learning on OpenAI Gym's FrozenLake environment from scratch</li>
-          </ul>
-        </div>
-        <div class="exercise-block">
-          <div class="ex-level level-int"><span class="dot"></span>Intermediate</div>
-          <ul class="ex-list">
-            <li>Implement Transformer encoder from scratch in PyTorch (no HuggingFace), test on toy sequence task</li>
-            <li>Fine-tune BERT for sentiment classification on IMDB dataset using HuggingFace Transformers</li>
-            <li>Build DQN to play CartPole, compare epsilon-greedy vs pure greedy exploration</li>
-            <li>Build collaborative filtering recommender system using matrix factorization</li>
-          </ul>
-        </div>
-        <div class="exercise-block">
-          <div class="ex-level level-adv"><span class="dot"></span>Advanced</div>
-          <ul class="ex-list">
-            <li>Add SHAP explanations to an XGBoost model, produce feature impact summary plots per prediction</li>
-            <li>Implement contrastive self-supervised learning (SimCLR-style) on CIFAR-10 with no labels</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="exercises-section">
-        <div class="section-label">Milestone Projects — Phase 5</div>
-        <div class="project-card">
-          <div class="project-milestone">MILESTONE 07</div>
-          <div class="project-name">💬 NLP Sentiment + Topic Analysis System</div>
-          <div class="project-desc">
-            Build a dual-task NLP pipeline: sentiment classification (fine-tuned BERT) + topic modeling (LDA). Input: raw text dataset (tweets, reviews). Output: per-document sentiment score + top topics with representative keywords. Add SHAP explanations for sentiment model.
-          </div>
-          <div class="project-meta">
-            <span class="meta-chip"><strong>Uses:</strong> Tokenization, Embeddings, Transformers, XAI</span>
-            <span class="meta-chip"><strong>Output:</strong> Inference API-ready pipeline</span>
-          </div>
-        </div>
-        <div class="project-card">
-          <div class="project-milestone">MILESTONE 08</div>
-          <div class="project-name">🎮 RL Agent for Game Environment</div>
-          <div class="project-desc">
-            Train a DQN agent to solve a medium-complexity OpenAI Gym environment (LunarLander or CartPole-v1). Implement experience replay, target network, epsilon decay. Log training rewards and plot learning curves. Compare DQN vs random agent baseline.
-          </div>
-          <div class="project-meta">
-            <span class="meta-chip"><strong>Uses:</strong> Q-Learning, DQN, Deep Learning, Policy methods</span>
-            <span class="meta-chip"><strong>Output:</strong> Trained agent + reward curve visualization</span>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- ====== PHASE 6 ====== -->
-  <div class="phase p6" id="phase6">
-    <div class="phase-header" onclick="togglePhase(this)">
-      <span class="phase-number">PHASE 06</span>
-      <span class="phase-title">Production ML — Deployment, Tuning & Full Systems</span>
-      <span class="phase-count">4 topics</span>
-      <span class="phase-toggle">▾</span>
-    </div>
-    <div class="phase-body">
-
-      <div class="section-label">Topics</div>
-      <div class="topic-grid">
-        <div class="topic-card">
-          <div class="topic-num">45</div>
-          <div class="topic-name">Model Selection, Hyperparameter Tuning</div>
-          <div class="topic-tags">
-            <span class="tag tag-pre">after: All Phase 3+4 models</span>
-            <span class="tag tag-unlocks">→ Production-ready models</span>
-          </div>
-        </div>
-        <div class="topic-card">
-          <div class="topic-num">46</div>
-          <div class="topic-name">Data Preparation & Loading Pipelines (Train-Test Split)</div>
-          <div class="topic-tags">
-            <span class="tag tag-pre">after: Phase 2, sklearn</span>
-            <span class="tag tag-para">parallel: Model Selection</span>
-          </div>
-        </div>
-        <div class="topic-card">
-          <div class="topic-num">47</div>
-          <div class="topic-name">Prediction Pipeline & Model Serving</div>
-          <div class="topic-tags">
-            <span class="tag tag-pre">after: Full ML training pipeline</span>
-            <span class="tag tag-unlocks">→ API deployment</span>
-          </div>
-        </div>
-        <div class="topic-card">
-          <div class="topic-num">48</div>
-          <div class="topic-name">Scikit-learn Advanced (Pipelines, Custom Transformers)</div>
-          <div class="topic-tags">
-            <span class="tag tag-pre">after: All Phase 3</span>
-            <span class="tag tag-para">parallel: Model Serving</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="exercises-section">
-        <div class="section-label">Exercises per Topic</div>
-        <div class="exercise-block">
-          <div class="ex-level level-beg"><span class="dot"></span>Beginner</div>
-          <ul class="ex-list">
-            <li>Run GridSearchCV and RandomizedSearchCV on same model, compare tuning time vs score</li>
-            <li>Build a custom sklearn Transformer class with fit/transform methods</li>
-            <li>Save trained model with joblib/pickle, reload and run inference on new samples</li>
-          </ul>
-        </div>
-        <div class="exercise-block">
-          <div class="ex-level level-int"><span class="dot"></span>Intermediate</div>
-          <ul class="ex-list">
-            <li>Build a full sklearn Pipeline: custom imputer → encoder → scaler → model → predict</li>
-            <li>Wrap a PyTorch model in a FastAPI endpoint: POST /predict returns JSON predictions</li>
-            <li>Implement Optuna hyperparameter optimization for XGBoost with 50 trials</li>
-          </ul>
-        </div>
-        <div class="exercise-block">
-          <div class="ex-level level-adv"><span class="dot"></span>Advanced</div>
-          <ul class="ex-list">
-            <li>Build an AutoML-lite: auto-selects best model + params from a candidate list using Optuna + K-Fold scoring</li>
-            <li>Deploy a full ML pipeline as a Docker container with FastAPI, health endpoint, and /predict endpoint</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="exercises-section">
-        <div class="section-label">Milestone Projects — Phase 6</div>
-        <div class="project-card">
-          <div class="project-milestone">MILESTONE 09</div>
-          <div class="project-name">🏦 End-to-End ML SaaS — Fraud Detection API</div>
-          <div class="project-desc">
-            Full production ML system: ingest transaction data → preprocess pipeline → train XGBoost + LSTM ensemble → evaluate with F1/AUC → expose as FastAPI service → containerize with Docker. Add SHAP explanations per prediction. This covers every topic from Phases 1–6.
-          </div>
-          <div class="project-meta">
-            <span class="meta-chip"><strong>Uses:</strong> ALL phases</span>
-            <span class="meta-chip"><strong>Output:</strong> Dockerized ML API</span>
-            <span class="meta-chip"><strong>Difficulty:</strong> Production-grade</span>
-          </div>
-        </div>
-        <div class="project-card">
-          <div class="project-milestone">MILESTONE 10</div>
-          <div class="project-name">🤖 AI-Powered App (Boaringseed Portfolio Piece)</div>
-          <div class="project-desc">
-            Build a domain-specific ML product: either a stock signal classifier (StockSense integration), a multi-tenant recommendation engine, or an NLP document analyzer. Must include: proper data pipeline, trained model, REST API, basic frontend, and a 1-page technical writeup. This is your Boaringseed consulting showcase piece.
-          </div>
-          <div class="project-meta">
-            <span class="meta-chip"><strong>Uses:</strong> Full roadmap</span>
-            <span class="meta-chip"><strong>Output:</strong> Deployable product + writeup</span>
-            <span class="meta-chip"><strong>Purpose:</strong> Client portfolio / consulting demo</span>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- ====== QUICK REF TABLE ====== -->
-  <div class="phase p1" id="summary" style="margin-bottom:48px;">
+  </div>`;
+}
+function SummaryTable(rows){
+  return `<div class="phase p1" id="summary" style="margin-bottom:48px;">
     <div class="phase-header" onclick="togglePhase(this)">
       <span class="phase-number">REF</span>
       <span class="phase-title">Parallel vs Sequential Quick Reference</span>
@@ -1177,100 +421,125 @@
     </div>
     <div class="phase-body">
       <table class="summary-table">
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>Topic</th>
-            <th>Requires</th>
-            <th>Parallel With</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td>01</td><td>Linear Algebra</td><td>High school math</td><td>Calculus, Python</td></tr>
-          <tr><td>02</td><td>Calculus</td><td>High school math</td><td>Linear Algebra, Python</td></tr>
-          <tr><td>03</td><td>Descriptive Statistics</td><td>Linear Algebra basics</td><td>Python basics</td></tr>
-          <tr><td>04</td><td>Inferential Stats + Bayes</td><td>Descriptive Stats</td><td>NumPy</td></tr>
-          <tr><td>05</td><td>Python Fundamentals</td><td>None</td><td>All math topics</td></tr>
-          <tr><td>06</td><td>NumPy</td><td>Python basics</td><td>Pandas</td></tr>
-          <tr><td>07</td><td>Pandas</td><td>NumPy</td><td>Matplotlib</td></tr>
-          <tr><td>08</td><td>Matplotlib + Seaborn</td><td>Pandas</td><td>Pandas</td></tr>
-          <tr><td>09</td><td>Data Sources</td><td>Pandas</td><td>Data Formats</td></tr>
-          <tr><td>10</td><td>Data Formats</td><td>Pandas</td><td>Data Sources</td></tr>
-          <tr><td>11</td><td>Data Cleaning</td><td>Pandas, Data Sources</td><td>—</td></tr>
-          <tr><td>12</td><td>Feature Engineering</td><td>Data Cleaning</td><td>Feature Scaling</td></tr>
-          <tr><td>13</td><td>Feature Scaling</td><td>Feature Engineering</td><td>Feature Selection</td></tr>
-          <tr><td>14</td><td>Dimensionality Reduction</td><td>Linear Algebra, Scaling</td><td>Unsupervised Learning</td></tr>
-          <tr><td>15</td><td>Types of ML</td><td>Phase 1 complete</td><td>Phase 2 wrap-up</td></tr>
-          <tr><td>16</td><td>Linear Regression</td><td>Calculus, Stats, Phase 2</td><td>Logistic Regression</td></tr>
-          <tr><td>17</td><td>Polynomial Regression</td><td>Linear Regression</td><td>Regularization</td></tr>
-          <tr><td>18</td><td>Logistic Regression</td><td>Linear Regression basics</td><td>KNN</td></tr>
-          <tr><td>19</td><td>Decision Trees + RF</td><td>Classification concepts</td><td>SVM</td></tr>
-          <tr><td>20</td><td>SVM</td><td>Logistic Reg, Linear Algebra</td><td>Decision Trees</td></tr>
-          <tr><td>21</td><td>KNN</td><td>Distance metrics, Scaling</td><td>Logistic Regression</td></tr>
-          <tr><td>22</td><td>Gradient Boosting</td><td>Decision Trees</td><td>Model Evaluation</td></tr>
-          <tr><td>23</td><td>Clustering</td><td>Unsupervised concepts</td><td>Dimensionality Reduction</td></tr>
-          <tr><td>24</td><td>Model Evaluation Metrics</td><td>First models trained</td><td>Validation Techniques</td></tr>
-          <tr><td>25</td><td>K-Fold, LOOCV</td><td>Model Eval Metrics</td><td>Regularization</td></tr>
-          <tr><td>26</td><td>Regularization</td><td>Regression models</td><td>K-Fold</td></tr>
-          <tr><td>27</td><td>NN Basics (MLP)</td><td>Linear Algebra, Calculus, sklearn</td><td>—</td></tr>
-          <tr><td>28</td><td>Forward + Backprop</td><td>NN Basics, Chain Rule</td><td>Activation Functions</td></tr>
-          <tr><td>29</td><td>Activation + Loss Fns</td><td>Backprop</td><td>Backprop study</td></tr>
-          <tr><td>30</td><td>PyTorch/TF/Keras</td><td>NN Basics, Python OOP</td><td>—</td></tr>
-          <tr><td>31</td><td>CNN</td><td>PyTorch, NN Basics</td><td>RNN</td></tr>
-          <tr><td>32</td><td>CNN Applications</td><td>CNN architecture</td><td>RNN study</td></tr>
-          <tr><td>33</td><td>RNN, GRU, LSTM</td><td>PyTorch, NN Basics</td><td>CNN</td></tr>
-          <tr><td>34</td><td>Attention Mechanisms</td><td>RNN/LSTM</td><td>Autoencoders</td></tr>
-          <tr><td>35</td><td>Autoencoders</td><td>MLP, PyTorch</td><td>CNN/RNN</td></tr>
-          <tr><td>36</td><td>GANs</td><td>Autoencoders, CNN</td><td>—</td></tr>
-          <tr><td>37</td><td>Transformers</td><td>Attention Mechanisms, RNN</td><td>NLP basics</td></tr>
-          <tr><td>38</td><td>NLP (Tokenization, Embeddings)</td><td>Python, Stats</td><td>RNN study</td></tr>
-          <tr><td>39</td><td>NLP Attention Models (BERT/GPT)</td><td>Transformers, Embeddings</td><td>—</td></tr>
-          <tr><td>40</td><td>Reinforcement Learning (Q/DQN)</td><td>NN Basics, Probability</td><td>NLP (independent track)</td></tr>
-          <tr><td>41</td><td>Policy Gradient, Actor-Critic</td><td>Q-Learning, DQN</td><td>—</td></tr>
-          <tr><td>42</td><td>Recommendation Systems</td><td>Embeddings, Collab Filter</td><td>NLP topics</td></tr>
-          <tr><td>43</td><td>Explainable AI</td><td>Core ML + Deep Learning</td><td>Phase 6 deployment</td></tr>
-          <tr><td>44</td><td>Advanced ML (Self/Semi-supervised)</td><td>Supervised + Deep Learning</td><td>XAI</td></tr>
-          <tr><td>45</td><td>Model Selection + Tuning</td><td>All Phase 3+4 models</td><td>Data Pipelines</td></tr>
-          <tr><td>46</td><td>Data Loading Pipelines</td><td>Phase 2, sklearn</td><td>Model Selection</td></tr>
-          <tr><td>47</td><td>Prediction + Model Serving</td><td>Full ML training pipeline</td><td>sklearn Advanced</td></tr>
-          <tr><td>48</td><td>Scikit-learn Advanced</td><td>All Phase 3</td><td>Model Serving</td></tr>
-        </tbody>
+        <thead><tr><th>#</th><th>Topic</th><th>Requires</th><th>Parallel With</th></tr></thead>
+        <tbody>${rows.map(r=>`<tr><td>${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td><td>${r[3]}</td></tr>`).join('')}</tbody>
       </table>
     </div>
-  </div>
+  </div>`;
+}
+function NavStrip(phases){
+  return phases.map((p,i)=>`<a class="nav-pill${i===0?' active':''}" href="#${p.id}">${p.label}</a>`).join('');
+}
 
-  <footer>
-    ML Mastery Roadmap — 48 Topics · 10 Milestone Projects · Structured for Jay @ Boaringseed
-  </footer>
-</div>
+// ── RENDER ───────────────────────────────────────────────────────────────────
+document.getElementById('nav-strip').innerHTML = NavStrip(PHASES);
+document.getElementById('phases-root').innerHTML =
+  PHASES.map(PhaseSection).join('') + SummaryTable(SUMMARY_ROWS);
 
-<script>
-  function togglePhase(header) {
-    const phase = header.closest('.phase');
-    phase.classList.toggle('collapsed');
-  }
+// ── INTERACTIONS ─────────────────────────────────────────────────────────────
+function togglePhase(header){ header.closest('.phase').classList.toggle('collapsed'); }
 
-  // Nav pill active state
-  document.querySelectorAll('.nav-pill').forEach(pill => {
-    pill.addEventListener('click', function() {
-      document.querySelectorAll('.nav-pill').forEach(p => p.classList.remove('active'));
-      this.classList.add('active');
-    });
+document.querySelectorAll('.nav-pill').forEach(pill => {
+  pill.addEventListener('click', function(){
+    document.querySelectorAll('.nav-pill').forEach(p => p.classList.remove('active'));
+    this.classList.add('active');
   });
+});
 
-  // Highlight nav on scroll
-  const phases = document.querySelectorAll('.phase[id]');
-  const pills = document.querySelectorAll('.nav-pill');
-  window.addEventListener('scroll', () => {
-    let current = '';
-    phases.forEach(p => {
-      if (window.scrollY >= p.offsetTop - 120) current = p.id;
-    });
-    pills.forEach(p => {
-      p.classList.remove('active');
-      if (p.getAttribute('href') === '#' + current) p.classList.add('active');
-    });
+const phaseEls = document.querySelectorAll('.phase[id]');
+const pills    = document.querySelectorAll('.nav-pill');
+window.addEventListener('scroll', () => {
+  let cur = '';
+  phaseEls.forEach(p => { if(window.scrollY >= p.offsetTop - 120) cur = p.id; });
+  pills.forEach(p => {
+    p.classList.remove('active');
+    if(p.getAttribute('href') === '#' + cur) p.classList.add('active');
   });
+});
+
+// ── TOPIC DETAILS ─────────────────────────────────────────────────────────
+const DETAILS={
+'01':{desc:'Linear Algebra is the mathematics of vectors, matrices, and linear transformations — the most critical math prerequisite for ML.',concepts:['Vectors & Vector Spaces','Matrix Multiplication & Transpose','Eigenvalues & Eigenvectors','SVD (Singular Value Decomposition)','Dot Products & Projections','Norms (L1, L2) & Distance Metrics'],why:'Neural networks are chains of matrix multiplications. PCA, SVD, and attention are all linear algebra. Without this you cannot understand what your models compute.',time:'3-4 weeks',difficulty:'Intermediate',resources:[{icon:'📘',text:'3Blue1Brown — Essence of Linear Algebra (YouTube)'},{icon:'📗',text:'Gilbert Strang — Introduction to Linear Algebra (MIT)'},{icon:'💻',text:'numpy.linalg docs — practice every operation in code'}]},
+'02':{desc:'Calculus gives us the tools to optimize ML models. Derivatives measure how a function changes and gradient descent uses this to minimize loss functions.',concepts:['Derivatives & Partial Derivatives','Chain Rule','Gradient & Directional Derivatives','Jacobian & Hessian Matrices','Taylor Series Approximation','Multivariate Optimization'],why:'Backpropagation is the chain rule applied to a computation graph. Every optimizer relies on gradients. You cannot debug training without understanding calculus.',time:'2-3 weeks',difficulty:'Intermediate',resources:[{icon:'📘',text:'3Blue1Brown — Essence of Calculus (YouTube)'},{icon:'📗',text:'Khan Academy — Multivariable Calculus (free)'},{icon:'💻',text:'PyTorch autograd — see calculus in action'}]},
+'03':{desc:'Descriptive statistics summarizes the main features of a dataset. It is your first lens for understanding data before any model is trained.',concepts:['Mean, Median, Mode','Variance & Standard Deviation','Skewness & Kurtosis','Histograms & Box Plots','Covariance & Correlation Matrix','Percentiles & Outlier Detection (IQR)'],why:'Every ML project starts with EDA. If you cannot describe your data, you will make wrong modelling decisions — garbage in, garbage out.',time:'1-2 weeks',difficulty:'Beginner',resources:[{icon:'📘',text:'Think Stats by Allen Downey (free PDF)'},{icon:'💻',text:'Pandas + Seaborn: describe(), .corr(), pairplot()'},{icon:'📊',text:'Kaggle — practice EDA on Titanic, Iris'}]},
+'04':{desc:'Inferential statistics lets you draw conclusions about a population from a sample. Bayes Theorem is the framework for updating beliefs given new evidence.',concepts:['Hypothesis Testing (t-test, chi-square)','p-values & Statistical Significance','Confidence Intervals','Bayes Theorem: P(A|B) = P(B|A)P(A)/P(B)','Prior, Likelihood, Posterior','Naive Bayes Classifier'],why:'A/B testing, confidence intervals, and Bayesian models all require this. It prevents you from fooling yourself with statistically insignificant results.',time:'2-3 weeks',difficulty:'Intermediate',resources:[{icon:'📘',text:'Naked Statistics by Charles Wheelan'},{icon:'📗',text:'StatQuest with Josh Starmer (YouTube)'},{icon:'💻',text:'scipy.stats — t-test, chi2_contingency, binom_test'}]},
+'05':{desc:'Python is the dominant language for ML. You need solid fundamentals — clean OOP, data structures, and the ability to write reusable modular code.',concepts:['Data Types, Control Flow, Functions','List/Dict Comprehensions','OOP — Classes, Inheritance, Dunder Methods','Iterators & Generators','Decorators & Context Managers','File I/O and Exception Handling'],why:'Every ML library is Python. You will write custom layers, data loaders, and pipelines — you need fluent Python, not just hello-world.',time:'2-3 weeks',difficulty:'Beginner',resources:[{icon:'📘',text:'Fluent Python by Luciano Ramalho'},{icon:'💻',text:'Python.org official tutorial — free & complete'},{icon:'🎯',text:'LeetCode Easy problems — reinforce logic & data structures'}]},
+'06':{desc:'NumPy provides fast N-dimensional arrays and mathematical operations that form the backbone of every ML library.',concepts:['ndarray — shape, dtype, broadcasting','Array Indexing & Slicing','Vectorized Operations (no Python loops)','Linear Algebra (np.linalg)','Random Number Generation (np.random)','Stacking, Reshaping, Transposing'],why:'Pandas, scikit-learn, and PyTorch all use NumPy arrays internally. If you cannot vectorize your code your models will be 100x slower.',time:'1-2 weeks',difficulty:'Beginner',resources:[{icon:'📗',text:'NumPy official docs — 100 NumPy exercises (GitHub)'},{icon:'💻',text:'numpy.org/learn — interactive quickstart'},{icon:'📘',text:'From Python to NumPy by Nicolas Rougier (free PDF)'}]},
+'07':{desc:'Pandas is the go-to library for data manipulation and analysis. Think Excel in Python — but far more powerful, programmable, and reproducible.',concepts:['Series & DataFrame','Indexing: .loc, .iloc, boolean masks','GroupBy, Merge, Join, Pivot','Handling Missing Data','Apply, Map, Lambda Functions','Reading/Writing CSV, JSON, Excel, SQL'],why:'Real-world data is always messy. You will spend 60-80% of any ML project wrangling data in Pandas.',time:'2 weeks',difficulty:'Beginner',resources:[{icon:'📗',text:'Pandas official docs — 10 minutes to pandas'},{icon:'💻',text:'Kaggle Learn — Pandas micro-course (free)'},{icon:'📘',text:'Python for Data Analysis by Wes McKinney'}]},
+'08':{desc:'Matplotlib and Seaborn are the core plotting libraries. Visualization is how you understand data, communicate insights, and debug model behaviour.',concepts:['Line, Bar, Scatter, Histogram plots','Subplots & Figure Layout','Seaborn — heatmaps, pairplots, violin plots','Customizing labels, titles, legends','Plotting model outputs (loss curves, ROC)','Interactive plots with plotly (optional)'],why:'A model that cannot be visualized cannot be fully understood or trusted. Charts catch data leakage and class imbalance that tables miss.',time:'1 week',difficulty:'Beginner',resources:[{icon:'📗',text:'Matplotlib official gallery — real examples'},{icon:'📘',text:'Seaborn tutorial — seaborn.pydata.org'},{icon:'💻',text:'Kaggle — EDA notebooks on any dataset'}]},
+'09':{desc:'ML systems need data from databases, APIs, and IoT streams. Knowing how to acquire structured and unstructured data is the first step in any real pipeline.',concepts:['SQL — SELECT, JOIN, GROUP BY, subqueries','NoSQL — MongoDB, Redis (documents, key-value)','REST API consumption with requests/httpx','Pagination, authentication, rate limiting','IoT data formats (MQTT, time-series)','SQLAlchemy ORM for database abstraction'],why:'You will rarely be handed a clean CSV. Production ML systems pull from databases, APIs, and streaming sources.',time:'2 weeks',difficulty:'Beginner-Intermediate',resources:[{icon:'📗',text:'SQLZoo — free interactive SQL exercises'},{icon:'💻',text:'public-apis.io — practice REST API consumption'},{icon:'📘',text:'SQLAlchemy docs — ORM quickstart'}]},
+'10':{desc:'Different data formats serve different performance needs. Knowing when to use CSV vs Parquet vs JSON is a production-level skill.',concepts:['CSV — human-readable, no compression','JSON & JSONL — nested, API-native','Parquet — columnar, compressed, fast analytics','HDF5 — large numerical arrays (ML datasets)','Pickle — Python-native object serialization','Arrow/Feather — fast in-memory interchange'],why:'Parquet can load 10x faster than CSV for large datasets. Choosing the right format reduces pipeline bottlenecks significantly.',time:'1 week',difficulty:'Beginner',resources:[{icon:'💻',text:'pandas.read_parquet() vs read_csv() — benchmark yourself'},{icon:'📗',text:'Apache Parquet docs — columnar storage explained'},{icon:'📘',text:'Python pickle vs joblib — serialization patterns'}]},
+'11':{desc:'Real data is almost always dirty — missing values, wrong types, duplicates, inconsistent formatting. Data cleaning is the most time-consuming step in any ML project.',concepts:['Handling missing values (drop, impute, flag)','Fixing data types and encoding','Removing duplicates and inconsistencies','Outlier detection and treatment','String cleaning (regex, strip, lower)','Datetime parsing and feature extraction'],why:'A dirty dataset produces a broken model. Studies show data scientists spend 60-80% of their time cleaning data.',time:'2 weeks',difficulty:'Beginner-Intermediate',resources:[{icon:'📗',text:'Pandas docs — Working with missing data'},{icon:'💻',text:'Kaggle — Titanic dataset cleaning challenge'},{icon:'📘',text:'sklearn.impute — SimpleImputer, KNNImputer, IterativeImputer'}]},
+'12':{desc:'Feature Engineering transforms raw data into inputs that help models learn better. Feature Selection identifies which features to keep and which to drop.',concepts:['Creating interaction features','Polynomial features (x^2, x*y)','Encoding categoricals (OneHot, Ordinal, Target)','Binning continuous variables','SelectKBest, RFE, tree feature importance','Mutual information and correlation-based selection'],why:'The right features can double model accuracy. Feature engineering often matters more than algorithm choice.',time:'2-3 weeks',difficulty:'Intermediate',resources:[{icon:'📘',text:'Feature Engineering for ML by Alice Zheng'},{icon:'💻',text:'sklearn.preprocessing & sklearn.feature_selection docs'},{icon:'🎯',text:'Kaggle competitions — study top notebooks for FE tricks'}]},
+'13':{desc:'Feature Scaling normalizes the range of features so no single feature dominates due to its magnitude. Essential for distance-based and gradient-based models.',concepts:['MinMaxScaler — scales to [0, 1]','StandardScaler — zero mean, unit variance','RobustScaler — robust to outliers (uses IQR)','Normalizer — scales each sample to unit norm','Log and power transforms for skewed data','When NOT to scale (tree-based models)'],why:'KNN, SVMs, and neural networks are sensitive to feature scale. Without scaling a feature with range [0,10000] will dominate one with [0,1].',time:'1 week',difficulty:'Beginner',resources:[{icon:'📗',text:'sklearn.preprocessing docs — complete scaler guide'},{icon:'💻',text:'Build a StandardScaler from scratch — implement fit/transform'},{icon:'📘',text:'Hands-On ML by Aurelien Geron — Ch. 2'}]},
+'14':{desc:'High-dimensional data is slow to train on and hard to visualize. Dimensionality Reduction compresses data while preserving the most information.',concepts:['PCA — maximizes explained variance','t-SNE — nonlinear, for visualization','UMAP — faster than t-SNE, topology-preserving','LDA — supervised dimensionality reduction','Autoencoders — learned nonlinear compression','Explained variance ratio & scree plots'],why:'Reduces training time, removes noise, enables visualization of high-dim data, and can improve model performance by eliminating redundant features.',time:'2 weeks',difficulty:'Intermediate',resources:[{icon:'📘',text:'StatQuest — PCA main ideas (YouTube)'},{icon:'💻',text:'sklearn.decomposition — PCA, TruncatedSVD, FastICA'},{icon:'📗',text:'UMAP docs — umap-learn.readthedocs.io'}]},
+'15':{desc:'Understanding the landscape of ML — supervised, unsupervised, reinforcement, and self-supervised learning — is the conceptual foundation before diving into any specific algorithm.',concepts:['Supervised Learning — labelled input-output pairs','Unsupervised Learning — structure without labels','Reinforcement Learning — reward-driven agent behaviour','Self-Supervised Learning — labels from data itself','Semi-supervised Learning — mixed labelled/unlabelled','Key applications and industry use cases for each type'],why:'Choosing the wrong learning paradigm is a fundamental mistake. Knowing when you have a supervised vs unsupervised problem shapes every downstream decision.',time:'3-5 days',difficulty:'Beginner',resources:[{icon:'📘',text:'Google ML Crash Course — free, well structured'},{icon:'🎥',text:'Andrew Ng — Machine Learning Specialization (Coursera)'},{icon:'📗',text:'Hands-On ML by Aurelien Geron — Chapter 1'}]},
+'16':{desc:'Linear Regression finds the best-fit line through data to predict a continuous output. The simplest and most interpretable ML model — and the conceptual seed of deep learning.',concepts:['Hypothesis function: y_hat = Xw + b','Cost function: Mean Squared Error (MSE)','Gradient Descent — batch, stochastic, mini-batch','Normal Equation — closed-form solution','R-squared score and residual analysis','Assumptions: linearity, homoscedasticity, normality'],why:'Understanding linear regression deeply gives you the intuition to understand every more complex model that follows.',time:'1-2 weeks',difficulty:'Beginner',resources:[{icon:'📘',text:'Andrew Ng ML Course — linear regression from scratch'},{icon:'💻',text:'Implement with NumPy only, then verify with sklearn'},{icon:'📗',text:'sklearn.linear_model.LinearRegression docs'}]},
+'17':{desc:'Polynomial Regression adds polynomial features to capture non-linear relationships while keeping the algorithm linear in its parameters.',concepts:['PolynomialFeatures transformer','Bias-Variance Tradeoff visualized','Overfitting as degree increases','Regularization as the cure for high-degree polynomials','Interaction terms','Cross-validation to select optimal degree'],why:'Real-world data is rarely linear. Polynomial regression is the bridge between linear models and neural networks, perfectly illustrating overfitting.',time:'1 week',difficulty:'Beginner-Intermediate',resources:[{icon:'💻',text:'sklearn.preprocessing.PolynomialFeatures — experiment yourself'},{icon:'📘',text:'StatQuest — Polynomial Regression (YouTube)'},{icon:'📗',text:'Plot train vs test error as degree increases — observe overfitting'}]},
+'18':{desc:'Logistic Regression predicts the probability of a binary class using the sigmoid function. The foundation for understanding classification in ML.',concepts:['Sigmoid function — maps anything to (0, 1)','Log-loss (Binary Cross-Entropy) cost function','Decision boundary and threshold tuning','Multi-class extension (Softmax, One-vs-Rest)','Odds ratio and log-odds interpretation','Regularization with C parameter'],why:'Logistic regression is still used in production at scale (e.g., Google ads CTR). Deep learning classification heads are logistic regression.',time:'1-2 weeks',difficulty:'Beginner-Intermediate',resources:[{icon:'📘',text:'StatQuest — Logistic Regression (YouTube series)'},{icon:'💻',text:'Implement sigmoid, log-loss, gradient descent from scratch'},{icon:'📗',text:'sklearn.linear_model.LogisticRegression docs'}]},
+'19':{desc:'Decision Trees split data hierarchically based on feature thresholds. Random Forest combines hundreds of trees with bagging and random feature subsampling.',concepts:['Gini Impurity & Information Gain (Entropy)','Tree depth, min_samples_leaf hyperparameters','Bagging (Bootstrap Aggregating)','Random feature subsampling per split','Feature importance from tree ensembles','Out-of-bag (OOB) error estimation'],why:'Random Forest is one of the most robust ML algorithms — handles mixed data types, missing values, and non-linear relationships without much tuning.',time:'2 weeks',difficulty:'Intermediate',resources:[{icon:'📘',text:'StatQuest — Decision Trees & Random Forests (YouTube)'},{icon:'💻',text:'sklearn.tree.DecisionTreeClassifier — plot_tree'},{icon:'📗',text:'sklearn.ensemble.RandomForestClassifier — feature_importances_'}]},
+'20':{desc:'SVMs find the optimal hyperplane that maximizes the margin between classes. Kernel functions allow SVMs to handle non-linearly separable data.',concepts:['Support Vectors & Maximum Margin Hyperplane','Soft Margin SVM — C parameter (bias-variance)','Kernel Trick — RBF, polynomial, sigmoid kernels','SVM for regression (SVR)','Dual problem formulation','Computational complexity and scalability limits'],why:'The kernel trick and concept of margin are foundational ideas referenced throughout ML theory. SVMs are still competitive on small-medium tabular datasets.',time:'2 weeks',difficulty:'Intermediate-Advanced',resources:[{icon:'📘',text:'StatQuest — Support Vector Machines (YouTube)'},{icon:'💻',text:'sklearn.svm.SVC — compare linear vs RBF boundaries'},{icon:'📗',text:'libsvm paper — understanding the algorithm deeply'}]},
+'21':{desc:'KNN classifies a point by majority vote of its k nearest neighbours. No training — pure memorization of the dataset at inference time.',concepts:['Euclidean, Manhattan, Minkowski distance metrics','Choosing optimal k with cross-validation','Curse of dimensionality — why KNN fails in high dims','KD-Tree and Ball-Tree for fast lookup','Weighted KNN — closer neighbours vote more','KNN for regression (average of neighbours)'],why:'KNN illustrates the importance of feature scaling and the right distance metric. It motivates why we need smarter algorithms for large data.',time:'1 week',difficulty:'Beginner',resources:[{icon:'📘',text:'StatQuest — K-nearest Neighbors (YouTube)'},{icon:'💻',text:'sklearn.neighbors.KNeighborsClassifier — experiment with k'},{icon:'📗',text:'Visualize decision boundaries for different k values'}]},
+'22':{desc:'Gradient Boosting builds an ensemble of trees sequentially, each correcting the errors of the previous. XGBoost and LightGBM dominate structured data competitions.',concepts:['Boosting — sequential error correction','Gradient Boosting: fitting residuals iteratively','XGBoost — regularization, tree pruning, parallel build','LightGBM — leaf-wise growth, speed advantage','Key hyperparameters: n_estimators, learning_rate, max_depth','SHAP values for feature importance'],why:'XGBoost and LightGBM win the majority of Kaggle tabular competitions. Top choice for fraud detection, credit scoring, and recommendation ranking.',time:'2-3 weeks',difficulty:'Intermediate-Advanced',resources:[{icon:'📘',text:'StatQuest — Gradient Boost series (YouTube)'},{icon:'💻',text:'xgboost.readthedocs.io — parameter tuning guide'},{icon:'📗',text:'Microsoft LightGBM docs — leaf-wise vs level-wise'}]},
+'23':{desc:'Clustering groups data points by similarity without labels. K-Means finds spheres, DBSCAN finds arbitrary shapes, GMM gives probabilistic assignments.',concepts:['K-Means — centroid-based, requires k upfront','Hierarchical (Agglomerative) — dendrogram, no k needed','DBSCAN — density-based, finds outliers automatically','Gaussian Mixture Models (GMM) — soft assignments','Silhouette Score & Davies-Bouldin Index','Elbow method for choosing k'],why:'Customer segmentation, anomaly detection, document grouping — all use clustering. First algorithm to reach for with unlabelled data.',time:'2 weeks',difficulty:'Intermediate',resources:[{icon:'📘',text:'StatQuest — K-means & Hierarchical Clustering (YouTube)'},{icon:'💻',text:'sklearn.cluster — KMeans, DBSCAN, AgglomerativeClustering'},{icon:'📗',text:'scikit-learn clustering docs — comparison of algorithms'}]},
+'24':{desc:'Model evaluation metrics measure whether your model is actually good. Accuracy alone is dangerously misleading — especially with class imbalance.',concepts:['Confusion Matrix — TP, FP, TN, FN','Precision, Recall, F1-Score','ROC Curve & AUC score','Precision-Recall Curve (for imbalanced data)','MAE, MSE, RMSE, R-squared (for regression)','Log-loss and calibration for probability models'],why:'A model 99% accurate on fraud data might never detect fraud. Using the right metric is the difference between a safe and a dangerous model.',time:'1-2 weeks',difficulty:'Beginner-Intermediate',resources:[{icon:'📘',text:'StatQuest — ROC & AUC, Precision-Recall (YouTube)'},{icon:'💻',text:'sklearn.metrics — full metrics API'},{icon:'📗',text:'Kaggle — evaluation section of each competition'}]},
+'25':{desc:'Validation techniques give an unbiased estimate of model performance on unseen data. Without proper validation you will overfit to your test set.',concepts:['Train/Validation/Test split (80/10/10)','K-Fold Cross-Validation — rotate validation set','Stratified K-Fold — preserves class distribution','Leave-One-Out CV (LOOCV) — expensive but thorough','Time-Series CV — no future data leakage','Nested CV for hyperparameter tuning'],why:'Data leakage is the #1 reason models fail in production. Proper validation is the only way to get a realistic performance estimate.',time:'1 week',difficulty:'Intermediate',resources:[{icon:'📘',text:'sklearn cross-validation docs — cross_val_score, KFold'},{icon:'💻',text:'Implement K-Fold from scratch to understand the mechanics'},{icon:'📗',text:'sklearn.model_selection.TimeSeriesSplit'}]},
+'26':{desc:'Regularization adds a penalty to the loss function to discourage overly complex models. Ridge (L2), Lasso (L1), and ElasticNet are the three main variants.',concepts:['L2 Regularization (Ridge) — shrinks all weights','L1 Regularization (Lasso) — sparse weights, feature selection','ElasticNet — hybrid of L1 and L2','Dropout in neural networks — same intuition','Lambda/alpha — regularization strength hyperparameter','Bias-Variance Tradeoff visualization'],why:'Overfitting is universal in ML. Regularization is the primary defence. Lasso can simultaneously fit a model and select features.',time:'1-2 weeks',difficulty:'Intermediate',resources:[{icon:'📘',text:'StatQuest — Ridge & Lasso regression (YouTube)'},{icon:'💻',text:'sklearn.linear_model — Ridge, Lasso, ElasticNet'},{icon:'📗',text:'Plot coefficient paths as alpha increases — understand sparsity'}]},
+'27':{desc:'A neural network is composed of layers of artificial neurons (perceptrons). The MLP is the foundational architecture — understanding it unlocks all of deep learning.',concepts:['Perceptron — weighted sum + step function','Sigmoid neuron — differentiable activation','MLP — input layer, hidden layers, output layer','Forward Pass — computing predictions','Parameters: weights (W) and biases (b)','Universal Approximation Theorem'],why:'Every advanced architecture (CNN, RNN, Transformer) is built from the same building blocks as the MLP. The perceptron is the foundation of the entire deep learning stack.',time:'2 weeks',difficulty:'Intermediate',resources:[{icon:'📘',text:'3Blue1Brown — Neural Networks series (YouTube, 4 videos)'},{icon:'💻',text:'Implement a 2-layer MLP from scratch in NumPy (XOR)'},{icon:'📗',text:'Neural Networks and Deep Learning by Michael Nielsen (free)'}]},
+'28':{desc:'Forward propagation computes predictions. Backpropagation computes the gradient of the loss w.r.t. every weight using the chain rule — enabling gradient descent to train the network.',concepts:['Computation Graph representation','Chain Rule applied to nested functions','Gradient of MSE and Cross-Entropy w.r.t. weights','Vanishing & Exploding Gradient problems','Gradient Checkpointing','Automatic Differentiation (autograd)'],why:'Backpropagation is the single algorithm that makes deep learning work. Without understanding it you cannot debug training failures or exploding gradients.',time:'2-3 weeks',difficulty:'Advanced',resources:[{icon:'📘',text:'CS231n — Backpropagation lecture (Stanford, free)'},{icon:'💻',text:'Implement backprop from scratch in NumPy — do not skip this'},{icon:'📗',text:'PyTorch autograd — .grad, .backward(), retain_graph'}]},
+'29':{desc:'Activation functions introduce non-linearity so networks can learn complex patterns. Loss functions measure the error between predictions and ground truth.',concepts:['Sigmoid, Tanh — saturation and vanishing gradient','ReLU — default choice, fast convergence','Leaky ReLU, ELU, GELU — solving dying ReLU','Softmax — multi-class output probability','MSE loss — regression','Cross-Entropy loss — classification'],why:'Choosing the wrong activation in deep networks causes vanishing gradients. The right loss function defines what your model actually optimizes for.',time:'1 week',difficulty:'Intermediate',resources:[{icon:'📘',text:'CS231n — Neural Networks Part 1: Architecture'},{icon:'💻',text:'Plot activation functions and their gradients'},{icon:'📗',text:'PyTorch nn.ReLU, nn.Sigmoid, nn.CrossEntropyLoss docs'}]},
+'30':{desc:'PyTorch, TensorFlow, and Keras provide automatic differentiation, GPU support, and pre-built layers — eliminating the need to implement backprop manually.',concepts:['Tensor operations — creation, indexing, broadcasting','nn.Module — defining custom layers and models','Optimizer: SGD, Adam, RMSProp','Training loop: forward -> loss -> backward -> step','DataLoader — batching and shuffling datasets','GPU acceleration — .to(device), CUDA'],why:'PyTorch is the dominant framework for research and production. Knowing it deeply means you can implement any architecture from a paper.',time:'3-4 weeks',difficulty:'Intermediate',resources:[{icon:'📘',text:'PyTorch official tutorials — pytorch.org/tutorials'},{icon:'💻',text:'Build MNIST classifier with PyTorch from scratch'},{icon:'📗',text:'Fast.ai course — practical deep learning (free)'}]},
+'31':{desc:'CNNs use convolutional filters to detect spatial hierarchies in images — edges, textures, objects. They are the backbone of computer vision.',concepts:['Convolution operation — filters, stride, padding','Pooling — MaxPool, AvgPool','Receptive field and depth','BatchNorm — stable training','Architecture families: VGG, ResNet, EfficientNet','Skip connections (ResNet) — solving vanishing gradient'],why:'Every production vision system (face recognition, medical imaging, autonomous driving) is built on CNNs. This is the entry point to computer vision.',time:'3-4 weeks',difficulty:'Intermediate-Advanced',resources:[{icon:'📘',text:'CS231n Convolutional Neural Networks (Stanford, free)'},{icon:'💻',text:'Build CNN for CIFAR-10 in PyTorch from scratch'},{icon:'📗',text:'ResNet paper — Deep Residual Learning for Image Recognition'}]},
+'32':{desc:'CNNs power tasks beyond classification — semantic segmentation (pixel labels), object detection (bounding boxes), and video understanding.',concepts:['Image Classification — softmax output','Object Detection — YOLO, Faster R-CNN, SSD','Semantic Segmentation — U-Net, FCN','Instance Segmentation — Mask R-CNN','Video — 3D CNN, Two-Stream Networks','Transfer Learning — fine-tuning pretrained models'],why:'Knowing CNN applications separates someone who trained MNIST from someone who can build real vision products.',time:'2-3 weeks',difficulty:'Intermediate-Advanced',resources:[{icon:'📘',text:'YOLO paper series — fast object detection'},{icon:'💻',text:'torchvision — pretrained models and detection datasets'},{icon:'📗',text:'U-Net paper — semantic segmentation for medical imaging'}]},
+'33':{desc:'RNNs process sequential data by maintaining a hidden state. LSTMs and GRUs solve the vanishing gradient problem enabling learning of long-range dependencies.',concepts:['RNN — hidden state recurrence','Vanishing Gradient in RNNs','LSTM — cell state, input/forget/output gates','GRU — simplified LSTM, fewer parameters','Bidirectional RNN — reads sequence both ways','Sequence-to-sequence (Seq2Seq) architecture'],why:'Understanding RNNs is required to understand attention mechanisms and Transformers — their natural evolution.',time:'3 weeks',difficulty:'Intermediate-Advanced',resources:[{icon:'📘',text:"Colah's blog — Understanding LSTMs (must-read)"},{icon:'💻',text:'Build char-level language model with LSTM in PyTorch'},{icon:'📗',text:'PyTorch nn.LSTM, nn.GRU documentation'}]},
+'34':{desc:'Attention mechanisms allow models to focus on relevant parts of an input — solving the bottleneck of encoding entire sequences into a single fixed vector.',concepts:['Seq2Seq bottleneck problem','Additive Attention (Bahdanau)','Dot-Product Attention (Luong)','Scaled Dot-Product Attention — Q, K, V matrices','Self-Attention — attending to the same sequence','Multi-Head Attention — parallel attention heads'],why:'Attention is the direct predecessor of Transformers. Understanding the Q/K/V mechanism is required to understand BERT, GPT, and every modern LLM.',time:'2 weeks',difficulty:'Advanced',resources:[{icon:'📘',text:'Attention Is All You Need paper (Vaswani et al., 2017)'},{icon:'💻',text:'Implement scaled dot-product attention from scratch in PyTorch'},{icon:'📗',text:'Jay Alammar — Illustrated Attention (blog, visual)'}]},
+'35':{desc:'Autoencoders learn a compressed latent representation of data through an encoder-decoder structure trained to reconstruct its input.',concepts:['Encoder — compresses input to latent code z','Decoder — reconstructs input from z','Reconstruction loss (MSE or BCE)','Variational Autoencoder (VAE) — generative model','Denoising Autoencoder — robustness','Latent space interpolation and visualization'],why:'Autoencoders underpin dimensionality reduction, anomaly detection, image generation (VAE), and are the conceptual precursor to diffusion models.',time:'2 weeks',difficulty:'Intermediate-Advanced',resources:[{icon:'📘',text:'Lilian Weng blog — From Autoencoder to Beta-VAE'},{icon:'💻',text:'Build denoising autoencoder on MNIST in PyTorch'},{icon:'📗',text:'VAE paper — Auto-Encoding Variational Bayes (Kingma & Welling)'}]},
+'36':{desc:'GANs train two networks in adversarial competition — a generator produces fake data, a discriminator tries to distinguish fake from real. The result: photorealistic generative models.',concepts:['Generator network G','Discriminator network D','Minimax loss: min_G max_D V(D,G)','Mode collapse and training instability','Progressive GAN, StyleGAN, CycleGAN','Evaluation: FID score (Frechet Inception Distance)'],why:'GANs produced the first photorealistic synthetic images and remain relevant for data augmentation, style transfer, and image-to-image translation.',time:'3 weeks',difficulty:'Advanced',resources:[{icon:'📘',text:'Original GAN paper — Goodfellow et al. 2014'},{icon:'💻',text:'Build DCGAN for MNIST digit generation in PyTorch'},{icon:'📗',text:'Lilian Weng — From GAN to WGAN (comprehensive blog)'}]},
+'37':{desc:'Transformers replaced RNNs as the dominant sequence model. Using only self-attention (no recurrence), they process sequences in parallel — enabling the LLM revolution.',concepts:['Self-Attention — all tokens attend to all tokens','Multi-Head Attention — parallel attention heads','Positional Encoding — inject sequence order','Feed-Forward layers within each block','Encoder-only (BERT), Decoder-only (GPT), Encoder-Decoder (T5)','Scaling laws — why bigger = smarter'],why:'BERT, GPT, LLaMA, Stable Diffusion — every frontier AI model is a Transformer. This is the single most important architecture in modern AI.',time:'3-4 weeks',difficulty:'Advanced',resources:[{icon:'📘',text:'Attention Is All You Need paper — read it closely'},{icon:'💻',text:'Implement Transformer encoder from scratch in PyTorch'},{icon:'📗',text:'Jay Alammar — The Illustrated Transformer (essential blog)'}]},
+'38':{desc:'NLP preprocessing converts raw text into numerical representations. Tokenization, stemming, lemmatization, and word embeddings are the core pipeline steps.',concepts:['Tokenization — word, subword (BPE), character','Stemming vs Lemmatization','Stop word removal','Bag-of-Words & TF-IDF','Word2Vec — CBOW and Skip-Gram','Sentence Transformers — contextual embeddings'],why:'All NLP starts here. Even with LLMs, understanding tokenization (BPE, SentencePiece) is critical — it affects context length, cost, and multilingual performance.',time:'2 weeks',difficulty:'Intermediate',resources:[{icon:'📘',text:'Natural Language Processing with Python (NLTK book, free)'},{icon:'💻',text:'Gensim Word2Vec — train on custom corpus, visualize with t-SNE'},{icon:'📗',text:'HuggingFace tokenizers docs — fast tokenization'}]},
+'39':{desc:'BERT and GPT are the two dominant pretraining paradigms that power modern NLP — from sentiment analysis to question answering to text generation.',concepts:['BERT — masked language model, bidirectional','GPT — causal language model, left-to-right','Fine-tuning vs Prompting','Sentence classification, NER, QA with BERT','Text generation with GPT','HuggingFace Transformers API'],why:'BERT/GPT-style models are the industry standard for all NLP tasks. If you work with text in production, you will fine-tune or prompt these models daily.',time:'3 weeks',difficulty:'Advanced',resources:[{icon:'📘',text:'BERT paper — Devlin et al. 2018'},{icon:'💻',text:'HuggingFace — fine-tune BERT for sentiment on IMDB'},{icon:'📗',text:'huggingface.co/docs — transformers library guide'}]},
+'40':{desc:'Reinforcement Learning trains agents to take actions to maximize cumulative reward. Q-Learning and DQN use neural networks to approximate optimal action-value functions.',concepts:['Agent, Environment, State, Action, Reward','Markov Decision Process (MDP)','Q-Learning — Bellman equation update','Epsilon-greedy exploration strategy','Deep Q-Network (DQN) — neural Q-function','Experience Replay & Target Network'],why:'RL powers game-playing AI (AlphaGo), robotics control, and RLHF — the training technique behind ChatGPT.',time:'3 weeks',difficulty:'Advanced',resources:[{icon:'📘',text:'Sutton & Barto — RL: An Introduction (free PDF)'},{icon:'💻',text:'OpenAI Gymnasium — CartPole, FrozenLake environments'},{icon:'📗',text:'DQN paper — Playing Atari with Deep Reinforcement Learning'}]},
+'41':{desc:'Policy Gradient methods directly optimize the policy using gradient ascent on expected reward. Actor-Critic combines value-based and policy-based methods.',concepts:['Policy function pi(a|s) — parametric action selection','REINFORCE algorithm — Monte Carlo policy gradient','Variance reduction with baseline','Actor-Critic — separate value and policy networks','Proximal Policy Optimization (PPO)','Advantage Estimation (GAE)'],why:"PPO is the algorithm behind ChatGPT's RLHF training and most production robotics. Policy gradient methods handle continuous action spaces that DQN cannot.",time:'3 weeks',difficulty:'Advanced',resources:[{icon:'📘',text:'Spinning Up in Deep RL — OpenAI (free, comprehensive)'},{icon:'💻',text:'Stable-Baselines3 — PPO, A2C implementations'},{icon:'📗',text:'PPO paper — Proximal Policy Optimization Algorithms'}]},
+'42':{desc:'Recommendation Systems predict what users will like based on past behaviour and similarities. Collaborative filtering, matrix factorization, and embedding models are the core techniques.',concepts:['Collaborative Filtering — user-user & item-item','Matrix Factorization (SVD, ALS)','Content-Based Filtering — item features','Hybrid Systems','Neural Collaborative Filtering (NCF)','Cold Start Problem — new users/items'],why:'Recommenders drive revenue at Netflix, YouTube, Amazon, and Spotify. Matrix factorization and embedding models are transferable to any domain.',time:'2-3 weeks',difficulty:'Intermediate-Advanced',resources:[{icon:'📘',text:'Koren et al. — Matrix Factorization Techniques'},{icon:'💻',text:'Surprise library — collaborative filtering in Python'},{icon:'📗',text:'Google RecSys course — free, practical'}]},
+'43':{desc:'Explainable AI (XAI) provides tools to understand why a model makes specific predictions — critical for trust, debugging, fairness audits, and regulatory compliance.',concepts:['SHAP (SHapley Additive exPlanations) — fair attribution','LIME — local surrogate model explanations','Permutation Feature Importance','Partial Dependence Plots (PDP)','Gradient-based attribution for NNs (GradCAM)','Fairness metrics and bias auditing'],why:'In healthcare, finance, and law, black-box models are legally prohibited or ethically unacceptable. XAI is now a production requirement.',time:'2 weeks',difficulty:'Intermediate-Advanced',resources:[{icon:'📘',text:'SHAP docs — shap.readthedocs.io'},{icon:'💻',text:'shap.TreeExplainer — SHAP for XGBoost and Random Forest'},{icon:'📗',text:'Interpretable ML book — Christoph Molnar (free PDF)'}]},
+'44':{desc:'Self-supervised learning generates supervision from unlabelled data itself. Semi-supervised learning uses both labelled and unlabelled data to improve performance.',concepts:['Contrastive Learning — SimCLR, MoCo','Masked Autoencoding — BERT, MAE','BYOL, SimSiam — self-supervised without negatives','Pseudo-Labelling — confident unlabelled predictions as labels','Consistency Regularization (FixMatch)','Label efficiency — how much labelled data is needed?'],why:'Labelling data is expensive. Self-supervised pretraining (BERT, GPT, Vision MAE) achieves strong results with minimal labels. This is how frontier models are trained.',time:'2-3 weeks',difficulty:'Advanced',resources:[{icon:'📘',text:'SimCLR paper — A Simple Framework for Contrastive Learning'},{icon:'💻',text:'lightly.ai — self-supervised learning library'},{icon:'📗',text:'Lilian Weng — Self-Supervised Representation Learning (blog)'}]},
+'45':{desc:'Model selection picks the best algorithm. Hyperparameter tuning finds the optimal configuration. Together they bridge trained model and production-ready model.',concepts:['Grid Search — exhaustive parameter combinations','Randomized Search — random sampling of parameter space','Bayesian Optimization (Optuna, Hyperopt)','Early Stopping — prevent overfitting during tuning','Warm Starting — continue tuning from previous run','Multi-objective optimization (speed vs accuracy)'],why:'Default hyperparameters are almost never optimal. Proper tuning routinely improves performance by 5-15%. Bayesian optimization is now the industry standard.',time:'2 weeks',difficulty:'Intermediate-Advanced',resources:[{icon:'📘',text:'Optuna docs — optuna.readthedocs.io'},{icon:'💻',text:'sklearn GridSearchCV & RandomizedSearchCV — benchmark each'},{icon:'📗',text:'Practical Hyperparameter Optimization — Kaggle course'}]},
+'46':{desc:'Production ML requires robust data pipelines — splitting data correctly, loading batches efficiently, preventing leakage, and handling distributional shift over time.',concepts:['Stratified Train/Val/Test split','Time-aware splitting (no future leakage)','sklearn Pipeline — chain preprocessing + model','PyTorch DataLoader — batching, shuffling, workers','Dataset versioning (DVC)','Online vs Batch learning strategies'],why:'More production ML failures are caused by incorrect data pipelines than bad models. A leaky pipeline makes your model look perfect in testing and fail in production.',time:'2 weeks',difficulty:'Intermediate',resources:[{icon:'📘',text:'sklearn Pipeline docs — compose preprocessing + model'},{icon:'💻',text:'PyTorch Dataset & DataLoader — custom dataset class'},{icon:'📗',text:'DVC (Data Version Control) — dvc.org quickstart'}]},
+'47':{desc:'Model serving deploys trained models to production. FastAPI + Docker is the standard lightweight stack for ML APIs.',concepts:['Model serialization — joblib, pickle, ONNX, TorchScript','FastAPI — async REST API for ML','Input validation with Pydantic','Docker — containerize your ML app','Health endpoints and monitoring','Batch vs Real-time inference'],why:'A model that is not deployed is worthless. Knowing how to serve models with FastAPI and Docker turns research into product.',time:'2 weeks',difficulty:'Intermediate-Advanced',resources:[{icon:'📘',text:'FastAPI docs — fastapi.tiangolo.com'},{icon:'💻',text:'Build a /predict POST endpoint for an sklearn model'},{icon:'📗',text:'MLflow — model registry and serving'}]},
+'48':{desc:'Advanced scikit-learn covers building reusable, production-grade pipelines with custom transformers, column transformers, and feature unions.',concepts:['Custom Transformer — BaseEstimator + TransformerMixin','ColumnTransformer — different transforms per feature type','FeatureUnion — merge multiple feature sets','Pipeline — chain transformers and estimator','CalibratedClassifierCV — probability calibration','FunctionTransformer — wrap any function as transformer'],why:'Clean, reusable sklearn Pipelines prevent data leakage, make deployment trivial, and ensure train/inference consistency. This is how professional ML engineers write production code.',time:'1-2 weeks',difficulty:'Intermediate-Advanced',resources:[{icon:'📘',text:'sklearn developer guide — Developing estimators'},{icon:'💻',text:'Build a custom TextCleaner transformer class from scratch'},{icon:'📗',text:'Hands-On ML by Geron — Pipelines chapter'}]},
+};
+PHASES.forEach(ph=>{ph.topics.forEach(t=>{t.d=DETAILS[t.num]||null;});});
+
+// ── MODAL ─────────────────────────────────────────────────────────────────────
+const PHASE_COLORS={p1:'#00f5a0',p2:'#7b61ff',p3:'#ff6b6b',p4:'#ffd93d',p5:'#00d4ff',p6:'#ff61ab'};
+function openModal(pi,ti){
+  const ph=PHASES[pi],top=ph.topics[ti],d=top.d;
+  if(!d)return;
+  const color=PHASE_COLORS[ph.colorClass]||'#00f5a0';
+  document.getElementById('modal-bar').style.background=color;
+  document.getElementById('modal-num').textContent=ph.number+' \u00b7 TOPIC '+top.num;
+  document.getElementById('modal-title').textContent=top.name;
+  document.getElementById('modal-desc').textContent=d.desc;
+  document.getElementById('modal-why').textContent=d.why;
+  document.getElementById('modal-badges').innerHTML=
+    [{label:'\u23f1 Time',val:d.time},{label:'\ud83d\udcca Level',val:d.difficulty}]
+    .map(b=>`<span class="modal-badge" style="--modal-color:${color}">${b.label}: ${b.val}</span>`).join('');
+  document.getElementById('modal-concepts').innerHTML=
+    d.concepts.map(c=>`<div class="modal-concept" style="border-left-color:${color}">\u25c6 ${c}</div>`).join('');
+  document.getElementById('modal-resources').innerHTML=
+    d.resources.map(r=>`<div class="modal-resource"><span class="res-icon">${r.icon}</span>${r.text}</div>`).join('');
+  document.querySelectorAll('.modal-section-title').forEach(el=>el.style.color=color);
+  document.getElementById('modal-overlay').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeModal(){
+  document.getElementById('modal-overlay').classList.remove('open');
+  document.body.style.overflow='';
+}
+document.getElementById('modal-overlay').addEventListener('click',function(e){if(e.target===this)closeModal();});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();});
 </script>
+
+
 </body>
 </html>
