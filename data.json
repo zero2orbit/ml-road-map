@@ -23,12 +23,124 @@
           "d": {
             "desc": "Linear Algebra is the mathematics of vectors, matrices, and linear transformations — the most critical math prerequisite for ML.",
             "concepts": [
-              "Vectors & Vector Spaces",
-              "Matrix Multiplication & Transpose",
-              "Eigenvalues & Eigenvectors",
-              "SVD (Singular Value Decomposition)",
-              "Dot Products & Projections",
-              "Norms (L1, L2) & Distance Metrics"
+              {
+                "name": "Vectors & Vector Spaces",
+                "subtopics": [
+                  "Scalars, Vectors, and Vector notation",
+                  "Vector operations (addition, scalar multiplication)",
+                  "Vector norms (L1, L2, L∞, Lp norms)",
+                  "Dot product / Inner product",
+                  "Vector projections",
+                  "Linear combinations and span",
+                  "Linear independence / dependence",
+                  "Basis and dimension",
+                  "Vector spaces and subspaces",
+                  "Orthogonality and orthonormal vectors",
+                  "Cosine similarity (ML-specific application)"
+                ]
+              },
+              {
+                "name": "Matrices & Matrix Operations",
+                "subtopics": [
+                  "Matrix notation and types (square, diagonal, identity, symmetric, sparse, etc.)",
+                  "Matrix addition, subtraction, scalar multiplication",
+                  "Matrix multiplication (and why order matters)",
+                  "Transpose of a matrix",
+                  "Trace of a matrix",
+                  "Determinant of a matrix",
+                  "Matrix inverse",
+                  "Rank of a matrix",
+                  "Special matrices: Identity, Diagonal, Orthogonal, Symmetric/Skew-symmetric, Positive definite/semi-definite",
+                  "Matrix as a linear transformation"
+                ]
+              },
+              {
+                "name": "Systems of Linear Equations",
+                "subtopics": [
+                  "Representing systems as Ax = b",
+                  "Gaussian elimination",
+                  "Row echelon form / Reduced row echelon form",
+                  "Solving using matrix inverse",
+                  "Overdetermined & underdetermined systems (relevant to regression)",
+                  "Least Squares Method (core to Linear Regression)"
+                ]
+              },
+              {
+                "name": "Linear Transformations",
+                "subtopics": [
+                  "Definition and properties",
+                  "Matrix representation of transformations",
+                  "Composition of transformations",
+                  "Kernel (null space) and Image (range / column space)",
+                  "Rotation, scaling, shearing, projection transformations"
+                ]
+              },
+              {
+                "name": "Eigenvalues & Eigenvectors",
+                "subtopics": [
+                  "Definition and geometric intuition",
+                  "Characteristic polynomial",
+                  "Computing eigenvalues / eigenvectors",
+                  "Diagonalization of matrices",
+                  "Eigen-decomposition",
+                  "Applications: PCA, stability analysis, spectral clustering"
+                ]
+              },
+              {
+                "name": "Matrix Decompositions (Critical for ML)",
+                "subtopics": [
+                  "LU Decomposition",
+                  "QR Decomposition",
+                  "Cholesky Decomposition",
+                  "Eigen Decomposition",
+                  "Singular Value Decomposition (SVD) — dimensionality reduction, recommender systems",
+                  "Non-negative Matrix Factorization (NMF)"
+                ]
+              },
+              {
+                "name": "Vector Calculus Intersection",
+                "subtopics": [
+                  "Gradient of scalar functions w.r.t. vectors",
+                  "Jacobian matrix",
+                  "Hessian matrix",
+                  "Matrix calculus rules (derivatives of matrix expressions)"
+                ]
+              },
+              {
+                "name": "Norms & Distance Metrics",
+                "subtopics": [
+                  "Vector norms (L1, L2, Lp, L∞)",
+                  "Matrix norms (Frobenius norm, spectral norm, nuclear norm)",
+                  "Distance metrics: Euclidean, Manhattan, Mahalanobis distance"
+                ]
+              },
+              {
+                "name": "Dimensionality Reduction Concepts",
+                "subtopics": [
+                  "Principal Component Analysis (PCA) — eigen-based",
+                  "Singular Value Decomposition applications",
+                  "Linear Discriminant Analysis (LDA) basics",
+                  "Low-rank matrix approximation"
+                ]
+              },
+              {
+                "name": "Special Topics for Deep Learning",
+                "subtopics": [
+                  "Tensors (generalization of matrices)",
+                  "Tensor operations (reshape, broadcast)",
+                  "Batch matrix multiplication",
+                  "Convolution as matrix multiplication (for CNNs)"
+                ]
+              },
+              {
+                "name": "Optimization-Related Linear Algebra",
+                "subtopics": [
+                  "Quadratic forms",
+                  "Positive definite/semi-definite matrices (for convexity)",
+                  "Condition number of a matrix",
+                  "Matrix calculus for gradient descent derivations"
+                ]
+              }
             ],
             "why": "Neural networks are chains of matrix multiplications. PCA, SVD, and attention are all linear algebra. Without this you cannot understand what your models compute.",
             "time": "3-4 weeks",
@@ -65,12 +177,136 @@
           "d": {
             "desc": "Calculus gives us the tools to optimize ML models. Derivatives measure how a function changes and gradient descent uses this to minimize loss functions.",
             "concepts": [
-              "Derivatives & Partial Derivatives",
-              "Chain Rule",
-              "Gradient & Directional Derivatives",
-              "Jacobian & Hessian Matrices",
-              "Taylor Series Approximation",
-              "Multivariate Optimization"
+              {
+                "name": "Functions & Limits (Foundation)",
+                "subtopics": [
+                  "Functions of single/multiple variables",
+                  "Domain, range, continuity",
+                  "Limits and limit laws",
+                  "Continuity and differentiability conditions",
+                  "Asymptotic behavior (sigmoid, tanh activation functions)"
+                ]
+              },
+              {
+                "name": "Differentiation (Single Variable)",
+                "subtopics": [
+                  "Definition of derivative (rate of change / slope)",
+                  "Power rule, Product rule, Quotient rule",
+                  "Derivatives of Polynomial, Exponential (e^x), Logarithmic (ln x)",
+                  "Derivatives of Trigonometric (sin, cos, tan)",
+                  "Derivatives of ML activations: Sigmoid, ReLU, Tanh",
+                  "Higher-order derivatives",
+                  "Critical points, maxima/minima (1st derivative test)",
+                  "Concavity and inflection points (2nd derivative test)"
+                ]
+              },
+              {
+                "name": "Chain Rule (Core to Backpropagation)",
+                "subtopics": [
+                  "Basic Chain Rule (single variable composition)",
+                  "Chain Rule with multiple compositions",
+                  "Chain Rule for multivariable functions",
+                  "Backpropagation as repeated Chain Rule application",
+                  "Computational graphs and derivative flow",
+                  "Chain rule in nested functions (deep neural network layers)"
+                ]
+              },
+              {
+                "name": "Partial Derivatives (Multivariable Calculus)",
+                "subtopics": [
+                  "Definition and notation (∂f/∂x)",
+                  "Computing partial derivatives",
+                  "Higher-order partial derivatives",
+                  "Mixed partial derivatives",
+                  "Total derivative vs partial derivative"
+                ]
+              },
+              {
+                "name": "Gradients",
+                "subtopics": [
+                  "Definition of gradient vector (∇f)",
+                  "Gradient as direction of steepest ascent",
+                  "Gradient computation for scalar-valued multivariable functions",
+                  "Geometric interpretation (perpendicular to level curves/surfaces)",
+                  "Gradient of MSE, Cross-Entropy Loss, Log-Loss",
+                  "Gradient Descent: update rule θ = θ - α∇f(θ)",
+                  "Learning rate intuition",
+                  "Batch, Stochastic, Mini-batch Gradient Descent"
+                ]
+              },
+              {
+                "name": "Jacobian Matrix",
+                "subtopics": [
+                  "Definition (matrix of first-order partial derivatives)",
+                  "Jacobian for vector-valued functions",
+                  "Jacobian in neural network layer transformations",
+                  "Role in backpropagation (chain rule generalization)"
+                ]
+              },
+              {
+                "name": "Hessian Matrix",
+                "subtopics": [
+                  "Definition (matrix of second-order partial derivatives)",
+                  "Hessian and convexity (positive semi-definite check)",
+                  "Role in optimization (Newton's Method)",
+                  "Saddle points detection using Hessian"
+                ]
+              },
+              {
+                "name": "Optimization Techniques (Calculus-based)",
+                "subtopics": [
+                  "Finding local/global minima and maxima",
+                  "Convex vs Non-convex functions",
+                  "Vanilla Gradient Descent",
+                  "Momentum-based GD",
+                  "Adagrad, RMSProp, Adam optimizer (calculus foundations)",
+                  "Newton's Method (uses Hessian)",
+                  "Lagrange Multipliers (constrained optimization — SVM)",
+                  "Convergence criteria"
+                ]
+              },
+              {
+                "name": "Multivariable Calculus (Vector Calculus)",
+                "subtopics": [
+                  "Directional derivatives",
+                  "Gradient, Divergence, Curl (brief overview)",
+                  "Multivariable Chain Rule (matrix form)",
+                  "Taylor Series expansion (single & multivariable)"
+                ]
+              },
+              {
+                "name": "Matrix Calculus (Linear Algebra + Calculus)",
+                "subtopics": [
+                  "Derivative of scalar w.r.t. vector (Gradient)",
+                  "Derivative of vector w.r.t. vector (Jacobian)",
+                  "Derivative of scalar w.r.t. matrix",
+                  "Identity: d(Ax)/dx = A",
+                  "Identity: d(xᵀAx)/dx = (A + Aᵀ)x",
+                  "Denominator layout vs Numerator layout conventions"
+                ]
+              },
+              {
+                "name": "Integration (Lighter Focus)",
+                "subtopics": [
+                  "Basic integration rules",
+                  "Definite vs indefinite integrals",
+                  "Area under ROC curve (AUC)",
+                  "Probability density functions (continuous distributions)",
+                  "Expectation / Expected value computation"
+                ]
+              },
+              {
+                "name": "Applications in Neural Networks",
+                "subtopics": [
+                  "Forward pass (function composition)",
+                  "Backward pass (Chain rule + Gradients)",
+                  "Vanishing / Exploding gradient problem",
+                  "Sigmoid derivative: σ'(x) = σ(x)(1 - σ(x))",
+                  "ReLU derivative: 0 or 1",
+                  "Tanh derivative",
+                  "Loss function derivatives for backpropagation"
+                ]
+              }
             ],
             "why": "Backpropagation is the chain rule applied to a computation graph. Every optimizer relies on gradients. You cannot debug training without understanding calculus.",
             "time": "2-3 weeks",
@@ -107,12 +343,159 @@
           "d": {
             "desc": "Descriptive statistics summarizes the main features of a dataset. It is your first lens for understanding data before any model is trained.",
             "concepts": [
-              "Mean, Median, Mode",
-              "Variance & Standard Deviation",
-              "Skewness & Kurtosis",
-              "Histograms & Box Plots",
-              "Covariance & Correlation Matrix",
-              "Percentiles & Outlier Detection (IQR)"
+              {
+                "name": "Basic Probability Concepts",
+                "subtopics": [
+                  "Random experiments, sample space, events",
+                  "Types of events (mutually exclusive, independent, exhaustive)",
+                  "Classical, empirical, and axiomatic definitions of probability",
+                  "Probability axioms (Kolmogorov's axioms)",
+                  "Addition rule, Multiplication rule",
+                  "Conditional probability",
+                  "Bayes' Theorem (Naive Bayes, Bayesian inference)",
+                  "Independence of events"
+                ]
+              },
+              {
+                "name": "Random Variables",
+                "subtopics": [
+                  "Discrete random variables",
+                  "Continuous random variables",
+                  "Probability Mass Function (PMF)",
+                  "Probability Density Function (PDF)",
+                  "Cumulative Distribution Function (CDF)",
+                  "Joint, Marginal, and Conditional distributions"
+                ]
+              },
+              {
+                "name": "Measures of Central Tendency",
+                "subtopics": [
+                  "Mean (Arithmetic, Geometric, Harmonic)",
+                  "Median",
+                  "Mode",
+                  "Weighted mean (relevant to weighted loss functions)"
+                ]
+              },
+              {
+                "name": "Measures of Dispersion / Spread",
+                "subtopics": [
+                  "Range",
+                  "Variance",
+                  "Standard Deviation",
+                  "Mean Absolute Deviation (MAD)",
+                  "Interquartile Range (IQR)",
+                  "Coefficient of Variation"
+                ]
+              },
+              {
+                "name": "Measures of Shape",
+                "subtopics": [
+                  "Skewness (symmetry of distribution)",
+                  "Kurtosis (tailedness of distribution)",
+                  "Quantiles, Percentiles, Quartiles",
+                  "Box plots (5-number summary: min, Q1, median, Q3, max)"
+                ]
+              },
+              {
+                "name": "Data Visualization for Descriptive Stats",
+                "subtopics": [
+                  "Histograms",
+                  "Box-and-whisker plots",
+                  "Scatter plots",
+                  "Bar charts / Frequency distributions",
+                  "Q-Q plots (checking normality)"
+                ]
+              },
+              {
+                "name": "Covariance & Correlation",
+                "subtopics": [
+                  "Covariance (measuring joint variability)",
+                  "Covariance matrix (critical for PCA)",
+                  "Pearson Correlation coefficient",
+                  "Spearman Rank Correlation",
+                  "Correlation vs Causation"
+                ]
+              },
+              {
+                "name": "Common Probability Distributions",
+                "subtopics": [
+                  "Bernoulli Distribution",
+                  "Binomial Distribution",
+                  "Poisson Distribution",
+                  "Geometric & Multinomial Distributions",
+                  "Uniform Distribution",
+                  "Normal (Gaussian) Distribution — most important for ML",
+                  "Standard Normal Distribution & Z-scores",
+                  "Exponential Distribution",
+                  "Beta Distribution (Bayesian methods)",
+                  "Gamma, Chi-Square, Student's t-Distribution"
+                ]
+              },
+              {
+                "name": "Expectation & Moments",
+                "subtopics": [
+                  "Expected Value E[X]",
+                  "Variance Var(X) = E[X²] - (E[X])²",
+                  "Moments of a distribution (1st, 2nd, 3rd, 4th)",
+                  "Moment Generating Functions (MGF) — overview",
+                  "Linearity of Expectation"
+                ]
+              },
+              {
+                "name": "Bayesian Statistics Foundations",
+                "subtopics": [
+                  "Prior probability",
+                  "Likelihood",
+                  "Posterior probability",
+                  "Bayes' Theorem in ML (Naive Bayes classifier)",
+                  "Maximum Likelihood Estimation (MLE)",
+                  "Maximum A Posteriori (MAP) estimation"
+                ]
+              },
+              {
+                "name": "Sampling & Estimation",
+                "subtopics": [
+                  "Population vs Sample",
+                  "Sampling methods (random, stratified, systematic)",
+                  "Sampling distribution",
+                  "Central Limit Theorem (CLT) — critical concept",
+                  "Law of Large Numbers",
+                  "Standard Error",
+                  "Confidence Intervals"
+                ]
+              },
+              {
+                "name": "Hypothesis Testing (Statistical Inference)",
+                "subtopics": [
+                  "Null and Alternative hypothesis",
+                  "Type I and Type II errors",
+                  "p-value and significance level (α)",
+                  "t-test, z-test",
+                  "Chi-Square test",
+                  "ANOVA (Analysis of Variance)",
+                  "A/B Testing (direct ML/product application)"
+                ]
+              },
+              {
+                "name": "Information Theory (ML-critical)",
+                "subtopics": [
+                  "Entropy (measuring uncertainty)",
+                  "Cross-Entropy (loss function foundation)",
+                  "KL Divergence (Kullback-Leibler Divergence)",
+                  "Mutual Information"
+                ]
+              },
+              {
+                "name": "Applications in Machine Learning",
+                "subtopics": [
+                  "Naive Bayes Classifier",
+                  "Gaussian Mixture Models (GMM)",
+                  "Probabilistic Graphical Models (brief intro)",
+                  "Markov Chains & Hidden Markov Models (HMM)",
+                  "Uncertainty quantification in predictions",
+                  "Regularization as Bayesian priors (L1/L2 = Laplace/Gaussian)"
+                ]
+              }
             ],
             "why": "Every ML project starts with EDA. If you cannot describe your data, you will make wrong modelling decisions — garbage in, garbage out.",
             "time": "1-2 weeks",
@@ -120,15 +503,18 @@
             "resources": [
               {
                 "icon": "📘",
-                "text": "Think Stats by Allen Downey (free PDF)"
+                "text": "Think Stats by Allen Downey (free PDF)",
+                "link": "https://greenteapress.com/thinkstats/thinkstats.pdf"
               },
               {
                 "icon": "💻",
-                "text": "Pandas + Seaborn: describe(), .corr(), pairplot()"
+                "text": "Pandas + Seaborn: describe(), .corr(), pairplot()",
+                "link": "https://seaborn.pydata.org/index.html"
               },
               {
                 "icon": "📊",
-                "text": "Kaggle — practice EDA on Titanic, Iris"
+                "text": "Kaggle — practice EDA on Titanic, Iris",
+                "link": "https://www.kaggle.com/code/aselad/exploratory-data-analysis-on-the-titanic-dataset"
               }
             ]
           }
@@ -149,12 +535,142 @@
           "d": {
             "desc": "Inferential statistics lets you draw conclusions about a population from a sample. Bayes Theorem is the framework for updating beliefs given new evidence.",
             "concepts": [
-              "Hypothesis Testing (t-test, chi-square)",
-              "p-values & Statistical Significance",
-              "Confidence Intervals",
-              "Bayes Theorem: P(A|B) = P(B|A)P(A)/P(B)",
-              "Prior, Likelihood, Posterior",
-              "Naive Bayes Classifier"
+              {
+                "name": "Foundations of Inferential Statistics",
+                "subtopics": [
+                  "Population vs Sample",
+                  "Parameters vs Statistics",
+                  "Point Estimation vs Interval Estimation",
+                  "Sampling error vs Non-sampling error",
+                  "Bias and Variance of an estimator (links to ML Bias-Variance tradeoff)"
+                ]
+              },
+              {
+                "name": "Sampling Distributions",
+                "subtopics": [
+                  "Sampling distribution of the mean",
+                  "Sampling distribution of the proportion",
+                  "Standard Error (SE)",
+                  "Central Limit Theorem (CLT) — deep dive",
+                  "Degrees of Freedom concept"
+                ]
+              },
+              {
+                "name": "Estimation Theory",
+                "subtopics": [
+                  "Point Estimators (unbiasedness, consistency, efficiency)",
+                  "Interval Estimation",
+                  "Confidence Intervals for mean (known/unknown variance)",
+                  "Confidence Intervals for proportion and variance",
+                  "Margin of Error",
+                  "Bootstrapping (resampling — widely used in ML)"
+                ]
+              },
+              {
+                "name": "Hypothesis Testing (Deep Dive)",
+                "subtopics": [
+                  "Null (H₀) & Alternative (H₁) Hypothesis",
+                  "One-tailed vs Two-tailed tests",
+                  "Type I Error (α) & Type II Error (β)",
+                  "Power of a test (1 - β)",
+                  "p-value interpretation",
+                  "Z-test (large samples, known variance)",
+                  "t-test: one-sample, two-sample, paired",
+                  "Chi-Square test (goodness of fit, independence)",
+                  "F-test (comparing variances)",
+                  "ANOVA (One-way, Two-way)"
+                ]
+              },
+              {
+                "name": "Non-Parametric Tests",
+                "subtopics": [
+                  "Mann-Whitney U test",
+                  "Wilcoxon Signed-Rank test",
+                  "Kruskal-Wallis test",
+                  "Chi-Square test for independence"
+                ]
+              },
+              {
+                "name": "Correlation & Regression Inference",
+                "subtopics": [
+                  "Testing significance of correlation coefficient",
+                  "Confidence intervals for regression coefficients",
+                  "Hypothesis testing in Linear Regression (t-test for coefficients)",
+                  "R² and Adjusted R² significance",
+                  "Residual analysis"
+                ]
+              },
+              {
+                "name": "A/B Testing (ML/Product Application)",
+                "subtopics": [
+                  "Designing A/B tests",
+                  "Statistical significance in A/B testing",
+                  "Sample size determination",
+                  "Multiple comparison problem (Bonferroni correction)",
+                  "Practical vs Statistical significance"
+                ]
+              },
+              {
+                "name": "Bayes' Theorem — Core Concepts",
+                "subtopics": [
+                  "Conditional Probability recap",
+                  "Bayes' Theorem: P(A|B) = P(B|A)·P(A) / P(B)",
+                  "Prior P(A) — belief before evidence",
+                  "Likelihood P(B|A) — probability of evidence given hypothesis",
+                  "Posterior P(A|B) — updated belief after evidence",
+                  "Evidence/Marginal P(B) — normalizing constant"
+                ]
+              },
+              {
+                "name": "Bayesian Inference",
+                "subtopics": [
+                  "Bayesian vs Frequentist paradigm",
+                  "Updating beliefs with new data (sequential Bayesian updating)",
+                  "Conjugate priors (Beta-Binomial, Gamma-Poisson, Normal-Normal)",
+                  "Posterior predictive distribution",
+                  "Credible Intervals (Bayesian analog of Confidence Intervals)"
+                ]
+              },
+              {
+                "name": "Bayesian Estimation Techniques",
+                "subtopics": [
+                  "Maximum Likelihood Estimation (MLE)",
+                  "Maximum A Posteriori (MAP) Estimation",
+                  "MLE vs MAP vs Full Bayesian Inference",
+                  "L2 Regularization ↔ Gaussian Prior",
+                  "L1 Regularization ↔ Laplace Prior"
+                ]
+              },
+              {
+                "name": "Applications of Bayes' Theorem in ML",
+                "subtopics": [
+                  "Naive Bayes: Gaussian, Multinomial (text), Bernoulli",
+                  "Bayesian Networks (Probabilistic Graphical Models)",
+                  "Hidden Markov Models (HMM)",
+                  "Bayesian Optimization (hyperparameter tuning)",
+                  "Bayesian Linear Regression",
+                  "Bayesian Neural Networks (uncertainty estimation)",
+                  "Spam filtering & Medical diagnosis (classic examples)"
+                ]
+              },
+              {
+                "name": "MCMC — Advanced Bayesian Computation",
+                "subtopics": [
+                  "Why MCMC is needed (intractable posteriors)",
+                  "Metropolis-Hastings Algorithm",
+                  "Gibbs Sampling",
+                  "Applications in Bayesian Deep Learning"
+                ]
+              },
+              {
+                "name": "Model Evaluation via Inferential Statistics",
+                "subtopics": [
+                  "Cross-validation (statistical resampling)",
+                  "Statistical significance of model performance differences",
+                  "Confidence intervals for model accuracy/metrics",
+                  "McNemar's test (comparing classifiers)"
+                ]
+              }
             ],
             "why": "A/B testing, confidence intervals, and Bayesian models all require this. It prevents you from fooling yourself with statistically insignificant results.",
             "time": "2-3 weeks",
@@ -162,15 +678,18 @@
             "resources": [
               {
                 "icon": "📘",
-                "text": "Naked Statistics by Charles Wheelan"
+                "text": "Naked Statistics by Charles Wheelan",
+                "link": "https://www.youtube.com/watch?v=NL-KJIgUExg"
               },
               {
                 "icon": "📗",
-                "text": "StatQuest with Josh Starmer (YouTube)"
+                "text": "StatQuest with Josh Starmer (YouTube)",
+                "link": "https://www.youtube.com/@statquest/featured"
               },
               {
                 "icon": "💻",
-                "text": "scipy.stats — t-test, chi2_contingency, binom_test"
+                "text": "scipy.stats — t-test, chi2_contingency, binom_test",
+                "link": "https://docs.scipy.org/doc/scipy/index.html"
               }
             ]
           }
@@ -3752,12 +4271,124 @@
     "01": {
       "desc": "Linear Algebra is the mathematics of vectors, matrices, and linear transformations — the most critical math prerequisite for ML.",
       "concepts": [
-        "Vectors & Vector Spaces",
-        "Matrix Multiplication & Transpose",
-        "Eigenvalues & Eigenvectors",
-        "SVD (Singular Value Decomposition)",
-        "Dot Products & Projections",
-        "Norms (L1, L2) & Distance Metrics"
+        {
+          "name": "Vectors & Vector Spaces",
+          "subtopics": [
+            "Scalars, Vectors, and Vector notation",
+            "Vector operations (addition, scalar multiplication)",
+            "Vector norms (L1, L2, L∞, Lp norms)",
+            "Dot product / Inner product",
+            "Vector projections",
+            "Linear combinations and span",
+            "Linear independence / dependence",
+            "Basis and dimension",
+            "Vector spaces and subspaces",
+            "Orthogonality and orthonormal vectors",
+            "Cosine similarity (ML-specific application)"
+          ]
+        },
+        {
+          "name": "Matrices & Matrix Operations",
+          "subtopics": [
+            "Matrix notation and types (square, diagonal, identity, symmetric, sparse, etc.)",
+            "Matrix addition, subtraction, scalar multiplication",
+            "Matrix multiplication (and why order matters)",
+            "Transpose of a matrix",
+            "Trace of a matrix",
+            "Determinant of a matrix",
+            "Matrix inverse",
+            "Rank of a matrix",
+            "Special matrices: Identity, Diagonal, Orthogonal, Symmetric/Skew-symmetric, Positive definite/semi-definite",
+            "Matrix as a linear transformation"
+          ]
+        },
+        {
+          "name": "Systems of Linear Equations",
+          "subtopics": [
+            "Representing systems as Ax = b",
+            "Gaussian elimination",
+            "Row echelon form / Reduced row echelon form",
+            "Solving using matrix inverse",
+            "Overdetermined & underdetermined systems (relevant to regression)",
+            "Least Squares Method (core to Linear Regression)"
+          ]
+        },
+        {
+          "name": "Linear Transformations",
+          "subtopics": [
+            "Definition and properties",
+            "Matrix representation of transformations",
+            "Composition of transformations",
+            "Kernel (null space) and Image (range / column space)",
+            "Rotation, scaling, shearing, projection transformations"
+          ]
+        },
+        {
+          "name": "Eigenvalues & Eigenvectors",
+          "subtopics": [
+            "Definition and geometric intuition",
+            "Characteristic polynomial",
+            "Computing eigenvalues / eigenvectors",
+            "Diagonalization of matrices",
+            "Eigen-decomposition",
+            "Applications: PCA, stability analysis, spectral clustering"
+          ]
+        },
+        {
+          "name": "Matrix Decompositions (Critical for ML)",
+          "subtopics": [
+            "LU Decomposition",
+            "QR Decomposition",
+            "Cholesky Decomposition",
+            "Eigen Decomposition",
+            "Singular Value Decomposition (SVD) — dimensionality reduction, recommender systems",
+            "Non-negative Matrix Factorization (NMF)"
+          ]
+        },
+        {
+          "name": "Vector Calculus Intersection",
+          "subtopics": [
+            "Gradient of scalar functions w.r.t. vectors",
+            "Jacobian matrix",
+            "Hessian matrix",
+            "Matrix calculus rules (derivatives of matrix expressions)"
+          ]
+        },
+        {
+          "name": "Norms & Distance Metrics",
+          "subtopics": [
+            "Vector norms (L1, L2, Lp, L∞)",
+            "Matrix norms (Frobenius norm, spectral norm, nuclear norm)",
+            "Distance metrics: Euclidean, Manhattan, Mahalanobis distance"
+          ]
+        },
+        {
+          "name": "Dimensionality Reduction Concepts",
+          "subtopics": [
+            "Principal Component Analysis (PCA) — eigen-based",
+            "Singular Value Decomposition applications",
+            "Linear Discriminant Analysis (LDA) basics",
+            "Low-rank matrix approximation"
+          ]
+        },
+        {
+          "name": "Special Topics for Deep Learning",
+          "subtopics": [
+            "Tensors (generalization of matrices)",
+            "Tensor operations (reshape, broadcast)",
+            "Batch matrix multiplication",
+            "Convolution as matrix multiplication (for CNNs)"
+          ]
+        },
+        {
+          "name": "Optimization-Related Linear Algebra",
+          "subtopics": [
+            "Quadratic forms",
+            "Positive definite/semi-definite matrices (for convexity)",
+            "Condition number of a matrix",
+            "Matrix calculus for gradient descent derivations"
+          ]
+        }
       ],
       "why": "Neural networks are chains of matrix multiplications. PCA, SVD, and attention are all linear algebra. Without this you cannot understand what your models compute.",
       "time": "3-4 weeks",
@@ -3765,27 +4396,154 @@
       "resources": [
         {
           "icon": "📘",
-          "text": "3Blue1Brown — Essence of Linear Algebra (YouTube)"
+          "text": "3Blue1Brown — Essence of Linear Algebra (YouTube)",
+          "link": "https://www.youtube.com/playlist?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab"
         },
         {
           "icon": "📗",
-          "text": "Gilbert Strang — Introduction to Linear Algebra (MIT)"
+          "text": "Gilbert Strang — Introduction to Linear Algebra (MIT)",
+          "link": "https://ocw.mit.edu/courses/18-06sc-linear-algebra-fall-2011/download/"
         },
         {
           "icon": "💻",
-          "text": "numpy.linalg docs — practice every operation in code"
+          "text": "numpy.linalg docs — practice every operation in code",
+          "link": "https://numpy.org/doc/stable/reference/routines.linalg.html"
         }
       ]
     },
     "02": {
       "desc": "Calculus gives us the tools to optimize ML models. Derivatives measure how a function changes and gradient descent uses this to minimize loss functions.",
       "concepts": [
-        "Derivatives & Partial Derivatives",
-        "Chain Rule",
-        "Gradient & Directional Derivatives",
-        "Jacobian & Hessian Matrices",
-        "Taylor Series Approximation",
-        "Multivariate Optimization"
+        {
+          "name": "Functions & Limits (Foundation)",
+          "subtopics": [
+            "Functions of single/multiple variables",
+            "Domain, range, continuity",
+            "Limits and limit laws",
+            "Continuity and differentiability conditions",
+            "Asymptotic behavior (sigmoid, tanh activation functions)"
+          ]
+        },
+        {
+          "name": "Differentiation (Single Variable)",
+          "subtopics": [
+            "Definition of derivative (rate of change / slope)",
+            "Power rule, Product rule, Quotient rule",
+            "Derivatives of Polynomial, Exponential (e^x), Logarithmic (ln x)",
+            "Derivatives of Trigonometric (sin, cos, tan)",
+            "Derivatives of ML activations: Sigmoid, ReLU, Tanh",
+            "Higher-order derivatives",
+            "Critical points, maxima/minima (1st derivative test)",
+            "Concavity and inflection points (2nd derivative test)"
+          ]
+        },
+        {
+          "name": "Chain Rule (Core to Backpropagation)",
+          "subtopics": [
+            "Basic Chain Rule (single variable composition)",
+            "Chain Rule with multiple compositions",
+            "Chain Rule for multivariable functions",
+            "Backpropagation as repeated Chain Rule application",
+            "Computational graphs and derivative flow",
+            "Chain rule in nested functions (deep neural network layers)"
+          ]
+        },
+        {
+          "name": "Partial Derivatives (Multivariable Calculus)",
+          "subtopics": [
+            "Definition and notation (∂f/∂x)",
+            "Computing partial derivatives",
+            "Higher-order partial derivatives",
+            "Mixed partial derivatives",
+            "Total derivative vs partial derivative"
+          ]
+        },
+        {
+          "name": "Gradients",
+          "subtopics": [
+            "Definition of gradient vector (∇f)",
+            "Gradient as direction of steepest ascent",
+            "Gradient computation for scalar-valued multivariable functions",
+            "Geometric interpretation (perpendicular to level curves/surfaces)",
+            "Gradient of MSE, Cross-Entropy Loss, Log-Loss",
+            "Gradient Descent: update rule θ = θ - α∇f(θ)",
+            "Learning rate intuition",
+            "Batch, Stochastic, Mini-batch Gradient Descent"
+          ]
+        },
+        {
+          "name": "Jacobian Matrix",
+          "subtopics": [
+            "Definition (matrix of first-order partial derivatives)",
+            "Jacobian for vector-valued functions",
+            "Jacobian in neural network layer transformations",
+            "Role in backpropagation (chain rule generalization)"
+          ]
+        },
+        {
+          "name": "Hessian Matrix",
+          "subtopics": [
+            "Definition (matrix of second-order partial derivatives)",
+            "Hessian and convexity (positive semi-definite check)",
+            "Role in optimization (Newton's Method)",
+            "Saddle points detection using Hessian"
+          ]
+        },
+        {
+          "name": "Optimization Techniques (Calculus-based)",
+          "subtopics": [
+            "Finding local/global minima and maxima",
+            "Convex vs Non-convex functions",
+            "Vanilla Gradient Descent",
+            "Momentum-based GD",
+            "Adagrad, RMSProp, Adam optimizer (calculus foundations)",
+            "Newton's Method (uses Hessian)",
+            "Lagrange Multipliers (constrained optimization — SVM)",
+            "Convergence criteria"
+          ]
+        },
+        {
+          "name": "Multivariable Calculus (Vector Calculus)",
+          "subtopics": [
+            "Directional derivatives",
+            "Gradient, Divergence, Curl (brief overview)",
+            "Multivariable Chain Rule (matrix form)",
+            "Taylor Series expansion (single & multivariable)"
+          ]
+        },
+        {
+          "name": "Matrix Calculus (Linear Algebra + Calculus)",
+          "subtopics": [
+            "Derivative of scalar w.r.t. vector (Gradient)",
+            "Derivative of vector w.r.t. vector (Jacobian)",
+            "Derivative of scalar w.r.t. matrix",
+            "Identity: d(Ax)/dx = A",
+            "Identity: d(xᵀAx)/dx = (A + Aᵀ)x",
+            "Denominator layout vs Numerator layout conventions"
+          ]
+        },
+        {
+          "name": "Integration (Lighter Focus)",
+          "subtopics": [
+            "Basic integration rules",
+            "Definite vs indefinite integrals",
+            "Area under ROC curve (AUC)",
+            "Probability density functions (continuous distributions)",
+            "Expectation / Expected value computation"
+          ]
+        },
+        {
+          "name": "Applications in Neural Networks",
+          "subtopics": [
+            "Forward pass (function composition)",
+            "Backward pass (Chain rule + Gradients)",
+            "Vanishing / Exploding gradient problem",
+            "Sigmoid derivative: σ'(x) = σ(x)(1 - σ(x))",
+            "ReLU derivative: 0 or 1",
+            "Tanh derivative",
+            "Loss function derivatives for backpropagation"
+          ]
+        }
       ],
       "why": "Backpropagation is the chain rule applied to a computation graph. Every optimizer relies on gradients. You cannot debug training without understanding calculus.",
       "time": "2-3 weeks",
@@ -3793,27 +4551,177 @@
       "resources": [
         {
           "icon": "📘",
-          "text": "3Blue1Brown — Essence of Calculus (YouTube)"
+          "text": "3Blue1Brown — Essence of Calculus (YouTube)",
+          "link": "https://www.3blue1brown.com/lessons/essence-of-calculus/"
         },
         {
           "icon": "📗",
-          "text": "Khan Academy — Multivariable Calculus (free)"
+          "text": "Khan Academy — Multivariable Calculus (free)",
+          "link": "https://www.youtube.com/playlist?list=PLSQl0a2vh4HC5feHa6Rc5c0wbRTx56nF7"
         },
         {
           "icon": "💻",
-          "text": "PyTorch autograd — see calculus in action"
+          "text": "PyTorch autograd — see calculus in action",
+          "link": "https://pytorch.org/blog/overview-of-pytorch-autograd-engine/"
         }
       ]
     },
     "03": {
       "desc": "Descriptive statistics summarizes the main features of a dataset. It is your first lens for understanding data before any model is trained.",
       "concepts": [
-        "Mean, Median, Mode",
-        "Variance & Standard Deviation",
-        "Skewness & Kurtosis",
-        "Histograms & Box Plots",
-        "Covariance & Correlation Matrix",
-        "Percentiles & Outlier Detection (IQR)"
+        {
+          "name": "Basic Probability Concepts",
+          "subtopics": [
+            "Random experiments, sample space, events",
+            "Types of events (mutually exclusive, independent, exhaustive)",
+            "Classical, empirical, and axiomatic definitions of probability",
+            "Probability axioms (Kolmogorov's axioms)",
+            "Addition rule, Multiplication rule",
+            "Conditional probability",
+            "Bayes' Theorem (Naive Bayes, Bayesian inference)",
+            "Independence of events"
+          ]
+        },
+        {
+          "name": "Random Variables",
+          "subtopics": [
+            "Discrete random variables",
+            "Continuous random variables",
+            "Probability Mass Function (PMF)",
+            "Probability Density Function (PDF)",
+            "Cumulative Distribution Function (CDF)",
+            "Joint, Marginal, and Conditional distributions"
+          ]
+        },
+        {
+          "name": "Measures of Central Tendency",
+          "subtopics": [
+            "Mean (Arithmetic, Geometric, Harmonic)",
+            "Median",
+            "Mode",
+            "Weighted mean (relevant to weighted loss functions)"
+          ]
+        },
+        {
+          "name": "Measures of Dispersion / Spread",
+          "subtopics": [
+            "Range",
+            "Variance",
+            "Standard Deviation",
+            "Mean Absolute Deviation (MAD)",
+            "Interquartile Range (IQR)",
+            "Coefficient of Variation"
+          ]
+        },
+        {
+          "name": "Measures of Shape",
+          "subtopics": [
+            "Skewness (symmetry of distribution)",
+            "Kurtosis (tailedness of distribution)",
+            "Quantiles, Percentiles, Quartiles",
+            "Box plots (5-number summary: min, Q1, median, Q3, max)"
+          ]
+        },
+        {
+          "name": "Data Visualization for Descriptive Stats",
+          "subtopics": [
+            "Histograms",
+            "Box-and-whisker plots",
+            "Scatter plots",
+            "Bar charts / Frequency distributions",
+            "Q-Q plots (checking normality)"
+          ]
+        },
+        {
+          "name": "Covariance & Correlation",
+          "subtopics": [
+            "Covariance (measuring joint variability)",
+            "Covariance matrix (critical for PCA)",
+            "Pearson Correlation coefficient",
+            "Spearman Rank Correlation",
+            "Correlation vs Causation"
+          ]
+        },
+        {
+          "name": "Common Probability Distributions",
+          "subtopics": [
+            "Bernoulli Distribution",
+            "Binomial Distribution",
+            "Poisson Distribution",
+            "Geometric & Multinomial Distributions",
+            "Uniform Distribution",
+            "Normal (Gaussian) Distribution — most important for ML",
+            "Standard Normal Distribution & Z-scores",
+            "Exponential Distribution",
+            "Beta Distribution (Bayesian methods)",
+            "Gamma, Chi-Square, Student's t-Distribution"
+          ]
+        },
+        {
+          "name": "Expectation & Moments",
+          "subtopics": [
+            "Expected Value E[X]",
+            "Variance Var(X) = E[X²] - (E[X])²",
+            "Moments of a distribution (1st, 2nd, 3rd, 4th)",
+            "Moment Generating Functions (MGF) — overview",
+            "Linearity of Expectation"
+          ]
+        },
+        {
+          "name": "Bayesian Statistics Foundations",
+          "subtopics": [
+            "Prior probability",
+            "Likelihood",
+            "Posterior probability",
+            "Bayes' Theorem in ML (Naive Bayes classifier)",
+            "Maximum Likelihood Estimation (MLE)",
+            "Maximum A Posteriori (MAP) estimation"
+          ]
+        },
+        {
+          "name": "Sampling & Estimation",
+          "subtopics": [
+            "Population vs Sample",
+            "Sampling methods (random, stratified, systematic)",
+            "Sampling distribution",
+            "Central Limit Theorem (CLT) — critical concept",
+            "Law of Large Numbers",
+            "Standard Error",
+            "Confidence Intervals"
+          ]
+        },
+        {
+          "name": "Hypothesis Testing (Statistical Inference)",
+          "subtopics": [
+            "Null and Alternative hypothesis",
+            "Type I and Type II errors",
+            "p-value and significance level (α)",
+            "t-test, z-test",
+            "Chi-Square test",
+            "ANOVA (Analysis of Variance)",
+            "A/B Testing (direct ML/product application)"
+          ]
+        },
+        {
+          "name": "Information Theory (ML-critical)",
+          "subtopics": [
+            "Entropy (measuring uncertainty)",
+            "Cross-Entropy (loss function foundation)",
+            "KL Divergence (Kullback-Leibler Divergence)",
+            "Mutual Information"
+          ]
+        },
+        {
+          "name": "Applications in Machine Learning",
+          "subtopics": [
+            "Naive Bayes Classifier",
+            "Gaussian Mixture Models (GMM)",
+            "Probabilistic Graphical Models (brief intro)",
+            "Markov Chains & Hidden Markov Models (HMM)",
+            "Uncertainty quantification in predictions",
+            "Regularization as Bayesian priors (L1/L2 = Laplace/Gaussian)"
+          ]
+        }
       ],
       "why": "Every ML project starts with EDA. If you cannot describe your data, you will make wrong modelling decisions — garbage in, garbage out.",
       "time": "1-2 weeks",
@@ -3821,27 +4729,160 @@
       "resources": [
         {
           "icon": "📘",
-          "text": "Think Stats by Allen Downey (free PDF)"
+          "text": "Think Stats by Allen Downey (free PDF)",
+          "link": "https://greenteapress.com/thinkstats/thinkstats.pdf"
         },
         {
           "icon": "💻",
-          "text": "Pandas + Seaborn: describe(), .corr(), pairplot()"
+          "text": "Pandas + Seaborn: describe(), .corr(), pairplot()",
+          "link": "https://seaborn.pydata.org/index.html"
         },
         {
           "icon": "📊",
-          "text": "Kaggle — practice EDA on Titanic, Iris"
+          "text": "Kaggle — practice EDA on Titanic, Iris",
+          "link": "https://www.kaggle.com/code/aselad/exploratory-data-analysis-on-the-titanic-dataset"
         }
       ]
     },
     "04": {
       "desc": "Inferential statistics lets you draw conclusions about a population from a sample. Bayes Theorem is the framework for updating beliefs given new evidence.",
       "concepts": [
-        "Hypothesis Testing (t-test, chi-square)",
-        "p-values & Statistical Significance",
-        "Confidence Intervals",
-        "Bayes Theorem: P(A|B) = P(B|A)P(A)/P(B)",
-        "Prior, Likelihood, Posterior",
-        "Naive Bayes Classifier"
+        {
+          "name": "Foundations of Inferential Statistics",
+          "subtopics": [
+            "Population vs Sample",
+            "Parameters vs Statistics",
+            "Point Estimation vs Interval Estimation",
+            "Sampling error vs Non-sampling error",
+            "Bias and Variance of an estimator (links to ML Bias-Variance tradeoff)"
+          ]
+        },
+        {
+          "name": "Sampling Distributions",
+          "subtopics": [
+            "Sampling distribution of the mean",
+            "Sampling distribution of the proportion",
+            "Standard Error (SE)",
+            "Central Limit Theorem (CLT) — deep dive",
+            "Degrees of Freedom concept"
+          ]
+        },
+        {
+          "name": "Estimation Theory",
+          "subtopics": [
+            "Point Estimators (unbiasedness, consistency, efficiency)",
+            "Interval Estimation",
+            "Confidence Intervals for mean (known/unknown variance)",
+            "Confidence Intervals for proportion and variance",
+            "Margin of Error",
+            "Bootstrapping (resampling — widely used in ML)"
+          ]
+        },
+        {
+          "name": "Hypothesis Testing (Deep Dive)",
+          "subtopics": [
+            "Null (H₀) & Alternative (H₁) Hypothesis",
+            "One-tailed vs Two-tailed tests",
+            "Type I Error (α) & Type II Error (β)",
+            "Power of a test (1 - β)",
+            "p-value interpretation",
+            "Z-test (large samples, known variance)",
+            "t-test: one-sample, two-sample, paired",
+            "Chi-Square test (goodness of fit, independence)",
+            "F-test (comparing variances)",
+            "ANOVA (One-way, Two-way)"
+          ]
+        },
+        {
+          "name": "Non-Parametric Tests",
+          "subtopics": [
+            "Mann-Whitney U test",
+            "Wilcoxon Signed-Rank test",
+            "Kruskal-Wallis test",
+            "Chi-Square test for independence"
+          ]
+        },
+        {
+          "name": "Correlation & Regression Inference",
+          "subtopics": [
+            "Testing significance of correlation coefficient",
+            "Confidence intervals for regression coefficients",
+            "Hypothesis testing in Linear Regression (t-test for coefficients)",
+            "R² and Adjusted R² significance",
+            "Residual analysis"
+          ]
+        },
+        {
+          "name": "A/B Testing (ML/Product Application)",
+          "subtopics": [
+            "Designing A/B tests",
+            "Statistical significance in A/B testing",
+            "Sample size determination",
+            "Multiple comparison problem (Bonferroni correction)",
+            "Practical vs Statistical significance"
+          ]
+        },
+        {
+          "name": "Bayes' Theorem — Core Concepts",
+          "subtopics": [
+            "Conditional Probability recap",
+            "Bayes' Theorem: P(A|B) = P(B|A)·P(A) / P(B)",
+            "Prior P(A) — belief before evidence",
+            "Likelihood P(B|A) — probability of evidence given hypothesis",
+            "Posterior P(A|B) — updated belief after evidence",
+            "Evidence/Marginal P(B) — normalizing constant"
+          ]
+        },
+        {
+          "name": "Bayesian Inference",
+          "subtopics": [
+            "Bayesian vs Frequentist paradigm",
+            "Updating beliefs with new data (sequential Bayesian updating)",
+            "Conjugate priors (Beta-Binomial, Gamma-Poisson, Normal-Normal)",
+            "Posterior predictive distribution",
+            "Credible Intervals (Bayesian analog of Confidence Intervals)"
+          ]
+        },
+        {
+          "name": "Bayesian Estimation Techniques",
+          "subtopics": [
+            "Maximum Likelihood Estimation (MLE)",
+            "Maximum A Posteriori (MAP) Estimation",
+            "MLE vs MAP vs Full Bayesian Inference",
+            "L2 Regularization ↔ Gaussian Prior",
+            "L1 Regularization ↔ Laplace Prior"
+          ]
+        },
+        {
+          "name": "Applications of Bayes' Theorem in ML",
+          "subtopics": [
+            "Naive Bayes: Gaussian, Multinomial (text), Bernoulli",
+            "Bayesian Networks (Probabilistic Graphical Models)",
+            "Hidden Markov Models (HMM)",
+            "Bayesian Optimization (hyperparameter tuning)",
+            "Bayesian Linear Regression",
+            "Bayesian Neural Networks (uncertainty estimation)",
+            "Spam filtering & Medical diagnosis (classic examples)"
+          ]
+        },
+        {
+          "name": "MCMC — Advanced Bayesian Computation",
+          "subtopics": [
+            "Why MCMC is needed (intractable posteriors)",
+            "Metropolis-Hastings Algorithm",
+            "Gibbs Sampling",
+            "Applications in Bayesian Deep Learning"
+          ]
+        },
+        {
+          "name": "Model Evaluation via Inferential Statistics",
+          "subtopics": [
+            "Cross-validation (statistical resampling)",
+            "Statistical significance of model performance differences",
+            "Confidence intervals for model accuracy/metrics",
+            "McNemar's test (comparing classifiers)"
+          ]
+        }
       ],
       "why": "A/B testing, confidence intervals, and Bayesian models all require this. It prevents you from fooling yourself with statistically insignificant results.",
       "time": "2-3 weeks",

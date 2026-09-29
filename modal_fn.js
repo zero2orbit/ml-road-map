@@ -1,4 +1,4 @@
-﻿const PHASE_COLORS = {p1:'#00f5a0',p2:'#7b61ff',p3:'#ff6b6b',p4:'#ffd93d',p5:'#00d4ff',p6:'#ff61ab'};
+const PHASE_COLORS = {p1:'#00f5a0',p2:'#7b61ff',p3:'#ff6b6b',p4:'#ffd93d',p5:'#00d4ff',p6:'#ff61ab'};
 function openModal(phaseIdx,topicIdx){
   const ph=PHASES[phaseIdx],top=ph.topics[topicIdx],d=top.d;
   if(!d)return;
@@ -9,8 +9,12 @@ function openModal(phaseIdx,topicIdx){
   document.getElementById('modal-desc').textContent=d.desc;
   document.getElementById('modal-why').textContent=d.why;
   document.getElementById('modal-badges').innerHTML=[{label:'\u23f1 Time',val:d.time},{label:'\ud83d\udcca Level',val:d.difficulty}].map(b=>`<span class="modal-badge" style="--modal-color:${color}">${b.label}: ${b.val}</span>`).join('');
-  document.getElementById('modal-concepts').innerHTML=d.concepts.map(c=>`<div class="modal-concept" style="border-left-color:${color}">\u25c6 ${c}</div>`).join('');
-  document.getElementById('modal-resources').innerHTML=d.resources.map(r=>`<div class="modal-resource"><span class="res-icon">${r.icon}</span>${r.text}</div>`).join('');
+  document.getElementById('modal-concepts').innerHTML=d.concepts.map((c,ci)=>{
+    if(typeof c==='string') return `<div class="modal-concept" style="border-left-color:${color}">◆ ${c}</div>`;
+    const subs=c.subtopics.map(s=>`<div class="modal-subconcept">▸ ${s}</div>`).join('');
+    return `<div class="modal-concept-group"><div class="modal-concept-header" style="border-left-color:${color};--modal-color:${color}" onclick="this.closest('.modal-concept-group').classList.toggle('open')"><span class="concept-chevron">▾</span><span class="concept-group-name">◆ ${c.name}</span><span class="concept-count">${c.subtopics.length} topics</span></div><div class="modal-subtopics">${subs}</div></div>`;
+  }).join('');
+  document.getElementById('modal-resources').innerHTML=d.resources.map(r=>`<div class="modal-resource"><span class="res-icon">${r.icon}</span>${r.text}${r.link?`<a href="${r.link}" target="_blank" class="res-link">🔗</a>`:''}</div>`).join('');
   document.querySelectorAll('.modal-section-title').forEach(el=>el.style.color=color);
   document.getElementById('modal-overlay').classList.add('open');
   document.body.style.overflow='hidden';
